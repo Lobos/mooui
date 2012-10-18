@@ -100,3 +100,6 @@ a:hover{color:#00708e;text-decoration:underline;}
 .container:after{clear:both;}
 .container-fluid{padding-right:20px;padding-left:20px;*zoom:1;}.container-fluid:before,.container-fluid:after{display:table;content:"";line-height:0;}
 .container-fluid:after{clear:both;}
+header{display:block;width:100%;height:40px;position:fixed;background-color:#131313;top:0;left:0;}header .logo{font-size:18px;font-weight:bold;color:#fff;position:absolute;top:8px;left:20px;}
+.sidebar-nav{position:fixed;top:60px;width:200px;left:30px;}
+.main{margin:60px 30px 0 260px;}
