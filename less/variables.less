@@ -10,6 +10,7 @@
 // Grays
 // -------------------------
 @black:                 #000;
+@grayDarkest:           #131313;
 @grayDarker:            #414141;
 @grayDark:              #545454;
 @gray:                  #5d5d5d;
@@ -32,7 +33,7 @@
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             #131313;
+@textColor:             @grayDarkest;
 
 
 // Links
@@ -41,6 +42,12 @@
 @linkColorHover:        darken(@linkColor, 15%);
 
 
+// Text
+// -------------------------
+@errorText:             @red;
+@warningText:           @orange;
+@successText:           @green;
+@infoText:              @teal;
 
 // Typography
 // -------------------------
@@ -93,3 +100,28 @@
 // 768px-979px
 @fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
 @fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;

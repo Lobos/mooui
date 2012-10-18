@@ -11,21 +11,57 @@ header {
   .logo {
     font-size: 18px;
     font-weight: bold;
+    line-height: 40px;
+    margin-left: 20px;
     color: #fff;
-    position: absolute;
-    top: 8px;
-    left: 20px;
   }
 }
 
+@nav-width: 240px;
 .sidebar-nav {
   position: fixed;
   top: 60px;
-  width: 200px;
+  width: @nav-width;
   left: 30px;
+
+  dl {
+    dt {
+      text-align: right;
+      margin-top: 10px;
+      &:first-child { margin-top: 0; }
+
+      a {
+        color: @gray;
+        background-color: @grayLighter;
+        line-height: 50px;
+        font-size: 20px;
+        display: block;
+        .size(100%, 100%);
+
+        span {
+          margin-right: 15px;
+        }
+
+        &:hover {
+          color: @grayDarkest;
+          background-color: @grayLight;
+        }
+
+      }
+
+      &.active {
+        a { color: @white; }
+        .handle-1 { background-color: @blue; }
+        .handle-2 { background-color: @red; }
+        .handle-3 { background-color: @green; }
+        .handle-4 { background-color: @grayDark; }
+        .handle-5 { background-color: @orange; }
+      }
+    }
+  }
 }
 
 .main {
-  margin: 60px 30px 0 260px;
+  margin: 60px 30px 0 @nav-width + 30;
 }
 

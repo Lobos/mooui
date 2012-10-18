@@ -17,13 +17,57 @@
     </header>
 
     <div class="sidebar-nav">
-        <ul>
-        </ul>
+        <dl id="sidebar_menu">
+            <dt>
+                <a href="javascript:;" rel="home.html"><i class="icon-home"></i><span>Home</span></a>
+            </dt>
+            <dd></dd>
+
+            <dt>
+                <a href="javascript:;"><i></i><span>Scaffolding</span></a>
+            </dt>
+            <dd>
+            </dd>
+
+            <dt>
+                <a href="javascript:;"><i></i><span>Base CSS</span></a>
+            </dt>
+            <dd>
+            </dd>
+
+            <dt>
+                <a href="javascript:;"><i></i><span>Components</span></a>
+            </dt>
+            <dd>
+            </dd>
+
+            <dt>
+                <a href="javascript:;"><i></i><span>Javascript</span></a>
+            </dt>
+            <dd>
+            </dd>
+        </dl>
     </div>
 
     <div id="main" class="main"></div>
 
     <script src="../js/load-script.js"></script>
     <script src="assets/docs.js"></script>
+    <script type="text/javascript">
+        window.addEvent('domready', function () {
+            $$('#sidebar_menu dt a').each(function (el, i) {
+                el.addClass('handle-' + (i+1));
+            });
+
+            new Fx.Accordion($('sidebar_menu'), '#sidebar_menu dt', '#sidebar_menu dd', {
+                onActive: function (toggler, element) {
+                    toggler.addClass('active');
+                },
+                onBackground: function (toggler, element) {
+                    toggler.removeClass('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
