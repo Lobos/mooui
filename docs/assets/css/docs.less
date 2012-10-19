@@ -1,8 +1,13 @@
-@import "../../pack.less";
+@import "../../../pack.less";
+@import "../../../less/responsive.less";
+
+body {
+  overflow-y:scroll;
+}
 
 header {
   display: block;
-  .size(40px, 100%);
+  .size(50px, 100%);
   position: fixed;
   background-color: #131313;
   top: 0;
@@ -11,23 +16,20 @@ header {
   .logo {
     font-size: 18px;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 50px;
     margin-left: 20px;
     color: #fff;
   }
 }
 
-@nav-width: 240px;
 .sidebar-nav {
   position: fixed;
-  top: 60px;
-  width: @nav-width;
-  left: 30px;
+  top: 70px;
 
   dl {
     dt {
       text-align: right;
-      margin-top: 10px;
+      margin-top: 8px;
       &:first-child { margin-top: 0; }
 
       a {
@@ -36,11 +38,8 @@ header {
         line-height: 50px;
         font-size: 20px;
         display: block;
-        .size(100%, 100%);
-
-        span {
-          margin-right: 15px;
-        }
+        height: 100%;
+        padding-right: 15px;
 
         &:hover {
           color: @grayDarkest;
@@ -54,14 +53,43 @@ header {
         .handle-1 { background-color: @blue; }
         .handle-2 { background-color: @red; }
         .handle-3 { background-color: @green; }
-        .handle-4 { background-color: @grayDark; }
+        .handle-4 { background-color: @purple; }
         .handle-5 { background-color: @orange; }
+        .handle-6 { background-color: @teal; }
+      }
+    }
+
+    dd {
+      a {
+        display: block;
+        color: @grayDarker;
+        line-height: 26px;
+        margin-top: 8px;
+        font-size: 16px;
+        text-align: right;
+        padding-right: 15px;
       }
     }
   }
 }
 
 .main {
-  margin: 60px 30px 0 @nav-width + 30;
+  margin-top: 70px;
+
+  .show-grid {
+    margin: 10px 0;
+    [class*="span"] {
+      background-color: @grayLighter;
+      line-height: 30px;
+
+      [class*="span"] {
+        background-color: @grayLight;
+      }
+    }
+
+    .show-grid {
+      margin: 0;
+    }
+  }
 }
 

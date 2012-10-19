@@ -5,7 +5,8 @@
     <title>index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/docs.css" />
+    <link rel="stylesheet" href="assets/css/docs.css" />
+    <link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" />
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,43 +17,51 @@
         <a class="logo" href="javascript:;">Moo-UI</a>
     </header>
 
-    <div class="sidebar-nav">
-        <dl id="sidebar_menu">
-            <dt>
-                <a href="javascript:;" rel="home.html"><i class="icon-home"></i><span>Home</span></a>
-            </dt>
-            <dd></dd>
+    <div class="container">
+        <div class="row">
+            <div class="sidebar-nav span3">
+                <dl id="sidebar_menu">
+                    <dt>
+                        <a href="javascript:;" rel="home.html"><i class="icon-home"></i>Home</a>
+                    </dt>
+                    <dd></dd>
 
-            <dt>
-                <a href="javascript:;"><i></i><span>Scaffolding</span></a>
-            </dt>
-            <dd>
-            </dd>
+                    <dt>
+                        <a href="javascript:;"><i></i>Scaffolding</a>
+                    </dt>
+                    <dd>
+                        <a href="javascript:;" rel="scaffolding/global.html">Global styles</a>
+                        <a href="javascript:;" rel="scaffolding/grid.html">Grid system</a>
+                        <a href="javascript:;" rel="scaffolding/fluid.html">Fluid grid system</a>
+                    </dd>
 
-            <dt>
-                <a href="javascript:;"><i></i><span>Base CSS</span></a>
-            </dt>
-            <dd>
-            </dd>
+                    <dt>
+                        <a href="javascript:;"><i></i>Base CSS</a>
+                    </dt>
+                    <dd>
+                    </dd>
 
-            <dt>
-                <a href="javascript:;"><i></i><span>Components</span></a>
-            </dt>
-            <dd>
-            </dd>
+                    <dt>
+                        <a href="javascript:;"><i></i>Components</a>
+                    </dt>
+                    <dd>
+                    </dd>
 
-            <dt>
-                <a href="javascript:;"><i></i><span>Javascript</span></a>
-            </dt>
-            <dd>
-            </dd>
-        </dl>
+                    <dt>
+                        <a href="javascript:;"><i></i>Javascript</a>
+                    </dt>
+                    <dd>
+                    </dd>
+                </dl>
+            </div>
+
+            <div id="main" class="main span9 offset3"></div>
+        </div>
     </div>
 
-    <div id="main" class="main"></div>
-
     <script src="../js/load-script.js"></script>
-    <script src="assets/docs.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/docs.js"></script>
     <script type="text/javascript">
         window.addEvent('domready', function () {
             $$('#sidebar_menu dt a').each(function (el, i) {
@@ -67,6 +76,36 @@
                     toggler.removeClass('active');
                 }
             });
+
+            window.$g = new new Class({
+                initialize: function () {
+                    this.pages = {};
+                },
+
+                loadPage: function (url) {
+                    if (this.pages[url]) {
+                        $('main').set('html', this.pages[url]);
+                        return;
+                    }
+
+                    new Request.HTML({
+                        url: url,
+                        onSuccess: function (t,e,h,j) {
+                            $('main').set('html', h);
+                            prettyPrint();
+                            Browser.exec(j);
+                            this.pages[url] = $('main').get('html');
+                        }.bind(this)
+                    }).get();
+                }
+            });
+
+            $$('#sidebar_menu a').addEvent('click', function () {
+                var url = this.get('rel');
+                if (!url) return;
+                $g.loadPage(url);
+            });
+
         });
     </script>
 </body>
