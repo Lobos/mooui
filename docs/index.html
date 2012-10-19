@@ -33,6 +33,7 @@
                         <a href="javascript:;" rel="scaffolding/global.html">Global styles</a>
                         <a href="javascript:;" rel="scaffolding/grid.html">Grid system</a>
                         <a href="javascript:;" rel="scaffolding/fluid.html">Fluid grid system</a>
+                        <a href="javascript:;" rel="scaffolding/layouts.html">Layouts</a>
                     </dd>
 
                     <dt>
@@ -85,18 +86,19 @@
                 loadPage: function (url) {
                     if (this.pages[url]) {
                         $('main').set('html', this.pages[url]);
-                        return;
+                    } else {
+                        new Request.HTML({
+                            url: url,
+                            onSuccess: function (t,e,h,j) {
+                                $('main').set('html', h);
+                                prettyPrint();
+                                Browser.exec(j);
+                                this.pages[url] = $('main').get('html');
+                            }.bind(this)
+                        }).get();
                     }
 
-                    new Request.HTML({
-                        url: url,
-                        onSuccess: function (t,e,h,j) {
-                            $('main').set('html', h);
-                            prettyPrint();
-                            Browser.exec(j);
-                            this.pages[url] = $('main').get('html');
-                        }.bind(this)
-                    }).get();
+                    new Fx.Scroll(document.body).toTop();
                 }
             });
 
