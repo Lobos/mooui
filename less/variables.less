@@ -38,7 +38,7 @@
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDarkest;
+@textColor:             #333;
 
 
 // Links
@@ -57,19 +57,18 @@
 
 // Typography
 // -------------------------
-@sansFontFamily:        "微软雅黑", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       "宋体", Georgia, "Times New Roman", Times, serif;
-@monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+@sansFontFamily:        "Segoe UI", "Helvetica Neue", Helvetica, Arial, "微软雅黑", sans-serif;
+@serifFontFamily:       Georgia, "宋体", "Times New Roman", Times, serif;
+@monoFontFamily:        'Segoe UI Semilight', 'Open Sans', Verdana, Arial, Monaco, Menlo, Consolas, "Courier New", monospace;
 
 @baseFontSize:          14px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        24px;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
-
 
 
 // GRID
@@ -131,3 +130,18 @@
 // Horizontal forms & lists
 // -------------------------
 @horizontalComponentOffset:       180px;
+
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @white;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownDividerTop:            #e5e5e5;
+@dropdownDividerBottom:         @white;
+
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @dropdownLinkColor;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;

@@ -14,101 +14,23 @@
 </head>
 <body>
     <header>
-        <a class="logo" href="javascript:;">Moo-UI</a>
+        <div class="container">
+            <ul id="top_menu" class="unstyled top-menu"></ul>
+        </div>
     </header>
 
     <div class="container">
         <div class="row">
-            <div class="sidebar-nav span3">
-                <dl id="sidebar_menu">
-                    <dt>
-                        <a href="javascript:;" rel="home.html"><i class="icon-home"></i>Home</a>
-                    </dt>
-                    <dd></dd>
-
-                    <dt>
-                        <a href="javascript:;"><i></i>Scaffolding</a>
-                    </dt>
-                    <dd>
-                        <a href="javascript:;" rel="scaffolding/global.html">Global styles</a>
-                        <a href="javascript:;" rel="scaffolding/grid.html">Grid system</a>
-                        <a href="javascript:;" rel="scaffolding/fluid.html">Fluid grid system</a>
-                        <a href="javascript:;" rel="scaffolding/layouts.html">Layouts</a>
-                    </dd>
-
-                    <dt>
-                        <a href="javascript:;"><i></i>Base CSS</a>
-                    </dt>
-                    <dd>
-                    </dd>
-
-                    <dt>
-                        <a href="javascript:;"><i></i>Components</a>
-                    </dt>
-                    <dd>
-                    </dd>
-
-                    <dt>
-                        <a href="javascript:;"><i></i>Javascript</a>
-                    </dt>
-                    <dd>
-                    </dd>
-                </dl>
+            <div class="sidebar-nav">
+                <dl id="sidebar_menu"></dl>
             </div>
 
-            <div id="main" class="main span9 offset3"></div>
+            <div id="main" class="main"></div>
         </div>
     </div>
 
     <script src="../js/load-script.js"></script>
     <script src="assets/js/google-code-prettify/prettify.js"></script>
     <script src="assets/js/docs.js"></script>
-    <script type="text/javascript">
-        window.addEvent('domready', function () {
-            $$('#sidebar_menu dt a').each(function (el, i) {
-                el.addClass('handle-' + (i+1));
-            });
-
-            new Fx.Accordion($('sidebar_menu'), '#sidebar_menu dt', '#sidebar_menu dd', {
-                onActive: function (toggler, element) {
-                    toggler.addClass('active');
-                },
-                onBackground: function (toggler, element) {
-                    toggler.removeClass('active');
-                }
-            });
-
-            window.$g = new new Class({
-                initialize: function () {
-                    this.pages = {};
-                },
-
-                loadPage: function (url) {
-                    if (this.pages[url]) {
-                        $('main').set('html', this.pages[url]);
-                    } else {
-                        new Request.HTML({
-                            url: url,
-                            onSuccess: function (t,e,h,j) {
-                                $('main').set('html', h);
-                                prettyPrint();
-                                Browser.exec(j);
-                                this.pages[url] = $('main').get('html');
-                            }.bind(this)
-                        }).get();
-                    }
-
-                    new Fx.Scroll(document.body).toTop();
-                }
-            });
-
-            $$('#sidebar_menu a').addEvent('click', function () {
-                var url = this.get('rel');
-                if (!url) return;
-                $g.loadPage(url);
-            });
-
-        });
-    </script>
 </body>
 </html>

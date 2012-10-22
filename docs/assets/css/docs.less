@@ -7,8 +7,9 @@ body {
 
 header {
   display: block;
-  .size(50px, 100%);
+  .size(40px, 100%);
   position: fixed;
+  z-index: 999;
   background-color: #131313;
   top: 0;
   left: 0;
@@ -16,17 +17,40 @@ header {
   .logo {
     font-size: 18px;
     font-weight: bold;
-    line-height: 50px;
-    margin-left: 20px;
+    line-height: 40px;
+    margin-right: 50px;
     color: #fff;
+    float: left;
+  }
+
+  .top-menu {
+    float: left;
+    margin-top: 6px;
+    & > li {
+      float: left;
+      display: block;
+      & > a {
+        color: @grayLighter;
+        display: block;
+        padding: 4px 15px;
+        font-size: 16px;
+      }
+
+      &.open > a, & > a:hover {
+        background-color: @white;
+        color: @grayDarkest;
+      }
+    }
   }
 }
 
 .sidebar-nav {
   position: fixed;
   top: 70px;
+  display: none;
 
   dl {
+    margin: 0;
     dt {
       text-align: right;
       margin-top: 8px;
@@ -81,6 +105,7 @@ header {
     [class*="span"] {
       background-color: @grayLighter;
       line-height: 30px;
+      text-align: center;
 
       [class*="span"] {
         background-color: @grayLight;
@@ -119,5 +144,39 @@ header {
       }
     }
   }
+
+  .bs-docs-example {
+    position: relative;
+    bottom: -1px;
+    border: solid 1px @grayLighter;
+    padding: 39px 20px 15px;
+
+    &:after {
+      content: "Example";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      padding: 3px 7px;
+      font-size: 12px;
+      font-weight: bold;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      color: #9da0a4;
+    }
+  }
+
+  section {
+    margin-bottom: 30px;
+  }
 }
 
+@media (min-width: 1200px) {
+  .sidebar-nav {
+    display: block;
+    width: 260px;
+  }
+  .main {
+    width: 870px;
+    margin-left: 300px;
+  }
+}
