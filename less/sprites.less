@@ -14,35 +14,37 @@
 // For the white version of the icons, just add the .icon-white class:
 // <i class="icon-inbox icon-white"></i>
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="m-icon-"],
+[class*=" m-icon-"] {
   display: inline-block;
   width: 14px;
   height: 14px;
   .ie7-restore-right-whitespace();
   line-height: 14px;
-  vertical-align: text-top;
   background-image: url("@{iconSpritePath}/icons-black.png");
   background-position: 9999px 9999px;
   background-repeat: no-repeat;
-  margin-top: 1px;
+  //vertical-align: text-top;
+  //margin-top: 3px;
+  vertical-align: middle;
+  margin-top: -3px;
 }
 
-.icon-large {
+.m-icon-large {
   width: 22px;
   height: 22px;
   line-height: 22px;
   background-image: url("@{iconSpritePath}/icons-black-huge.png");
 }
 
-.icon-huge {
+.m-icon-huge {
   width: 30px;
   height: 30px;
   line-height: 30px;
   background-image: url("@{iconSpritePath}/icons-black-huge.png");
 }
 
-.icon-white {
+.m-icon-white {
   color: @white;
   background-image: url("@{iconSpritePath}/icons-white.png");
   .icon-huge {
@@ -50,8 +52,8 @@
   }
 }
 
-.icon-metro-right          { background-position: 0 0; }
-.icon-metro-down           { background-position: -32px 0; }
-.icon-metro-left           { background-position: -64px 0; }
-.icon-metro-up             { background-position: -96px 0; }
+.m-icon-right          { background-position: 0 0; }
+.m-icon-down           { background-position: -32px 0; }
+.m-icon-left           { background-position: -64px 0; }
+.m-icon-up             { background-position: -96px 0; }
 
