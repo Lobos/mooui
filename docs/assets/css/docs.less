@@ -34,6 +34,7 @@ header {
         display: block;
         padding: 4px 15px;
         font-size: 16px;
+        i { margin: 2px 0 0 3px; }
       }
 
       &.open > a, & > a:hover {
@@ -54,12 +55,19 @@ header {
     dt {
       text-align: right;
       margin-top: 8px;
+      position: relative;
       &:first-child { margin-top: 0; }
+
+      i {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+      }
 
       a {
         color: @gray;
         background-color: @grayLighter;
-        line-height: 50px;
+        line-height: 40px;
         font-size: 20px;
         display: block;
         height: 100%;
@@ -77,21 +85,30 @@ header {
         .handle-1 { background-color: @blue; }
         .handle-2 { background-color: @red; }
         .handle-3 { background-color: @green; }
-        .handle-4 { background-color: @purple; }
+        .handle-4 { background-color: @teal; }
         .handle-5 { background-color: @orange; }
-        .handle-6 { background-color: @teal; }
+        .handle-6 { background-color: @purple; }
       }
     }
 
     dd {
       a {
         display: block;
-        color: @grayDarker;
+        color: @gray;
         line-height: 26px;
         margin-top: 8px;
-        font-size: 16px;
         text-align: right;
         padding-right: 15px;
+
+        i {
+          margin-left: 7px;
+          .opacity(20);
+        }
+
+        &:hover, &.active {
+          color: @grayDarker;
+          i { .opacity(100); }
+        }
       }
     }
   }
@@ -165,6 +182,12 @@ header {
     }
   }
 
+  .docs-input-sizes select,
+  .docs-input-sizes input[type=text] {
+    display: block;
+    margin-bottom: 9px;
+  }
+
   section {
     margin-bottom: 30px;
   }
@@ -173,10 +196,10 @@ header {
 @media (min-width: 1200px) {
   .sidebar-nav {
     display: block;
-    width: 260px;
+    width: 240px;
   }
   .main {
-    width: 870px;
-    margin-left: 300px;
+    width: 880px;
+    margin-left: 290px;
   }
 }

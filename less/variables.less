@@ -33,6 +33,35 @@
 @pink:                  #e671bb;
 
 
+// Form states and alerts
+// -------------------------
+@warningText:             @orange;
+@warningBackground:       @orange;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               @red;
+@errorBackground:         @red;
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             @green;
+@successBackground:       @green;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                @teal;
+@infoBackground:          @teal;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// Buttons
+// -------------------------
+@btnBorder:                         #ccc;
+@btnBackground:                     #ccc;
+@btnPrimaryBackground:              @linkColor;
+@btnInfoBackground:                 @teal;
+@btnSuccessBackground:              @green;
+@btnWarningBackground:              @orange;
+@btnDangerBackground:               @red;
+@btnInverseBackground:              @grayDark;
 
 
 // Scaffolding
@@ -45,14 +74,6 @@
 // -------------------------
 @linkColor:             @blue;
 @linkColorHover:        darken(@linkColor, 15%);
-
-
-// Text
-// -------------------------
-@errorText:             @red;
-@warningText:           @orange;
-@successText:           @green;
-@infoText:              @teal;
 
 
 // Typography
@@ -69,6 +90,23 @@
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+// Tables
+// -------------------------
+@tableBackground:                   transparent; // overall background-color
+@tableBackgroundAccent:             #f9f9f9; // for striping
+@tableBackgroundHover:              #f5f5f5; // for hover
+@tableBorder:                       #ddd; // table and cell border
+
+
+// Forms
+// -------------------------
+@inputBackground:               @white;
+@inputBorder:                   #ccc;
+@inputBorderRadius:             0px;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         #f5f5f5;
 
 
 // GRID
@@ -113,8 +151,8 @@
 
 // Sprite icons path
 // -------------------------
-@iconSpritePath:          "../img/glyphicons-halflings.png";
-@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+@iconSpritePath:          "../img";
+@fontAwesomePath:         "../font";
 
 
 // Input placeholder text color
@@ -145,3 +183,4 @@
 
 @dropdownLinkBackgroundActive:  @linkColor;
 @dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+

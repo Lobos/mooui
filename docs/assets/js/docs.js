@@ -26,9 +26,9 @@
         });
 
         var menus = [{
-            txt: 'Home', url: ''
+            txt: 'Home', icon: 'home', url: ''
         }, {
-            txt: 'Scaffolding', submenu: [
+            txt: 'Scaffolding', icon: 'table', submenu: [
                 { txt: 'Global styles', url: 'scaffolding/global.html' },
                 { txt: 'Grid system', url: 'scaffolding/grid.html' },
                 { txt: 'Fluid grid system', url: 'scaffolding/fluid.html' },
@@ -36,14 +36,18 @@
                 { txt: 'Responsive', url: 'scaffolding/responsive.html' }
             ]
         }, {
-            txt: 'Bass css', submenu: [
+            txt: 'Bass css', icon: 'tasks', submenu: [
                 { txt: 'Typography', url: 'basecss/typography.html' },
-                { txt: 'Code', url: 'basecss/code.html' }
+                { txt: 'Code', url: 'basecss/code.html' },
+                { txt: 'Tables', url: 'basecss/tables.html' },
+                { txt: 'Forms', url: 'basecss/forms.html' },
+                { txt: 'Buttons', url: 'basecss/buttons.html' },
+                { txt: 'Icons', url: 'basecss/icons.html' }
             ]
         }, {
-            txt: 'Components'
+            txt: 'Components', icon: 'tags'
         }, {
-            txt: 'Javascript'
+            txt: 'Javascript', icon: 'legal'
         }];
 
         var sidebar_menu = $('sidebar_menu');
@@ -55,11 +59,16 @@
                 'class': 'handle-' + (i+1),
                 'href': 'javascript:;'
             });
-            new Element('dt').grab(lnk).inject(sidebar_menu);
+            var dt = new Element('dt').grab(lnk).inject(sidebar_menu);
+            if (m.icon)
+                new Element('i', {'class': 'icon-large icon-white icon-' + m.icon }).inject(dt, 'top');
             var dd = new Element('dd').inject(sidebar_menu);
 
             //create top menu item
-            var li = new Element('li').grab(lnk.clone().cloneEvents(lnk)).inject(top_menu);
+            lnk = lnk.clone().cloneEvents(lnk);
+            if (m.submenu)
+                new Element('i', {'class': 'icon-chevron-down'}).inject(lnk);
+            var li = new Element('li').grab(lnk).inject(top_menu);
             var ul = new Element('ul', {
                 'class': 'dropdown-menu'
             }).inject(li);
@@ -77,8 +86,17 @@
                             }
                         }
                     });
+                    //top menu
+                    new Element('li').grab(lnk_sub).inject(ul);
+
+                    //sidebar menu
+                    lnk_sub = lnk_sub.clone().cloneEvents(lnk_sub);
+                    new Element('i', { 'class': 'icon-metro-right' }).inject(lnk_sub);
+                    lnk_sub.addEvent('click', function () {
+                        sidebar_menu.getElements('a.active').removeClass('active');
+                        this.addClass('active');
+                    });
                     lnk_sub.inject(dd);
-                    new Element('li').grab(lnk_sub.clone().cloneEvents(lnk_sub)).inject(ul);
                 });
             }
 
