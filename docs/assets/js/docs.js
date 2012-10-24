@@ -38,7 +38,7 @@
                 { txt: 'Responsive', url: 'scaffolding/responsive.html' }
             ]
         }, {
-            txt: 'Bass css', icon: 'tasks', submenu: [
+            txt: 'Base css', icon: 'tasks', submenu: [
                 { txt: 'Typography', url: 'basecss/typography.html' },
                 { txt: 'Code', url: 'basecss/code.html' },
                 { txt: 'Tables', url: 'basecss/tables.html' },
@@ -110,7 +110,7 @@
         });
 
         //new MooDropMenu('top_menu');
-        top_menu.getElements('.handle').dropdown();
+        top_menu.getElements('.handle').dropdown({reveal:true});
 
         new Fx.Accordion(sidebar_menu, '#sidebar_menu dt', '#sidebar_menu dd', {
             onActive: function (toggler, element) {

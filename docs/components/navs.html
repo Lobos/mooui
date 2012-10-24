@@ -10,18 +10,18 @@
 <p>Take a regular <code>&lt;ul&gt;</code> of links and add <code>.nav-tabs</code>:</p>
 <div class="bs-docs-example">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
+        <li class="active"><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Profile</a></li>
+        <li><a href="javascript:;">Messages</a></li>
     </ul>
 </div>
 <pre class="prettyprint linenums">
 &lt;ul class="nav nav-tabs"&gt;
   &lt;li class="active"&gt;
-    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="javascript:;"&gt;Home&lt;/a&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href="#"&gt;...&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#"&gt;...&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="javascript:;"&gt;...&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="javascript:;"&gt;...&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
 
@@ -29,18 +29,18 @@
 <p>Take that same HTML, but use <code>.nav-pills</code> instead:</p>
 <div class="bs-docs-example">
     <ul class="nav nav-pills">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
+        <li class="active"><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Profile</a></li>
+        <li><a href="javascript:;">Messages</a></li>
     </ul>
 </div>
 <pre class="prettyprint linenums">
 &lt;ul class="nav nav-pills"&gt;
   &lt;li class="active"&gt;
-    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="javascript:;"&gt;Home&lt;/a&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href="#"&gt;...&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#"&gt;...&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="javascript:;"&gt;...&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="javascript:;"&gt;...&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
 
@@ -48,15 +48,15 @@
 <p>For any nav component (tabs, pills, or list), add <code>.disabled</code> for <strong>gray links and no hover effects</strong>. Links will remain clickable, however, unless custom javascript is implemented to prevent those clicks.</p>
 <div class="bs-docs-example">
     <ul class="nav nav-pills">
-        <li><a href="#">Clickable link</a></li>
-        <li><a href="#">Clickable link</a></li>
-        <li class="disabled"><a href="#">Disabled link</a></li>
+        <li><a href="javascript:;">Clickable link</a></li>
+        <li><a href="javascript:;">Clickable link</a></li>
+        <li class="disabled"><a href="javascript:;">Disabled link</a></li>
     </ul>
 </div>
 <pre class="prettyprint linenums">
 &lt;ul class="nav nav-pills"&gt;
   ...
-  &lt;li class="disabled"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="disabled"&gt;&lt;a href="javascript:;"&gt;Home&lt;/a&gt;&lt;/li&gt;
   ...
 &lt;/ul&gt;
 </pre>
@@ -74,9 +74,9 @@
 <h3>Stacked tabs</h3>
 <div class="bs-docs-example">
     <ul class="nav nav-tabs nav-stacked">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
+        <li class="active"><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Profile</a></li>
+        <li><a href="javascript:;">Messages</a></li>
     </ul>
 </div>
 <pre class="prettyprint linenums">
@@ -88,9 +88,9 @@
 <h3>Stacked pills</h3>
 <div class="bs-docs-example">
     <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Messages</a></li>
+        <li class="active"><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Profile</a></li>
+        <li><a href="javascript:;">Messages</a></li>
     </ul>
 </div>
 <pre class="prettyprint linenums">
@@ -109,16 +109,16 @@
 <h3>Tabs with dropdowns</h3>
 <div class="bs-docs-example">
     <ul class="nav nav-tabs">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Help</a></li>
+        <li class="active"><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Help</a></li>
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">Dropdown <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="javascript:;">Action</a></li>
+                <li><a href="javascript:;">Another action</a></li>
+                <li><a href="javascript:;">Something else here</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="javascript:;">Separated link</a></li>
             </ul>
         </li>
     </ul>
@@ -128,7 +128,7 @@
   &lt;li class="dropdown"&gt;
     &lt;a class="dropdown-toggle"
        data-toggle="dropdown"
-       href="#"&gt;
+       href="javascript:;"&gt;
         Dropdown
         &lt;b class="caret"&gt;&lt;/b&gt;
       &lt;/a&gt;
@@ -142,16 +142,16 @@
 <h3>Pills with dropdowns</h3>
 <div class="bs-docs-example">
     <ul class="nav nav-pills">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Help</a></li>
+        <li class="active"><a href="javascript:;">Home</a></li>
+        <li><a href="javascript:;">Help</a></li>
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">Dropdown <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="javascript:;">Action</a></li>
+                <li><a href="javascript:;">Another action</a></li>
+                <li><a href="javascript:;">Something else here</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="javascript:;">Separated link</a></li>
             </ul>
         </li>
     </ul>
@@ -161,7 +161,7 @@
   &lt;li class="dropdown"&gt;
     &lt;a class="dropdown-toggle"
        data-toggle="dropdown"
-       href="#"&gt;
+       href="javascript:;"&gt;
         Dropdown
         &lt;b class="caret"&gt;&lt;/b&gt;
       &lt;/a&gt;
@@ -185,22 +185,22 @@
     <div class="well" style="max-width: 340px; padding: 8px 0;">
         <ul class="nav nav-list">
             <li class="nav-header">List header</li>
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Library</a></li>
-            <li><a href="#">Applications</a></li>
+            <li class="active"><a href="javascript:;">Home</a></li>
+            <li><a href="javascript:;">Library</a></li>
+            <li><a href="javascript:;">Applications</a></li>
             <li class="nav-header">Another list header</li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="javascript:;">Profile</a></li>
+            <li><a href="javascript:;">Settings</a></li>
             <li class="divider"></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="javascript:;">Help</a></li>
         </ul>
     </div> <!-- /well -->
 </div>
 <pre class="prettyprint linenums">
 &lt;ul class="nav nav-list"&gt;
   &lt;li class="nav-header"&gt;List header&lt;/li&gt;
-  &lt;li class="active"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#"&gt;Library&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="active"&gt;&lt;a href="javascript:;"&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="javascript:;"&gt;Library&lt;/a&gt;&lt;/li&gt;
   ...
 &lt;/ul&gt;
 </pre>
@@ -373,3 +373,8 @@
 </pre>
 
 </section>
+
+<script type="text/javascript">
+    $$('#navs .dropdown-toggle').dropdown();
+</script>
+
