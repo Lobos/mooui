@@ -25,21 +25,27 @@ header {
 
   .top-menu {
     float: left;
-    margin-top: 6px;
+    margin: 6px 0 0;
     & > li {
       float: left;
       display: block;
       & > a {
         color: @grayLighter;
         display: block;
-        padding: 4px 15px;
+        padding: 0 15px;
         font-size: 16px;
-        i { margin: 2px 0 0 3px; }
-      }
+        line-height: 28px;
+        height: 28px;
+        i {
+          height: 12px;
+          line-height: 12px;
+          margin: -1px 0 0 3px;
+        }
 
-      &.open > a, & > a:hover {
-        background-color: @white;
-        color: @grayDarkest;
+        &.open, &:hover {
+          background-color: @white;
+          color: @grayDarkest;
+        }
       }
     }
   }
@@ -62,7 +68,7 @@ header {
         color: #fff;
         position: absolute;
         top: 11px;
-        left: 10px;
+        left: 11px;
       }
 
       a {
@@ -70,6 +76,7 @@ header {
         background-color: @grayLighter;
         line-height: 42px;
         font-size: 20px;
+        font-weight: normal;
         display: block;
         height: 100%;
         padding-right: 15px;

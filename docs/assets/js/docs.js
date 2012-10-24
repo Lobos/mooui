@@ -8,17 +8,19 @@
             },
 
             loadPage: function (url) {
-                var main = $('main').empty();
-                if (this.pages[url]) {
-                    main.set('html', this.pages[url]);
+                var main = $('main').empty().fade('hide');
+                var data = this.pages[url];
+                if (data) {
+                    main.set('html', data.h).fade('in');
+                    Browser.exec(data.j);
                 } else {
                     new Request.HTML({
                         url: url,
                         onSuccess: function (t,e,h,j) {
-                            main.set('html', h);
+                            main.set('html', h).fade('in');
                             prettyPrint();
                             Browser.exec(j);
-                            this.pages[url] = main.get('html');
+                            this.pages[url] = { h: h, j: j };
                         }.bind(this)
                     }).get();
                 }
@@ -45,7 +47,12 @@
                 { txt: 'Icons', url: 'basecss/icons.html' }
             ]
         }, {
-            txt: 'Components', icon: 'tags'
+            txt: 'Components', icon: 'tags', submenu: [
+                { txt: 'Dropdowns', url: 'components/dropdowns.html' },
+                { txt: 'Button groups', url: 'components/buttongroups.html' },
+                { txt: 'Button dropdowns', url: 'components/buttondropdowns.html' },
+                { txt: 'Navs', url: 'components/navs.html' }
+            ]
         }, {
             txt: 'Javascript', icon: 'legal'
         }];
@@ -70,7 +77,7 @@
                 new Element('i', {'class': 'icon-chevron-down'}).inject(lnk);
             var li = new Element('li').grab(lnk).inject(top_menu);
             var ul = new Element('ul', {
-                'class': 'dropdown-menu'
+                'class': 'dropdown-menu no-border'
             }).inject(li);
 
             //create submenu
@@ -102,7 +109,9 @@
 
         });
 
-        new MooDropMenu('top_menu');
+        //new MooDropMenu('top_menu');
+        top_menu.getElements('.handle').dropdown();
+
         new Fx.Accordion(sidebar_menu, '#sidebar_menu dt', '#sidebar_menu dd', {
             onActive: function (toggler, element) {
                 toggler.addClass('active');
