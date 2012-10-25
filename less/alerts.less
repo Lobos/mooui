@@ -15,7 +15,25 @@
   //.border-radius(4px);
   //color: @white;
   .bg-orange;
-  &.alert-icon:before { content: "\f071"; }
+
+  &[class*="icon-"] {
+    padding-left: 30px;
+    position: relative;
+    &:before {
+      color: @white;
+      position: absolute;
+      top: 9px;
+      left: 10px;
+      vertical-align: middle;
+    }
+    &.icon-large {
+      padding-left: 48px;
+      &:before {
+        top: 15px;
+        left: 14px;
+      }
+    }
+  }
 }
 .alert h4 {
   margin: 0;
@@ -42,9 +60,6 @@
 
 .alert-success {
   .bg-green;
-  &.alert-icon {
-
-  }
 }
 .alert-danger,
 .alert-error {
@@ -54,19 +69,6 @@
   .bg-teal;
 }
 
-.alert-icon {
-  padding-left: 44px;
-  position: relative;
-  &:before {
-    color: @white;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    .icon-awesome-style;
-    vertical-align: middle;
-    font-size: 1.5*1.25em;
-  }
-}
 
 // Block alerts
 // -------------------------
@@ -74,6 +76,15 @@
 .alert-block {
   padding-top: 14px;
   padding-bottom: 14px;
+
+  &[class*=icon-] {
+    padding-left: 48px;
+    &:before {
+      left: 14px;
+      top: 20px;
+      font-size: 1.5*1.25em;
+    }
+  }
 }
 .alert-block > p,
 .alert-block > ul {
