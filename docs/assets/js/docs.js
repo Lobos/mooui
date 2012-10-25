@@ -20,7 +20,7 @@
                             main.set('html', h).fade('in');
                             prettyPrint();
                             Browser.exec(j);
-                            this.pages[url] = { h: h, j: j };
+                            this.pages[url] = { h: main.get('html'), j: j };
                         }.bind(this)
                     }).get();
                 }
@@ -51,7 +51,14 @@
                 { txt: 'Dropdowns', url: 'components/dropdowns.html' },
                 { txt: 'Button groups', url: 'components/buttongroups.html' },
                 { txt: 'Button dropdowns', url: 'components/buttondropdowns.html' },
-                { txt: 'Navs', url: 'components/navs.html' }
+                { txt: 'Navs', url: 'components/navs.html' },
+                { txt: 'Navbar', url: 'components/navbar.html' },
+                { txt: 'Breadcrumbs', url: 'components/breadcrumbs.html' },
+                { txt: 'Pagination', url: 'components/pagination.html' },
+                { txt: 'Labels and badges', url: 'components/labels.html' },
+                { txt: 'Alerts', url: 'components/alerts.html' },
+                { txt: 'Progress bars', url: 'components/progress.html' },
+                { txt: 'Misc', url: 'components/misc.html' }
             ]
         }, {
             txt: 'Javascript', icon: 'legal'
@@ -63,7 +70,7 @@
             //create sidebar menu item
             var lnk = new Element('a', {
                 'html': m.txt,
-                'class': 'handle handle-' + (i+1),
+                'class': 'handle-' + (i+1),
                 'href': 'javascript:;'
             });
             var dt = new Element('dt').grab(lnk).inject(sidebar_menu);
@@ -73,15 +80,18 @@
 
             //create top menu item
             lnk = lnk.clone().cloneEvents(lnk);
-            if (m.submenu)
-                new Element('i', {'class': 'icon-chevron-down'}).inject(lnk);
+            if (m.submenu) {
+                lnk.addClass('dropdown-toggle');
+                new Element('b', {'class': 'caret'}).inject(lnk);
+            }
             var li = new Element('li').grab(lnk).inject(top_menu);
-            var ul = new Element('ul', {
-                'class': 'dropdown-menu no-border'
-            }).inject(li);
 
             //create submenu
             if (m.submenu) {
+                var ul = new Element('ul', {
+                    'class': 'dropdown-menu'
+                }).inject(li);
+
                 li.addClass('dropdown');
                 m.submenu.each(function (sm, j) {
                     var lnk_sub = new Element('a', {
@@ -110,7 +120,7 @@
         });
 
         //new MooDropMenu('top_menu');
-        top_menu.getElements('.handle').dropdown({reveal:true});
+        top_menu.getElements('.dropdown-toggle').dropdown({reveal:true});
 
         new Fx.Accordion(sidebar_menu, '#sidebar_menu dt', '#sidebar_menu dd', {
             onActive: function (toggler, element) {

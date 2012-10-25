@@ -1,0 +1,84 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: @baseLineHeight;
+  //text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  //background-color: @warningBackground;
+  //border: 1px solid @warningBorder;
+  //.border-radius(4px);
+  //color: @white;
+  .bg-orange;
+  &.alert-icon:before { content: "\f071"; }
+}
+.alert h4 {
+  margin: 0;
+}
+
+// Adjust close link position
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: @baseLineHeight;
+  color: @white;
+  .opacity(70);
+
+  &:hover {
+    color: @white;
+    .opacity(100);
+  }
+}
+
+
+// Alternate styles
+// -------------------------
+
+.alert-success {
+  .bg-green;
+  &.alert-icon {
+
+  }
+}
+.alert-danger,
+.alert-error {
+  .bg-red;
+}
+.alert-info {
+  .bg-teal;
+}
+
+.alert-icon {
+  padding-left: 44px;
+  position: relative;
+  &:before {
+    color: @white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    .icon-awesome-style;
+    vertical-align: middle;
+    font-size: 1.5*1.25em;
+  }
+}
+
+// Block alerts
+// -------------------------
+
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+.alert-block p + p {
+  margin-top: 5px;
+}

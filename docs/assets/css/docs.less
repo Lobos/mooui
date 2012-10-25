@@ -5,52 +5,6 @@ body {
   overflow-y:scroll;
 }
 
-header {
-  display: block;
-  .size(40px, 100%);
-  position: fixed;
-  z-index: 999;
-  background-color: @grayDarkest;
-  top: 0;
-  left: 0;
-
-  .logo {
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 40px;
-    margin-right: 50px;
-    color: #fff;
-    float: left;
-  }
-
-  .top-menu {
-    float: left;
-    margin: 6px 0 0;
-    & > li {
-      float: left;
-      display: block;
-      & > a {
-        color: @grayLighter;
-        display: block;
-        padding: 0 15px;
-        font-size: 16px;
-        line-height: 28px;
-        height: 28px;
-        i {
-          height: 12px;
-          line-height: 12px;
-          margin: -1px 0 0 3px;
-        }
-
-        &.open, &:hover {
-          background-color: @white;
-          color: @grayDarkest;
-        }
-      }
-    }
-  }
-}
-
 .sidebar-nav {
   position: fixed;
   top: 70px;
@@ -187,6 +141,54 @@ header {
       border: 1px solid #ddd;
       color: #9da0a4;
     }
+
+    .pagination {
+      margin-top: 0;
+    }
+
+    & .table,
+    & .progress,
+    & .well,
+    & .alert,
+    & .hero-unit,
+    & .pagination,
+    & .navbar,
+    & > .nav,
+    & blockquote {
+      margin-bottom: 5px;
+    }
+  }
+
+/* Remove spacing between an example and it's code */
+  .bs-docs-example + .prettyprint {
+    padding-top: 15px;
+  }
+
+/* Tweak examples
+------------------------- */
+  .bs-docs-example > p:last-child {
+    margin-bottom: 0;
+  }
+
+  .bs-navbar-top-example,
+  .bs-navbar-bottom-example {
+    z-index: 1;
+    padding: 0;
+    height: 90px;
+    overflow: hidden; /* cut the drop shadows off */
+  }
+  .bs-navbar-top-example .navbar-fixed-top,
+  .bs-navbar-bottom-example .navbar-fixed-bottom {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .bs-navbar-top-example:after {
+    top: auto;
+    bottom: -1px;
+  }
+  .bs-navbar-bottom-example .navbar {
+    margin-bottom: 0;
   }
 
   .docs-input-sizes select,

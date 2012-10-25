@@ -13,13 +13,16 @@
     <![endif]-->
 </head>
 <body>
-    <header>
-        <div class="container">
-            <ul id="top_menu" class="unstyled top-menu"></ul>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <span class="brand">Moo-UI</span>
+                <ul id="top_menu" class="nav"></ul>
+            </div>
         </div>
     </header>
 
-    <div class="container">
+    <div class="container body">
         <div class="row">
             <div class="sidebar-nav">
                 <dl id="sidebar_menu"></dl>
@@ -28,6 +31,10 @@
             <div id="main" class="main"></div>
         </div>
     </div>
+
+    <footer>
+        <div class="container"></div>
+    </footer>
 
     <script src="../js/load-script.js"></script>
     <script src="assets/js/google-code-prettify/prettify.js"></script>
