@@ -20,7 +20,7 @@
                             main.set('html', h).fade('in');
                             prettyPrint();
                             Browser.exec(j);
-                            this.pages[url] = { h: main.get('html'), j: j };
+                            //this.pages[url] = { h: main.get('html'), j: j };
                         }.bind(this)
                     }).get();
                 }
@@ -61,7 +61,9 @@
                 { txt: 'Misc', url: 'components/misc.html' }
             ]
         }, {
-            txt: 'Javascript', icon: 'legal'
+            txt: 'Javascript', icon: 'legal', submenu: [
+                { txt: 'Dropdowns', url: 'javascript/dropdowns.html' },
+            ]
         }];
 
         var sidebar_menu = $('sidebar_menu');

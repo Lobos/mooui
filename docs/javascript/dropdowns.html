@@ -1,0 +1,131 @@
+<section id="dropdowns">
+    <div class="page-header">
+        <h1>Dropdowns <small>moodropdown.js</small></h1>
+    </div>
+    <p>下拉菜单（dropdown menu）插件</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var dd = new MooDropmenu(el[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>el - 单个或一组element 或者 css选择字符串。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>reveal - (bool) 值为true时，菜单使用 Fx.Reveal 动画显示/隐藏，需要 Fx.Reveal 支持。默认值为 <code>false</code></li>
+        <li>dropbox - (string 或者 element) 下拉菜单元素，el的相对css选择器或者Element。默认值为 <code>.dropdown-menu</code></li>
+        <li>revealClass - (string) 如果el有revealClass这个class，无需设置 reveal: true。默认值为 <code>dropdown-reveal</code></li>
+        <li>activeClass - (string) 显示/隐藏时添加/移除的class。默认值为 <code>active</code></li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 MooDropdown 对象</li></ul>
+
+    <h3>Methods:</h3>
+    <ol>
+        <li>open - 显示下拉菜单</li>
+        <li>close - 隐藏下拉菜单</li>
+    </ol>
+
+    <h3>Examples</h3>
+
+    <ul class="nav nav-tabs docs-nav-tabs">
+        <li class="handle active"><a href="javascript:;">Example</a></li>
+        <li class="handle"><a href="javascript:;">Html</a></li>
+        <li class="handle"><a href="javascript:;">Javascript</a></li>
+    </ul>
+
+    <div class="docs-tab-content" style="min-height: 500px;">
+    <div class="sub-content">
+        <ul class="nav nav-pills">
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="javascript:;">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;">Action</a></li>
+                    <li><a href="javascript:;">Another action</a></li>
+                    <li><a href="javascript:;">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+            </li>
+            <li class="dropdown dropdown-reveal">
+                <a class="dropdown-toggle" href="javascript:;">RevealClass Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;">Action</a></li>
+                    <li><a href="javascript:;">Another action</a></li>
+                    <li><a href="javascript:;">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+            </li>
+            <li class="dropdown dropdown-javascript-reveal">
+                <a class="dropdown-toggle" href="javascript:;">Reveal Javascript Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;">Action</a></li>
+                    <li><a href="javascript:;">Another action</a></li>
+                    <li><a href="javascript:;">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+<pre class="prettyprint linenums sub-content">
+&lt;ul class="nav nav-pills"&gt;
+    &lt;li class="dropdown"&gt;
+        &lt;a class="dropdown-toggle" href="javascript:;"&gt;Dropdown &lt;b class="caret"&gt;&lt;/b&gt;&lt;/a&gt;
+        &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class="dropdown dropdown-reveal"&gt;
+        &lt;a class="dropdown-toggle" href="javascript:;"&gt;RevealClass Dropdown &lt;b class="caret"&gt;&lt;/b&gt;&lt;/a&gt;
+        &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class="dropdown dropdown-javascript-reveal"&gt;
+        &lt;a class="dropdown-toggle" href="javascript:;"&gt;Reveal Javascript Dropdown &lt;b class="caret"&gt;&lt;/b&gt;&lt;/a&gt;
+        &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="divider"&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:;"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+<pre class="prettyprint linenums sub-content">
+//new MooDropdown('.dropdown');
+//也可以通过 Element 的 dropdown 方法调用
+//$$('.dropdown').dropdown();
+
+//reveal
+//new MooDropdown('.dropdown', {reveal:true});
+//$$('.dropdown').dropdown({reveal:true});
+
+$$('#dropdowns .dropdown:not(.dropdown-javascript-reveal)').dropdown();
+$$('#dropdowns .dropdown.dropdown-javascript-reveal').dropdown({reveal:true});
+</pre>
+    </div>
+
+</section>
+<script type="text/javascript">
+    $$('#dropdowns .dropdown:not(.dropdown-javascript-reveal)').dropdown();
+    $$('#dropdowns .dropdown.dropdown-javascript-reveal').dropdown({reveal:true});
+    new MooTabs('#dropdowns .nav-tabs .handle', '.docs-tab-content .sub-content');
+</script>
