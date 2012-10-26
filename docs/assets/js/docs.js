@@ -16,6 +16,7 @@
                 } else {
                     new Request.HTML({
                         url: url,
+                        evalScripts: false,
                         onSuccess: function (t,e,h,j) {
                             main.set('html', h).fade('in');
                             prettyPrint();

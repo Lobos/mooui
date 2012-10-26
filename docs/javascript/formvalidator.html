@@ -76,29 +76,29 @@ var fv = new Form.Validator(form[, options]);</pre>
             <form id="validator-form" class="form-horizontal">
                 <legend>Validator Form</legend>
                 <div class="control-group">
-                    <label class="control-label">Name</label>
+                    <label class="control-label">登陆名</label>
                     <div class="controls">
-                        <input type="text" placeholder="Name" validate="required:true;" />
+                        <input type="text" placeholder="Name" validate="required:true, type:'alphanum', maxlen:14, minlen:6" />
+                        <span class="help-inline">必填，6-14个字符，数字、英文字母、下划线。</span>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label">Email</label>
                     <div class="controls">
-                        <input type="text" placeholder="Email">
+                        <input type="text" placeholder="Email" validate="type:'email'">
+                        <span class="help-inline"></span>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPassword">Password</label>
+                    <label class="control-label" for="inputPassword">密码</label>
                     <div class="controls">
                         <input type="password" id="inputPassword" placeholder="Password">
+                        <span class="help-inline">必填，6-16个字符。</span>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <label class="checkbox">
-                            <input type="checkbox"> Remember me
-                        </label>
-                        <button type="submit" class="btn">Sign in</button>
+                        <button id="form_submit" type="button" class="btn btn-primary">验证</button>
                     </div>
                 </div>
             </form>
@@ -109,3 +109,33 @@ var fv = new Form.Validator(form[, options]);</pre>
         <pre class="sub-content"></pre>
     </div>
 </section>
+<script type="text/javascript">
+    (function () {
+        new MooTabs('#formvalidator .nav-tabs .handle', '.docs-tab-content .sub-content');
+        var fv = new Form.Validator('validator-form', {
+            evaluateOnBlur: false,
+            onSuccess: function (el) {
+                var parent = el.getParent('.control-group');
+                parent.removeClass('error');
+                var help = parent.getElement('[class^=help-]');
+                if (help) {
+                    help.set('html', '<i class="icon-ok"></i>');
+                }
+            },
+            onFailure: function (el, msg) {
+                var parent = el.getParent('.control-group');
+                parent.addClass('error');
+                var help = parent.getElement('[class^=help-]');
+                if (help) {
+                    help.set('html', msg);
+                }
+            }
+        });
+        $('form_submit').addEvent('click', function () {
+            var suc = fv.validate();
+            Function.attempt(function () {
+                console.log(suc);
+            });
+        });
+    })();
+</script>
