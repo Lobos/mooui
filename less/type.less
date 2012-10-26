@@ -50,19 +50,28 @@ cite {
   color: @successText;
 }
 
+
+.bg-color-create(@bg, @color:@white) {
+  color: @color;
+  background-color: @bg;
+  a, a:hover {
+    color: @color;
+    text-decoration: underline;
+  }
+}
 // Background color
 // -------------------------
-.bg-blue { color: @white; background-color: @blue; }
-.bg-green { color: @white; background-color: @green; }
-.bg-red { color: @white; background-color: @red; }
-.bg-orange { color: @white; background-color: @orange; }
-.bg-teal { color: @white; background-color: @teal; }
-.bg-lime { color: @white; background-color: @lime; }
-.bg-magenta { color: @white; background-color: @magenta; }
-.bg-purple { color: @white; background-color: @purple; }
-.bg-brown { color: @white; background-color: @brown; }
-.bg-pink { color: @white; background-color: @pink; }
-.bg-grayDarker { color: @white; background-color: @grayDarker; }
+.bg-blue { .bg-color-create(@blue); }
+.bg-green { .bg-color-create(@green); }
+.bg-red { .bg-color-create(@red); }
+.bg-orange { .bg-color-create(@orange); }
+.bg-teal { .bg-color-create(@teal); }
+.bg-lime { .bg-color-create(@lime); }
+.bg-magenta { .bg-color-create(@magenta); }
+.bg-purple { .bg-color-create(@purple); }
+.bg-brown { .bg-color-create(@brown); }
+.bg-pink { .bg-color-create(@pink); }
+.bg-grayDarker { .bg-color-create(@grayDarker); }
 
 
 // Headings

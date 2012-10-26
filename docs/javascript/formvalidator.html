@@ -1,0 +1,111 @@
+<section id="formvalidator">
+    <div class="page-header">
+        <h1>Form.Validator <small>form-validator.js</small></h1>
+    </div>
+    <p>表单验证插件，mootools.more 有自带的验证，个人觉得用起来不是很顺手，自己写了一个。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">
+//html
+&lt;input type="text" validate="{json}" /&gt;
+//javascript
+var fv = new Form.Validator(form[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>form - (string 或者 element) 表单对象。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>evaluateOnChange - (bool) 值为 <code>true</code> 时，元素输入值改变时触发验证事件。默认值为 <code>true</code></li>
+        <li>evaluateOnBlur - (bool) 值为 <code>true</code> 时，元素失去焦点触发验证事件。默认值为 <code>true</code></li>
+        <li>stopOnFailure - (bool) 值为 <code>true</code> 时，验证到第一个失败的元素，停止验证。默认值为 <code>true</code></li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 Form.Validator 对象</li></ul>
+
+    <h3>数据结构(json格式):</h3>
+    <pre class="prettyprint">&lt;input type="text" validate="{json}" /&gt;</pre>
+    <ol>
+        <li>required - (bool) 是否必填。</li>
+        <li>maxlen - (int) 最大长度，一个中文算两个字符。</li>
+        <li>minlen - (int) 最小长度，一个中文算两个字符。</li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:addElement</h2>
+    <p>增加验证元素，用于表单动态添加元素时。</p>
+
+    <h3>Syntax:</h3>
+    <pre>fv.addElement(element)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>element - (id 或者 element) 如果是element，id属性不能为空。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 对象本身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:validate</h2>
+    <p>验证表单。</p>
+
+    <h3>Syntax:</h3>
+    <pre>fv.validate()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>(bool) 验证结果。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
+    <ul class="nav nav-tabs docs-nav-tabs">
+        <li class="handle active"><a href="javascript:;">Example</a></li>
+        <li class="handle"><a href="javascript:;">Html</a></li>
+        <li class="handle"><a href="javascript:;">Javascript</a></li>
+    </ul>
+
+    <div class="docs-tab-content" style="min-height: 500px;">
+        <div class="sub-content">
+            <form id="validator-form" class="form-horizontal">
+                <legend>Validator Form</legend>
+                <div class="control-group">
+                    <label class="control-label">Name</label>
+                    <div class="controls">
+                        <input type="text" placeholder="Name" validate="required:true;" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Email</label>
+                    <div class="controls">
+                        <input type="text" placeholder="Email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Password</label>
+                    <div class="controls">
+                        <input type="password" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <button type="submit" class="btn">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <pre class="sub-content"></pre>
+
+        <pre class="sub-content"></pre>
+    </div>
+</section>

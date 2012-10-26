@@ -63,6 +63,7 @@
         }, {
             txt: 'Javascript', icon: 'legal', submenu: [
                 { txt: 'Dropdowns', url: 'javascript/dropdowns.html' },
+                { txt: 'Form Validator', url: 'javascript/formvalidator.html' }
             ]
         }];
 
