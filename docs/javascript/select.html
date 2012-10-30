@@ -1,0 +1,47 @@
+<section id="select">
+    <div class="page-header">
+        <h1>MooUI.Select <small>mooui-select.js</small></h1>
+    </div>
+    <p>一个模拟<code>select</code>元素的插件。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var select = new MooUI.Select(container[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>container - (string 或者 element) 需要转换为<code>select</code>的元素，css3选择器或者元素。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>name - (string) 类似<code>input.name</code>属性，表单提交时，可以通过name取值。</li>
+        <li>boxWrapper - (string 或者 element) 下拉选择项容器，默认为document.body。</li>
+        <li>maxHeight - (int 单位:px) 下拉选择框的最大高度，默认值： <code>200</code>。 </li>
+        <li>borderFix - (int 单位:px) 下拉选择框偏移修正，默认值： <code>1</code>。</li>
+        <li>changeValue - (bool) 选项改变时是否改变容器的值，默认值： <code>true</code>。（注：设计这个选项是为了动态dropdown） </li>
+        <li>request - (options) Request.JSON 的options。</li>
+        <li>styleClass - (options) 内部元素类名。
+            <ul>
+                <li>box - 下拉框。默认值：<code>select-box</code></li>
+                <li>item - 下拉框选项。<code>select-item</code></li>
+                <li>inner - 内部元素。<code>select-inner</code></li>
+            </ul>
+        </li>
+        <li>noneData - (object 可选) 空值。</li>
+        <li>validate - (string 可选) 参考 <code>MooUI.Validator</code> 数据项。</li>
+        <li>data - (Array[object] 可选) 下拉选项，详见数据结构。</li>
+    </ol>
+
+    <h3>Data Structure：</h3>
+    <pre>[{text:'', 'class':'', value:'', events:{}}]</pre>
+    <ol>
+        <li>text - 选项显示文字。</li>
+        <li>class - 选项类属性。同element。</li>
+        <li>value - 选项值。</li>
+        <li>events - 事件。同element。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 MooUI.Select 对象</li></ul>
+</section>

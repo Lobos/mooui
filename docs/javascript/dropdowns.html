@@ -1,11 +1,11 @@
 <section id="dropdowns">
     <div class="page-header">
-        <h1>Dropdowns <small>moodropdown.js</small></h1>
+        <h1>MooUI.Dropdowns <small>mooui-dropdown.js</small></h1>
     </div>
     <p>下拉菜单（dropdown menu）插件</p>
 
     <h3>Syntax:</h3>
-    <pre class="prettyprint">var dd = new MooDropdown(el[, options]);</pre>
+    <pre class="prettyprint">var dd = new MooUI.Dropdown(el[, options]);</pre>
 
     <h3>Arguments:</h3>
     <ol>
@@ -110,12 +110,12 @@
 </pre>
 
 <pre class="prettyprint linenums sub-content">
-//new MooDropdown('.dropdown');
+//new MooUI.Dropdown('.dropdown');
 //也可以通过 Element 的 dropdown 方法调用
 //$$('.dropdown').dropdown();
 
 //reveal
-//new MooDropdown('.dropdown', {reveal:true});
+//new MooUI.Dropdown('.dropdown', {reveal:true});
 //$$('.dropdown').dropdown({reveal:true});
 
 $$('#dropdowns .dropdown:not(.dropdown-javascript-reveal)').dropdown();
@@ -127,5 +127,5 @@ $$('#dropdowns .dropdown.dropdown-javascript-reveal').dropdown({reveal:true});
 <script type="text/javascript">
     $$('#dropdowns .dropdown:not(.dropdown-javascript-reveal)').dropdown();
     $$('#dropdowns .dropdown.dropdown-javascript-reveal').dropdown({reveal:true});
-    new MooTabs('#dropdowns .nav-tabs .handle', '.docs-tab-content .sub-content');
+    new MooUI.Tabs('#dropdowns .nav-tabs .handle', '.docs-tab-content .sub-content');
 </script>

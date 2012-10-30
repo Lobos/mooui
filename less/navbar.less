@@ -381,7 +381,7 @@
 // -------------------------
 
 .navbar-inverse {
-  color: @navbarInverseText;
+  color: @navbarText;
 
   .navbar-inner {
     //#gradient > .vertical(@navbarInverseBackgroundHighlight, @navbarInverseBackground);
@@ -391,31 +391,14 @@
 
   .brand,
   .nav > li > a {
-    color: @navbarInverseLinkColor;
-    //text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    color: @navbarInverseText;
     &:hover {
       color: @navbarInverseLinkColorHover;
     }
   }
 
-  .nav > li {
-    .dropdown-menu {
-      border: 0;
-      margin: 0;
-      &:after, &:before {
-        border:0;
-      }
-    }
-
-    & > a {
-      margin-top: 6px;
-      padding: 4px 15px;
-    }
-  }
-
   .nav > li > a:focus,
   .nav > li > a:hover {
-    background-color: @navbarInverseLinkBackgroundHover;
     color: @navbarInverseLinkColorHover;
   }
 
@@ -424,7 +407,7 @@
   .nav .active > a:hover,
   .nav .active > a:focus {
     color: @navbarInverseLinkColorActive;
-    background-color: @navbarInverseLinkBackgroundActive;
+    background-color: @navbarInverseBackgroundHighlight;
   }
 
   // Inline text links
@@ -490,6 +473,45 @@
     //.buttonBackground(darken(@navbarInverseBackgroundHighlight, 5%), darken(@navbarInverseBackground, 5%));
   }
 
+  &.nav-compact {
+    .nav > li {
+      .dropdown-menu {
+        border: 0;
+        margin: 0;
+        &:after, &:before {
+          border:0;
+        }
+      }
+
+      & > a {
+        margin-top: 6px;
+        padding: 4px 15px;
+      }
+    }
+
+    .nav > li > a:focus,
+    .nav > li > a:hover {
+      background-color: @navbarInverseLinkBackgroundHover;
+      color: @grayDarkest;
+    }
+
+    .nav > li > a.active,
+    .nav .active > a,
+    .nav .active > a:hover,
+    .nav .active > a:focus {
+      color: @grayDarkest;
+      background-color: @navbarInverseLinkBackgroundActive;
+    }
+
+    .nav li.dropdown > .dropdown-toggle.active .caret,
+    .nav li.dropdown > .dropdown-toggle:hover .caret,
+    .nav li.dropdown.open > .dropdown-toggle .caret,
+    .nav li.dropdown.active > .dropdown-toggle .caret,
+    .nav li.dropdown.open.active > .dropdown-toggle .caret {
+      border-top-color: @grayDarkest;
+      border-bottom-color: @grayDarkest;
+    }
+  }
 }
 
 

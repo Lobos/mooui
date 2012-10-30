@@ -1,11 +1,11 @@
 <section id="tabs">
     <div class="page-header">
-        <h1>MooTabs <small>mootabs.js</small></h1>
+        <h1>MooUI.Tabs <small>mooui-tabs.js</small></h1>
     </div>
     <p>一个简单的标签切换插件。</p>
 
     <h3>Syntax:</h3>
-    <pre class="prettyprint">var fv = new MooTabs(tabs, slides[, options]);</pre>
+    <pre class="prettyprint">var fv = new MooUI.Tabs(tabs, slides[, options]);</pre>
 
     <h3>Arguments:</h3>
     <ol>
@@ -23,7 +23,7 @@
     </ol>
 
     <h3>Return:</h3>
-    <ul><li>(object) 一个新 MooTabs 对象</li></ul>
+    <ul><li>(object) 一个新 MooUI.Tabs 对象</li></ul>
 
     <h2>Methods:addTab</h2>
     <p>动态添加一个标签。</p>
@@ -73,7 +73,7 @@ var tabs ...
     </pre>
 
     <pre class="prettyprint linenums sub-content">
-var tabs = new MooTabs('#tabs .nav-tabs .handle', '.sub-content');
+var tabs = new MooUI.Tabs('#tabs .nav-tabs .handle', '.sub-content');
 var el = new Element('li', {
     'ajax': 'json/tabs/ajax.html',
     'html': '&lt;a href="javascript:;"&gt;Ajax&lt;/a&gt;'
@@ -84,7 +84,7 @@ tabs.addTab(el);
 </section>
 <script type="text/javascript">
     (function () {
-        var tabs = new MooTabs('#tabs .nav-tabs .handle', '.sub-content');
+        var tabs = new MooUI.Tabs('#tabs .nav-tabs .handle', '.sub-content');
         var el = new Element('li', {
             'ajax': 'json/tabs/ajax.html',
             'html': '<a href="javascript:;">Ajax</a>'
