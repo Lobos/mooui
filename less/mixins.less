@@ -173,11 +173,13 @@
   .radio,
   input,
   select,
+  .select,
   textarea {
     color: @textColor;
   }
   input,
   select,
+  .select,
   textarea {
     border-color: @borderColor;
     .box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
@@ -664,7 +666,7 @@
   .input(@gridColumnWidth, @gridGutterWidth) {
 
     .spanX (@index) when (@index > 0) {
-      (~"input.span@{index}, textarea.span@{index}, .uneditable-input.span@{index}") { .span(@index); }
+      (~"input.span@{index}, textarea.span@{index}, .select.span@{index}, .uneditable-input.span@{index}") { .span(@index); }
       .spanX(@index - 1);
     }
     .spanX (0) {}
@@ -675,6 +677,7 @@
 
     input,
     textarea,
+    .select,
     .uneditable-input {
       margin-left: 0; // override margin-left from core grid system
     }

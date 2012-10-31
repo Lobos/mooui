@@ -44,4 +44,35 @@
 
     <h3>Return:</h3>
     <ul><li>(object) 一个新 MooUI.Select 对象</li></ul>
+
+
+    <h2>Example</h2>
+
+    <h4>基础的Select</h4>
+    <div class="nav-example-wrapper">
+        <ul id="nav-example-tabs" class="nav nav-tabs docs-nav-tabs">
+            <li class="handle active"><a href="javascript:;">Example</a></li>
+            <li class="handle"><a href="javascript:;">Html</a></li>
+            <li class="handle"><a href="javascript:;">Javascript</a></li>
+        </ul>
+        <div>
+            <from id="form_1" class="form-inline">
+                <input type="text" class="span2" disabled />
+                <div class="span2 select"></div>
+                <button class="btn btn-primary">Select</button>
+            </from>
+        </div>
+    </div>
 </section>
+<script type="text/javascript">
+    (function () {
+        var data = [
+            { text: '北京', value: 'BeiJing' },
+            { text: '上海', value: 'ShangHai' },
+            { text: '广州', value: 'GuangZhou' }
+        ];
+        new MooUI.Select($$('#form_1 .select')[0], {
+            data: data
+        });
+    })();
+</script>

@@ -125,7 +125,7 @@
 
         });
 
-        //new MooDropMenu('top_menu');
+        //create dropdown
         top_menu.getElements('.dropdown-toggle').dropdown({reveal:true});
 
         new Fx.Accordion(sidebar_menu, '#sidebar_menu dt', '#sidebar_menu dd', {
