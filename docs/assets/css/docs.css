@@ -4948,6 +4948,11 @@ a.badge:hover {
 .select .dropdown-menu a {
   padding: 4px 8px;
 }
+.select-up .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 1px;
+}
 .select-inner {
   height: 20px;
   padding: 0 16px 0 0;
@@ -6500,22 +6505,9 @@ body {
   margin: 0;
 }
 .main .bs-docs-example {
-  position: relative;
   bottom: -1px;
   border: solid 1px #dfdfdf;
   padding: 39px 20px 15px;
-}
-.main .bs-docs-example:after {
-  content: "Example";
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  padding: 3px 7px;
-  font-size: 12px;
-  font-weight: bold;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  color: #9da0a4;
 }
 .main .bs-docs-example .pagination {
   margin-top: 0;
@@ -6533,6 +6525,40 @@ body {
 }
 .main .bs-docs-example + .prettyprint {
   padding-top: 15px;
+}
+.main .bs-docs-example,
+.main .prettyprint.bs-docs-html,
+.main .prettyprint.bs-docs-json,
+.main .prettyprint.bs-docs-javascript {
+  position: relative;
+  padding-top: 39px;
+}
+.main .bs-docs-example:after,
+.main .prettyprint.bs-docs-html:after,
+.main .prettyprint.bs-docs-json:after,
+.main .prettyprint.bs-docs-javascript:after {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  min-width: 60px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+}
+.main .bs-docs-example:after {
+  content: "Example";
+}
+.main .bs-docs-html:after {
+  content: "Html";
+}
+.main .bs-docs-json:after {
+  content: "Json";
+}
+.main .bs-docs-javascript:after {
+  content: "Javascript";
 }
 .main .bs-docs-example > p:last-child {
   margin-bottom: 0;
@@ -6565,6 +6591,9 @@ body {
 }
 .main section {
   margin-bottom: 30px;
+}
+.main .nav-example-wrapper pre {
+  margin: 0;
 }
 .main .responsive-utilities th small {
   display: block;

@@ -124,23 +124,9 @@ body {
   }
 
   .bs-docs-example {
-    position: relative;
     bottom: -1px;
     border: solid 1px @grayLighter;
     padding: 39px 20px 15px;
-
-    &:after {
-      content: "Example";
-      position: absolute;
-      top: -1px;
-      left: -1px;
-      padding: 3px 7px;
-      font-size: 12px;
-      font-weight: bold;
-      background-color: #f5f5f5;
-      border: 1px solid #ddd;
-      color: #9da0a4;
-    }
 
     .pagination {
       margin-top: 0;
@@ -163,6 +149,30 @@ body {
   .bs-docs-example + .prettyprint {
     padding-top: 15px;
   }
+
+  .bs-docs-example, .prettyprint.bs-docs-html, .prettyprint.bs-docs-json, .prettyprint.bs-docs-javascript {
+    position: relative;
+    padding-top: 39px;
+
+    &:after {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      min-width: 60px;
+      padding: 3px 7px;
+      font-size: 12px;
+      font-weight: bold;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      color: #9da0a4;
+    }
+  }
+
+  .bs-docs-example:after { content: "Example" }
+  .bs-docs-html:after { content: "Html" }
+  .bs-docs-json:after { content: "Json" }
+  .bs-docs-javascript:after { content: "Javascript" }
+
 
 /* Tweak examples
 ------------------------- */
@@ -199,6 +209,12 @@ body {
 
   section {
     margin-bottom: 30px;
+  }
+
+  .nav-example-wrapper {
+    pre {
+      margin: 0;
+    }
   }
 
 /* Utility classes table
