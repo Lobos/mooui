@@ -4937,16 +4937,14 @@ a.badge:hover {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-.select .caret {
-  position: absolute;
-  right: 10px;
-  top: 12px;
-}
 .select .dropdown-menu {
   left: -1px;
 }
 .select .dropdown-menu a {
   padding: 4px 8px;
+}
+.select .dropdown-menu li.checked {
+  background-color: #dfdfdf;
 }
 .select-up .dropdown-menu {
   top: auto;
@@ -4959,10 +4957,34 @@ a.badge:hover {
   cursor: pointer;
   color: #5d5d5d;
 }
-.select-inner input {
+.select-inner input[type="text"] {
+  outline: 0;
   width: 100%;
   margin: 0;
   border: 0;
+  padding: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.select-inner input[type="text"]:focus {
+  outline: 0;
+}
+.select-inner:before {
+  width: 0;
+  height: 0;
+  border-top: 4px solid #000000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  z-index: 0;
 }
 .well {
   min-height: 20px;

@@ -45,7 +45,7 @@
 
     <h3>Events:</h3>
     <ol>
-        <li>change(item) - 值改变是触发事件。item为单条数据。</li>
+        <li>change(item) - 值改变时触发事件。item为单条数据。</li>
         <li>load - 数据加载后触发。</li>
     </ol>
 
@@ -87,6 +87,49 @@
 
     <h3>Return:</h3>
     <ul><li>(object) Select对象。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:clearValue</h2>
+    <p>清空选中结果。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.clearValue()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>(object) Select对象。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:load</h2>
+    <p>动态加载数据。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.load(options)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>
+            options - (object) Request.JSON options参数
+            <ul>
+                <li>json - (json) 数据，如果值不为空，直接用json数据填充。ajax不执行。</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) Select对象。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:destroy</h2>
+    <p>销毁select对象</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.destroy()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>null</li></ul>
 
     <hr class="bs-docs-separator">
 
@@ -187,10 +230,8 @@ new MooUI.Select('select_3', {
         </div>
 
 <pre class="bs-docs-html prettyprint linenums">
-&lt;from id="form_2" class="form-inline"&gt;
-    &lt;div id="select_4" class="span2 select"&gt;&lt;/div&gt;
-    &lt;span&gt;&lt;/span&gt;
-&lt;/from&gt;
+&lt;div id="select_4" class="span2 select"&gt;&lt;/div&gt;
+&lt;span&gt;&lt;/span&gt;
 </pre>
 
 <pre class="bs-docs-javascript prettyprint linenums">
@@ -222,19 +263,24 @@ new MooUI.Select('select_4', {
     <div class="nav-example-wrapper">
         <div class="bs-docs-example">
             <div id="select_5" class="span2 select"></div>
-            <button class="btn btn-primary">动态加载</button>
+            <button class="btn btn-primary">动态加载(ajax)</button>
+            <button class="btn btn-success">动态加载(json)</button>
         </div>
 <pre class="bs-docs-html prettyprint linenums">
 &lt;div id="select_5" class="span2 select"&gt;&lt;/div&gt;
-&lt;button class="btn btn-primary"&gt;动态加载&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;动态加载(ajax)&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;动态加载(json)&lt;/button&gt;
 </pre>
 <pre class="bs-docs-javascript prettyprint linenums">
-var sel_5 = new MooUI.Select('select_5', { data: data });
+var sel_5 = new MooUI.Select('select_5');
 $('select_5').getNext('button').addEvent('click', function () {
     sel_5.clearValue().load({
         method: 'get',
         url: 'json/select/city.json'
     });
+});
+$('select_5').getNext('.btn-success').addEvent('click', function () {
+    sel_5.clearValue().load({ json: data });
 });
 </pre>
     </div>
@@ -296,6 +342,110 @@ $('select_6').getNext('.btn-inverse').addEvent('click', function () {
 </pre>
     </div>
 
+    <div class="page-header">
+        <h1>MooUI.Select.Multiple <small>mooui-select.js</small></h1>
+    </div>
+    <p>多选插件。继承于 MooUI.Select。Syntax，Arguments，Options，Events 同 MooUI.Select。</p>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:setValue</h2>
+    <p>根据给定的值设置选中选项。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.setValue(val)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>val - (string 或者 array) 要设置的值。如果为string，以 <code>,</code> 分隔的多个值。</li>
+    </ol>
+
+    <h3>Events:</h3>
+    <ol>
+        <li>change(items) - 返回当前选中项数组。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) Select对象。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <div id="select_7" class="span3 select"></div>
+            <button class="btn btn-primary">设置值（string）</button>
+            <button class="btn btn-info">设置值（array）</button>
+            <label></label>
+        </div>
+
+<pre class="bs-docs-html prettyprint linenums">
+&lt;from class="form-inline"&gt;
+    &lt;div id="select_7" class="span2 select"&gt;&lt;/div&gt;
+    &lt;span&gt;&lt;/span&gt;
+&lt;/from&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+var set_7 = function (txt) {
+    $('select_7').getNext('label').set('html', txt);
+};
+var sel_7 = new MooUI.Select.Multiple('select_7', {
+    request: {
+        method: 'get',
+        url: 'json/select/city.json'
+    },
+    onChange: function (item) {
+        set_7(sel_7.getValue());
+    },
+    autoLoad: true
+});
+$('select_7').getNext('.btn-primary').addEvent('click', function () {
+    set_7('');
+    sel_7.clearValue().setValue('ShangHai,BeiJing');
+});
+$('select_7').getNext('.btn-info').addEvent('click', function () {
+    set_7('');
+    sel_7.clearValue().setValue(['TianJing', 'XiAn']);
+});
+</pre>
+    </div>
+
+    <div class="page-header">
+        <h1>MooUI.Select.Input <small>mooui-select.js</small></h1>
+    </div>
+    <p>
+        可以输入的Select插件。继承于 MooUI.Select。大部分部分Syntax，Arguments，Options，Events 同 MooUI.Select。<br />
+        <span class="label label-warning">此插件数据结构中，value值无效。</span>
+    </p>
+
+    <h3>Return:</h3>
+    <ul><li>(object) Select对象。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <div id="select_8" class="span2 select"></div>
+        </div>
+
+<pre class="bs-docs-html prettyprint linenums">
+&lt;from class="form-inline"&gt;
+    &lt;div id="select_8" class="span2 select"&gt;&lt;/div&gt;
+&lt;/from&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+new MooUI.Select.Input('select_8', {
+    request: {
+        method: 'get',
+        url: 'json/select/city.json'
+    },
+    autoLoad: true
+});
+</pre>
+    </div>
 </section>
 <script type="text/javascript">
     (function () {
@@ -330,12 +480,15 @@ $('select_6').getNext('.btn-inverse').addEvent('click', function () {
             autoLoad: true
         });
 
-        var sel_5 = new MooUI.Select('select_5', { data: data });
-        $('select_5').getNext('button').addEvent('click', function () {
+        var sel_5 = new MooUI.Select('select_5');
+        $('select_5').getNext('.btn-primary').addEvent('click', function () {
             sel_5.clearValue().load({
                 method: 'get',
                 url: 'json/select/city.json'
             });
+        });
+        $('select_5').getNext('.btn-success').addEvent('click', function () {
+            sel_5.clearValue().load({ json: data });
         });
 
         var sel_6 = new MooUI.Select('select_6', {
@@ -368,6 +521,41 @@ $('select_6').getNext('.btn-inverse').addEvent('click', function () {
         $('select_6').getNext('.btn-inverse').addEvent('click', function () {
             set_6('');
             sel_6.destroy();
+        });
+
+
+        // MooUI.Select.Multiple -----------------------------------
+        var set_7 = function (txt) {
+            $('select_7').getNext('label').set('html', txt);
+        };
+        var sel_7 = new MooUI.Select.Multiple('select_7', {
+            request: {
+                method: 'get',
+                url: 'json/select/city.json'
+            },
+            onChange: function (items) {
+                console.log(items);
+                set_7(JSON.encode(items));
+            },
+            autoLoad: true
+        });
+        $('select_7').getNext('.btn-primary').addEvent('click', function () {
+            set_7('');
+            sel_7.clearValue().setValue('ShangHai,BeiJing');
+        });
+        $('select_7').getNext('.btn-info').addEvent('click', function () {
+            set_7('');
+            sel_7.clearValue().setValue(['TianJing', 'XiAn']);
+        });
+
+
+        // MooUI.Select.Input -----------------------------------
+        new MooUI.Select.Input('select_8', {
+            request: {
+                method: 'get',
+                url: 'json/select/city.json'
+            },
+            autoLoad: true
         });
     })();
 </script>
