@@ -66,7 +66,8 @@
                 { txt: 'Tabs', url: 'javascript/tabs.html' },
                 { txt: 'Dropdowns', url: 'javascript/dropdowns.html' },
                 { txt: 'Form Validator', url: 'javascript/formvalidator.html' },
-                { txt: 'Select', url: 'javascript/select.html' }
+                { txt: 'Select', url: 'javascript/select.html' },
+                { txt: 'Pagination', url: 'javascript/pagination.html' }
             ]
         }];
 

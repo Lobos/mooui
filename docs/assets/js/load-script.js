@@ -7,7 +7,7 @@
         'mooui.js',
         'mooui-exts.js',
         //'mooupload.js',
-        //'pager.js',
+        'mooui-pagination.js',
         //'openbox.js',
         'mooui-select.js',
         'mooui-validator.js',
