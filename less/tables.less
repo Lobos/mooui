@@ -248,3 +248,39 @@ table [class*=span],
     background-color: darken(@infoBackground, 5%);
   }
 }
+
+.table .checkbox {
+  width: 13px;
+  a {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    margin: 0;
+    padding: 0 2px 0 3px;
+    color: @grayDarker;
+
+    &:before { content: "\f096"; }
+    &.checked:before { content: "\f046"; }
+  }
+}
+
+.table .pagination {
+  height: auto;
+  ul {
+    display: inline;
+  }
+  ul > li > a {
+    padding: 0 9px;
+    line-height: 24px;
+  }
+  span {
+    line-height: 26px;
+    margin-left: 10px;
+  }
+}
+
+.table .icon-ok { color: @green; }
+.table .icon-remove { color: @red; }
+

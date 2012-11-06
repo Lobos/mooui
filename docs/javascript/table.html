@@ -1,0 +1,130 @@
+<section id="table">
+    <div class="page-header">
+        <h1>MooUI.Table <small>mooui-table.js</small></h1>
+    </div>
+    <p>动态表格插件。分页依赖于MooUI.Pagination。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var table = new MooUI.Table(table[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>table - (string 或者 element) css3选择器或者table元素。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>request - (object) 动态获取数据的参数。和Request.JSON.options相同。</li>
+        <li>pageAble - (bool) 是否分页。默认值： <code>true</code></li>
+        <li>pagination - (object) MooUI.Pagination.options。</li>
+        <li>header - (json 必填) 见下。</li>
+    </ol>
+
+    <h3>header参数：</h3>
+<pre class="prettyprint linenums">
+header: [
+    { key: 'Id', type: 'checkbox' },
+    { key: 'LogName', name: '名称', type: 'template', template: '&lt;a href="javascript:;" onclick="xxx"&gt;{LogName}&lt;/a&gt;' },
+    { key: 'Role', name: '角色' },
+    { key: 'LoginIp', name: '最后登录IP' },
+    { key: 'LoginTime', name: '最后登录时间' },
+    { key: 'Status', name: '状态', type: 'bool' }
+]
+</pre>
+
+    <ol>
+        <li>key - (string) 数据结构中 object的key。</li>
+        <li>name - (string) 表头显示的字段名。</li>
+        <li>type - (string) 默认值为空，表格中填写数据 key 对应的 value。
+            <ul>
+                <li>checkbox - 表格行选择项。</li>
+                <li>bool - 替换 <code>bool</code> 值为图标显示。</li>
+                <li>template - 使用定义的 template 字符串格式后填充单元格。</li>
+            </ul>
+        </li>
+        <li>template - (string) 当 <code>type='template'</code>不能为空。用来格式化数据的模板，<code>{数据key}</code>替换数据。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 MooUI.Table 对象</li></ul>
+
+    <h3>Events:</h3>
+    <ol>
+        <li>load(trs, data) - trs表格行元素数组。data数据。</li>
+    </ol>
+
+    <h2>Example</h2>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <table id="table_1" class="table table-bordered table-hover"></table>
+            <button class="btn btn-primary">加载表格</button>
+            <button class="btn btn-success">选中的数据</button>
+            <span></span>
+        </div>
+
+<pre class="bs-docs-html prettyprint linenums">
+&lt;table id="table_1" class="table table-bordered table-hover"&gt;&lt;/table&gt;
+&lt;button class="btn btn-primary"&gt;加载表格&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;选中的数据&lt;/button&gt;
+&lt;span&gt;&lt;/span&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+var table_1 = new MooUI.Table('table_1', {
+    request: {
+        method: 'get',
+        url: 'json/table/log.json'
+    },
+    pagination: {
+        size: 10,
+        showCount: true
+    },
+    header: [
+        { key: 'Id', type: 'checkbox' },
+        { key: 'LogName', name: '名称', type: 'template', template: '&lt;a href="javascript:;" onclick="alert(\'{Id}\')"&gt;{LogName}&lt;/a&gt;' },
+        { key: 'Role', name: '角色' },
+        { key: 'LoginIp', name: '最后登录IP' },
+        { key: 'LoginTime', name: '最后登录时间' },
+        { key: 'Status', name: '状态', type: 'bool', styles: { width: 40, textAlign: 'center' } }
+    ]
+});
+$('table_1').getNext('.btn-primary').addEvent('click', function () {
+    table_1.load();
+});
+$('table_1').getNext('.btn-success').addEvent('click', function () {
+    var items = table_1.getChecked('Id');
+    this.getNext().set('html', '当前选中{0}条：{1}'.format(items.Id.length, items.Id.join(',')));
+});
+</pre>
+    </div>
+</section>
+<script type="text/javascript">
+    (function () {
+        var table_1 = new MooUI.Table('table_1', {
+            request: {
+                method: 'get',
+                url: 'json/table/log.json'
+            },
+            pagination: {
+                size: 10,
+                showCount: true
+            },
+            header: [
+                { key: 'Id', type: 'checkbox' },
+                { key: 'LogName', name: '名称', type: 'template', template: '<a href="javascript:;" onclick="alert(\'{Id}\')">{LogName}</a>' },
+                { key: 'Role', name: '角色' },
+                { key: 'LoginIp', name: '最后登录IP' },
+                { key: 'LoginTime', name: '最后登录时间' },
+                { key: 'Status', name: '状态', type: 'bool', styles: { width: 40, textAlign: 'center' } }
+            ]
+        });
+        $('table_1').getNext('.btn-primary').addEvent('click', function () {
+            table_1.load();
+        });
+        $('table_1').getNext('.btn-success').addEvent('click', function () {
+            var items = table_1.getChecked('Id');
+            this.getNext().set('html', '当前选中{0}条：{1}'.format(items.Id.length, items.Id.join(',')));
+        });
+    })();
+</script>

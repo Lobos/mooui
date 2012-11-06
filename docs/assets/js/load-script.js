@@ -11,7 +11,7 @@
         //'openbox.js',
         'mooui-select.js',
         'mooui-validator.js',
-        //'mootable.js',
+        'mooui-table.js',
         'mooui-dropdown.js',
         'mooui-tabs.js'
     ];

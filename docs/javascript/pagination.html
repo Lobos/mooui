@@ -30,6 +30,40 @@
         <li>pageChange(index) - 分页按钮点击触发事件。index 点击页面页数。</li>
     </ol>
 
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:change</h2>
+    <p>页码改变</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.change(options)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>options - (object 或者 int) 值为object时，等同Options。值为int时，表示改变的页码。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Pagination 自己</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:draw</h2>
+    <p>重绘页码</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.draw([index])</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>index - (int 可为空) 显示的中心页。如果为空，以当前的选中页作为中心页。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Pagination 自己</li></ul>
+
+    <hr class="bs-docs-separator">
+
     <h2>Example</h2>
 
     <div class="nav-example-wrapper">
