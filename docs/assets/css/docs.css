@@ -1390,6 +1390,61 @@ table [class*=span],
 .table .icon-remove {
   color: #e51400;
 }
+.table thead th {
+  position: relative;
+}
+.table thead .sort {
+  color: #333333;
+  display: inline-block;
+  /*
+  &:hover, &:active {
+    & > i { visibility: hidden; }
+    .sort-tip {
+      display: block;
+    }
+  }
+  */
+
+}
+.table thead .sort > i {
+  margin-left: 8px;
+}
+.table thead .sort .sort-tip {
+  position: absolute;
+  display: none;
+  width: 30px;
+  height: 57px;
+  top: -9px;
+}
+.table thead .sort .sort-tip i {
+  font-size: 20px;
+  width: 28px;
+  height: 24px;
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: solid 1px #dfdfdf;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+.table thead .sort .sort-tip i:before {
+  position: absolute;
+  left: 8px;
+}
+.table thead .sort .sort-tip i.icon-sort-up {
+  top: 0px;
+}
+.table thead .sort .sort-tip i.icon-sort-up:before {
+  top: 9px;
+}
+.table thead .sort .sort-tip i.icon-sort-down {
+  top: 29px;
+}
+.table thead .sort .sort-tip i.icon-sort-down:before {
+  top: 1px;
+}
 form {
   margin: 0 0 20px;
 }

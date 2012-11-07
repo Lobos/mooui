@@ -284,3 +284,52 @@ table [class*=span],
 .table .icon-ok { color: @green; }
 .table .icon-remove { color: @red; }
 
+.table thead th {
+  position: relative;
+}
+.table thead .sort {
+  color: @textColor;
+  display: inline-block;
+  & > i { margin-left: 8px; }
+
+  .sort-tip {
+    position: absolute;
+    display: none;
+    width: 30px;
+    height: 57px;
+    top: -9px;
+    i {
+      font-size: 20px;
+      width: 28px;
+      height: 24px;
+      position: absolute;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: @white;
+      border: solid 1px @grayLighter;
+      .box-shadow(0 0 6px rgba(0,0,0,.2));
+      &:before {
+        position: absolute;
+        left: 8px;
+      }
+
+      &.icon-sort-up {
+        top: 0px;
+        &:before { top: 9px; }
+      }
+      &.icon-sort-down {
+        top: 29px;
+        &:before { top: 1px; }
+      }
+    }
+  }
+
+  /*
+  &:hover, &:active {
+    & > i { visibility: hidden; }
+    .sort-tip {
+      display: block;
+    }
+  }
+  */
+}
