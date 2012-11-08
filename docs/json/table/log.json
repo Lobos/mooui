@@ -7,11 +7,6 @@
         {"Id":1,"LogName":"管理员","Role":"管理员","Explain":"1","Status":true,"LoginTime":"2012-11-6 9:08:48","LoginIp":"127.0.0.1"},
         {"Id":2,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
         {"Id":3,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
-        {"Id":4,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
-        {"Id":5,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
-        {"Id":6,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
-        {"Id":7,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
-        {"Id":8,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
         {"Id":9,"LogName":"销售","Role":"销售","Explain":"123","Status":true,"LoginTime":"2012-11-1 9:23:09","LoginIp":"127.0.0.1"},
         {"Id":10,"LogName":"销售2","Role":"销售","Explain":"123","Status":false,"LoginTime":"2012-9-10 10:22:32","LoginIp":null}
     ]

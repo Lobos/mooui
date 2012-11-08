@@ -1,0 +1,9 @@
+{
+    "status": 1,
+    "msg": "success",
+    "data": [
+        { "text": "管理员", "value": "1" },
+        { "text": "销售", "value": "2" },
+        { "text": "行政", "value": "3" }
+    ]
+}

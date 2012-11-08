@@ -1383,6 +1383,20 @@ table [class*=span],
 .table .pagination span {
   line-height: 26px;
   margin-left: 10px;
+  vertical-align: middle;
+}
+.table .pagination form {
+  margin: 0 0 0 6px;
+}
+.table .pagination form input[type='text'] {
+  width: 24px;
+  padding: 2px;
+}
+.table .pagination form button {
+  padding: 2px 4px;
+  font-size: 12px;
+  border: 1px solid #cccccc;
+  border-left-width: 0;
 }
 .table .icon-ok {
   color: #339933;
@@ -1444,6 +1458,12 @@ table [class*=span],
 }
 .table thead .sort .sort-tip i.icon-sort-down:before {
   top: 1px;
+}
+.table-filter > * {
+  margin-right: 5px;
+}
+.table-filter input[type="text"] {
+  width: 120px;
 }
 form {
   margin: 0 0 20px;
@@ -4614,6 +4634,7 @@ ul.icons li .icon-large:before {
   height: 40px;
   margin: 20px 0;
 }
+.pagination form,
 .pagination ul {
   display: inline-block;
   *display: inline;
@@ -4625,6 +4646,7 @@ ul.icons li .icon-large:before {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
 }
 .pagination ul > li {
   display: inline;
@@ -4633,7 +4655,7 @@ ul.icons li .icon-large:before {
 .pagination ul > li > span {
   float: left;
   padding: 0 14px;
-  line-height: 30px;
+  line-height: 28px;
   text-decoration: none;
   background-color: #ffffff;
   border: 1px solid #dfdfdf;
@@ -4665,6 +4687,18 @@ ul.icons li .icon-large:before {
 }
 .pagination-right {
   text-align: right;
+}
+.pagination form {
+  margin: 0 0 0 6px;
+}
+.pagination form input[type='text'] {
+  width: 24px;
+  border-color: #dfdfdf;
+}
+.pagination form button {
+  padding: 4px 8px;
+  border: 1px solid #dfdfdf;
+  border-left-width: 0;
 }
 .pager {
   margin: 20px 0;
