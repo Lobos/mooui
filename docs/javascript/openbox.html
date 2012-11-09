@@ -1,0 +1,48 @@
+<section id="openbox">
+    <div class="page-header">
+        <h1>MooUI.Openbox <small>mooui-openbox.js</small></h1>
+    </div>
+    <p>弹出窗口插件。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var openbox = new MooUI.Openbox(options);</pre>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>request - (object) 动态获取数据的参数。和Request.JSON.options相同。</li>
+        <li>pageAble - (bool) 是否分页。默认值： <code>true</code></li>
+        <li>filterAble - (bool) 是否显示筛选。默认值： <code>false</code></li>
+        <li>pagination - (object) MooUI.Pagination.options。</li>
+        <li>header - (json 必填) 见下。</li>
+    </ol>
+
+    <h2>Example</h2>
+
+    <h3>基础弹出窗口</h3>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <button id="btn_1" class="btn btn-primary">弹出</button>
+            <div style="padding: 20px">这是一个弹出窗体。</div>
+        </div>
+
+<pre class="bs-docs-html prettyprint linenums">
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+</pre>
+    </div>
+</section>
+<script type="text/javascript">
+    (function () {
+        var openbox_1 = new MooUI.Openbox({
+            title: '一个弹出窗体',
+            width: 400,
+            height: 240,
+            destroyOnClose: false,
+            content: $('btn_1').getNext()
+        });
+        $('btn_1').addEvent('click', function () {
+            openbox_1.open();
+        });
+    })();
+</script>

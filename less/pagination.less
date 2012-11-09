@@ -6,6 +6,10 @@
 .pagination {
   height: @baseLineHeight * 2;
   margin: @baseLineHeight 0;
+
+  * {
+    vertical-align: middle;
+  }
  }
 .pagination form,
 .pagination ul {
@@ -15,7 +19,6 @@
   margin-bottom: 0;
   //.border-radius(3px);
   .box-shadow(0 1px 2px rgba(0,0,0,.05));
-  vertical-align: middle;
 }
 .pagination ul > li {
   display: inline;
@@ -81,3 +84,24 @@
   }
 }
 
+.pagination-small {
+  height: auto;
+  ul > li > a {
+    padding: 0 9px;
+    line-height: 24px;
+  }
+  span {
+    line-height: 26px;
+    margin-left: 10px;
+  }
+
+  form {
+    input[type='text'] {
+      padding: 2px;
+    }
+    button {
+      padding: 2px 4px;
+      font-size: 12px;
+    }
+  }
+}

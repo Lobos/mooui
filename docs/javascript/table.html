@@ -90,6 +90,93 @@ header: [
         <li>load(trs, data) - trs表格行元素数组。data数据。</li>
     </ol>
 
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:load</h2>
+    <p>加载表格</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.load(options)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>options - (object) Request.JSON options参数
+            <ul>
+                <li>json - (json) 数据，如果值不为空，直接用json数据填充。ajax不执行。</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:setRequest</h2>
+    <p>修改ajax获取参数。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.setRequest(options)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>options - (object) Request.JSON options参数</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:filter</h2>
+    <p>根据filter数据加载表格。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.filter()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:checkAll</h2>
+    <p>选中/移除 全部数据。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.checkAll(b)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>b - (bool) 移除或选中全部数据。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:getChecked</h2>
+    <p>获取选中数据。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.getChecked()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>Array(object) 数据</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:getCheckedCount</h2>
+    <p>获取选中数据数量。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.getCheckedCount()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>int</li></ul>
+
+    <hr class="bs-docs-separator">
+
     <h2>Example</h2>
     <p class="alert">
         注意：sort 仅支持服务器端排序。参数为：sort[asc], sort[key]。<br />
@@ -137,7 +224,7 @@ var table_1 = new MooUI.Table('table_1', {
         { key: 'Status', name: '状态', type: 'bool', styles: { width: 40, textAlign: 'center' }, filter: { type:'bool' } }
     ],
     onLoad: function () {
-        var s = JSON.encode(this.options.request.data);
+        var s = JSON.encode(this.request.data);
         $('table_1').getNext('p').set('html', '当前表格请求数据为：' + s);
     }
 });
@@ -179,7 +266,7 @@ $('table_1').getNext('.btn-success').addEvent('click', function () {
                 { key: 'Status', name: '状态', type: 'bool', styles: { width: 40, textAlign: 'center' }, filter: { type:'bool' } }
             ],
             onLoad: function () {
-                var s = JSON.encode(this.options.request.data);
+                var s = JSON.encode(this.request.data);
                 $('table_1').getNext('p').set('html', '当前表格请求数据为：' + s).highlight('#e51400');
             }
         });
