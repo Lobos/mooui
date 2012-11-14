@@ -6,6 +6,7 @@
   position: absolute;
   background-color: @white;
   .box-shadow(0 1px 15px rgba(0,0,0,.2));
+  border: 1px solid #ccc\9;
 }
 
 .openbox-title {
@@ -21,13 +22,17 @@
     position: absolute;
     right: 5px;
     top: 8px;
-    .opacity(40);
+    .opacity(30);
     &:hover {
       .opacity(100);
     }
   }
 }
 
-.openbox-content {
+.openbox-body {
   overflow: auto;
+}
+
+.openbox-content {
+  padding: 20px;
 }

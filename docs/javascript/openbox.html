@@ -26,16 +26,35 @@
         </div>
 
 <pre class="bs-docs-html prettyprint linenums">
+&lt;button id="btn_1" class="btn btn-primary"&gt;弹出&lt;/button&gt;
+&lt;div style="padding: 20px"&gt;这是一个弹出窗体。&lt;/div&gt;
 </pre>
 
 <pre class="bs-docs-javascript prettyprint linenums">
+var openbox_1 = new MooUI.Openbox({
+    title: '一个弹出窗口',
+    width: 400,
+    height: 240,
+    destroyOnClose: false,
+    content: $('btn_1').getNext()
+});
+$('btn_1').addEvent('click', function () {
+    openbox_1.open();
+});
 </pre>
+    </div>
+
+    <h3>ajax请求窗口</h3>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <button id="btn_2" class="btn btn-primary">弹出</button>
+        </div>
     </div>
 </section>
 <script type="text/javascript">
     (function () {
         var openbox_1 = new MooUI.Openbox({
-            title: '一个弹出窗体',
+            title: '一个弹出窗口',
             width: 400,
             height: 240,
             destroyOnClose: false,
@@ -43,6 +62,17 @@
         });
         $('btn_1').addEvent('click', function () {
             openbox_1.open();
+        });
+
+        $('btn_2').addEvent('click', function () {
+            var openbox_2 = new MooUI.Openbox.Request({
+                title: '读取中...',
+                request: {
+                    method: 'get',
+                    url: 'json/openbox/page1.html'
+                }
+            });
+            openbox_2.open();
         });
     })();
 </script>

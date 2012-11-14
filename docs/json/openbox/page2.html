@@ -1,0 +1,13 @@
+<div id="openbox_page_2" style="width: 300px; height: 500px;">
+    这是page2
+    <a href="javascript:;">page2</a>
+</div>
+<script type="text/javascript">
+    (function () {
+        var openbox = $('openbox_page_2').getParent().retrieve('openbox');
+        openbox.changeTitle('page2');
+        $('openbox_page_2').getElement('a').addEvent('click', function () {
+            openbox.load({url: 'json/openbox/page1.html'});
+        });
+    })();
+</script>
