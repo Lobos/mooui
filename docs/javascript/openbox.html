@@ -22,7 +22,6 @@
     <div class="nav-example-wrapper">
         <div class="bs-docs-example">
             <button id="btn_1" class="btn btn-primary">弹出</button>
-            <div style="padding: 20px">这是一个弹出窗体。</div>
         </div>
 
 <pre class="bs-docs-html prettyprint linenums">
@@ -44,10 +43,20 @@ $('btn_1').addEvent('click', function () {
 </pre>
     </div>
 
-    <h3>ajax请求窗口</h3>
+    <h3>拖动和改变尺寸</h3>
     <div class="nav-example-wrapper">
         <div class="bs-docs-example">
             <button id="btn_2" class="btn btn-primary">弹出</button>
+            <button class="btn btn-inverse">锁定</button>
+            <button class="btn btn-success">取消锁定</button>
+            <div class="openbox-content">这是一个可以拖动的窗体。</div>
+        </div>
+    </div>
+
+    <h3>ajax请求窗口</h3>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <button id="btn_3" class="btn btn-primary">弹出</button>
         </div>
     </div>
 </section>
@@ -58,21 +67,41 @@ $('btn_1').addEvent('click', function () {
             width: 400,
             height: 240,
             destroyOnClose: false,
-            content: $('btn_1').getNext()
+            content: '一个可以拖动的窗口'
         });
         $('btn_1').addEvent('click', function () {
             openbox_1.open();
         });
 
+        var openbox_2 = new MooUI.Openbox({
+            title: '我可以拖动',
+            width: 400,
+            height: 240,
+            overlayOpacity: 0,
+            destroyOnClose: false,
+            dragAble: true,
+            resizeAble: true,
+            content: $('btn_2').getNext('div')
+        });
         $('btn_2').addEvent('click', function () {
-            var openbox_2 = new MooUI.Openbox.Request({
+            openbox_2.open();
+        });
+        $('btn_2').getNext('.btn-inverse').addEvent('click', function () {
+            openbox_2.lock().set('title', '我被锁住了');
+        });
+        $('btn_2').getNext('.btn-success').addEvent('click', function () {
+            openbox_2.unlock().set('title', '我可以拖动');
+        });
+
+        $('btn_3').addEvent('click', function () {
+            var openbox_3 = new MooUI.Openbox.Request({
                 title: '读取中...',
                 request: {
                     method: 'get',
                     url: 'json/openbox/page1.html'
                 }
             });
-            openbox_2.open();
+            openbox_3.open();
         });
     })();
 </script>
