@@ -9,12 +9,130 @@
 
     <h3>Options:</h3>
     <ol>
-        <li>request - (object) 动态获取数据的参数。和Request.JSON.options相同。</li>
-        <li>pageAble - (bool) 是否分页。默认值： <code>true</code></li>
-        <li>filterAble - (bool) 是否显示筛选。默认值： <code>false</code></li>
-        <li>pagination - (object) MooUI.Pagination.options。</li>
-        <li>header - (json 必填) 见下。</li>
+        <li>id - (string, 可为空) openbox的id，为空时自动创建。</li>
+        <li>container - (string 或者 element, 可为空) openbox的外部容器，默认为document.body。</li>
+        <li>title - (string) 头部标题。</li>
+        <li>content - (string 或者 element) 内容。</li>
+        <li>pad - (int) 距离屏幕的最小边距。（双边合计值），默认值： <code>100</code></li>
+        <li>width - (int 或 'auto') 弹出窗口宽度，当值为 <code>auto</code>时，自动适应内部内容。默认值： <code>auto</code></li>
+        <li>height - (int 或 'auto') 弹出窗口高度（不包含标题和底部按钮），当值为 <code>auto</code>时，自动适应内部内容。默认值： <code>auto</code></li>
+        <li>opacity - (0-1小数) 窗口透明度，默认值： <code>1</code></li>
+        <li>overlayOpacity - (0-1小数) 背景遮罩层透明度，当值为 <code>0</code>时，不设置遮罩层。默认值： <code>0.1</code></li>
+        <li>closeOnOverlayClick - (bool) 点击背景遮罩层时，关闭窗口。默认值： <code>true</code></li>
+        <li>destroyOnClose - (bool) 关闭时是否销毁整个对象。默认值： <code>false</code></li>
+        <li>arise - (bool) 点击窗口时，移动到最上层。默认值： <code>false</code></li>
+        <li>fixed - (bool) 窗口位置是否固定定位（为<code>false</code>时使用<code>absolute</code>）。默认值： <code>true</code></li>
+        <li>maskAll - (bool) 使用内部遮罩时是否包含标题栏和按钮。默认值： <code>true</code></li>
+        <li>showTitle - (bool) 是否显示标题。默认值： <code>true</code></li>
+        <li>showClose - (bool) 是否显示关闭按钮。默认值： <code>true</code></li>
+        <li>dragAble - (bool) 是否可以拖动。默认值： <code>false</code></li>
+        <li>resizeAble - (bool) 是否可以拖动改变尺寸。默认值： <code>false</code></li>
+        <li>position - (object 可为空) 窗口显示位置，参考element.style。默认为空，窗口显示在屏幕正中。</li>
+        <li>duration - (int) 窗口显示/隐藏动画执行时间。默认值： <code>200</code></li>
+        <li>css - (object) 窗口元素类名。</li>
+        <li>buttons - (array)
+            <ul>
+                <li>text - (string) 按钮文字。</li>
+                <li>events - (function 或 object) 当值为function时，添加<code>click</code>事件。为空时，添加关闭窗口事件。</li>
+                <li>type - (string) 按钮样式。可选值为 <code>primary|success|info|danger|warning|inverse</code></li>
+            </ul>
+        </li>
     </ol>
+
+    <h3>Events:</h3>
+    <ol>
+        <li>close(data) - 窗口关闭时触发事件。</li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:open</h2>
+    <p>打开窗口</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.open()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:close</h2>
+    <p>关闭窗口</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.close(data)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>data - 任意格式。供 <code>close</code>事件调用。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:arise</h2>
+    <p>窗口移动到最上层</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.arise()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:destroy</h2>
+    <p>销毁对象</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.destroy()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>无</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:lock</h2>
+    <p>窗口设置移动或改变大小时，锁定窗口。</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.lock()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:unlock</h2>
+    <p>取消锁定。</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.unlock()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:set</h2>
+    <p>设置。</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.set(property, content)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>property - (string) 可选值 <code>title|content</code>。</li>
+        <li>content - (string 或者 element) 同options.content。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身</li></ul>
+
+    <hr class="bs-docs-separator">
 
     <h2>Example</h2>
 
@@ -26,16 +144,19 @@
 
 <pre class="bs-docs-html prettyprint linenums">
 &lt;button id="btn_1" class="btn btn-primary"&gt;弹出&lt;/button&gt;
-&lt;div style="padding: 20px"&gt;这是一个弹出窗体。&lt;/div&gt;
 </pre>
 
 <pre class="bs-docs-javascript prettyprint linenums">
 var openbox_1 = new MooUI.Openbox({
     title: '一个弹出窗口',
     width: 400,
-    height: 240,
+    height: 200,
     destroyOnClose: false,
-    content: $('btn_1').getNext()
+    content: '一个弹出的窗口',
+    buttons: [
+        { text: '测试', events: function () { alert('test'); }, type: 'primary' },
+        { text: '关闭' }
+    ]
 });
 $('btn_1').addEvent('click', function () {
     openbox_1.open();
@@ -51,23 +172,104 @@ $('btn_1').addEvent('click', function () {
             <button class="btn btn-success">取消锁定</button>
             <div class="openbox-content">这是一个可以拖动的窗体。</div>
         </div>
+
+<pre class="bs-docs-html prettyprint linenums">
+&lt;button id="btn_2" class="btn btn-primary"&gt;弹出&lt;/button&gt;
+&lt;button class="btn btn-inverse"&gt;锁定&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;取消锁定&lt;/button&gt;
+&lt;div class="openbox-content"&gt;这是一个可以拖动的窗体。&lt;/div&gt;
+</pre>
+<pre class="bs-docs-javascript prettyprint linenums">
+var openbox_2 = new MooUI.Openbox({
+    title: '我可以拖动',
+    width: 400,
+    height: 240,
+    overlayOpacity: 0,
+    destroyOnClose: false,
+    dragAble: true,
+    resizeAble: true,
+    content: $('btn_2').getNext('div')
+});
+$('btn_2').addEvent('click', function () {
+    openbox_2.open();
+});
+$('btn_2').getNext('.btn-inverse').addEvent('click', function () {
+    openbox_2.lock().set('title', '我被锁住了');
+});
+$('btn_2').getNext('.btn-success').addEvent('click', function () {
+    openbox_2.unlock().set('title', '我可以拖动');
+});
+</pre>
     </div>
 
-    <h3>ajax请求窗口</h3>
+    <div class="page-header">
+        <h1>MooUI.Openbox.Request <small>mooui-openbox.js</small></h1>
+    </div>
+    <p>继承于 MooUI.Openbox。ajax请求数据。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var openbox = new MooUI.Openbox.Request(options);</pre>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>destroyOnClose - 默认值为 <code>true</code></li>
+        <li>request - (object) 参见 Request.HTML.options。</li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:load</h2>
+    <p>读取数据</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.load(options)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>options - (object) 参见 Request.HTML.options。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
     <div class="nav-example-wrapper">
         <div class="bs-docs-example">
             <button id="btn_3" class="btn btn-primary">弹出</button>
         </div>
+<pre class="bs-docs-html prettyprint linenums">
+&lt;button id="btn_3" class="btn btn-primary"&gt;弹出&lt;/button&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+$('btn_3').addEvent('click', function () {
+    var openbox_3 = new MooUI.Openbox.Request({
+        title: '读取中...',
+        request: {
+            method: 'get',
+            url: 'json/openbox/page1.html'
+        }
+    });
+    openbox_3.open();
+});
+</pre>
     </div>
+
 </section>
 <script type="text/javascript">
     (function () {
         var openbox_1 = new MooUI.Openbox({
             title: '一个弹出窗口',
             width: 400,
-            height: 240,
+            height: 200,
             destroyOnClose: false,
-            content: '一个可以拖动的窗口'
+            content: '一个弹出的窗口',
+            buttons: [
+                { text: '测试', events: function () { alert('test'); }, type: 'primary' },
+                { text: '关闭' }
+            ]
         });
         $('btn_1').addEvent('click', function () {
             openbox_1.open();

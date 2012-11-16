@@ -5,7 +5,7 @@
 <script type="text/javascript">
     (function () {
         var openbox = $('openbox_page_2').getParent().retrieve('openbox');
-        openbox.changeTitle('page2');
+        openbox.set('title', 'page2');
         $('openbox_page_2').getElement('a').addEvent('click', function () {
             openbox.load({url: 'json/openbox/page1.html'});
         });
