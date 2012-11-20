@@ -49,6 +49,7 @@
   position: relative;
   padding: 0 60px 0 10px;
   height: 40px;
+  line-height: 40px;
   h3 {
     margin: 0;
     color: @grayDark;
@@ -56,9 +57,7 @@
   }
 }
 
-.openbox-body {
-  overflow: auto;
-}
+.openbox-body {}
 
 .openbox-content {
   padding: 0 20px;
@@ -78,5 +77,37 @@
   }
   button:last-child {
     margin-right: 0;
+  }
+}
+
+.openbox-image {
+  .openbox-bottom {
+    border-width: 0;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+
+    a {
+      margin-right: 5px;
+      .transition-duration(1s);
+      .opacity(30);
+      &:not(.disabled):hover, &:not(.disabled):active {
+        .opacity(100);
+      }
+
+      &.disabled {
+        cursor: default;
+        .opacity(8);
+      }
+    }
+  }
+
+  .openbox-close {
+    top: auto;
+    bottom: 4px;
+  }
+
+  .openbox-body {
+    padding: 8px 8px 0;
   }
 }

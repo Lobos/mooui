@@ -1,4 +1,4 @@
-<section id="openbox">
+<section id="openbox" xmlns="http://www.w3.org/1999/html">
     <div class="page-header">
         <h1>MooUI.Openbox <small>mooui-openbox.js</small></h1>
     </div>
@@ -257,6 +257,30 @@ $('btn_3').addEvent('click', function () {
 </pre>
     </div>
 
+    <div class="page-header">
+        <h1>MooUI.Openbox.Request <small>mooui-openbox.js</small></h1>
+    </div>
+    <p>继承于 MooUI.Openbox。ajax请求数据。</p>
+
+    <h2>Example</h2>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <div id="openbox_4">
+                <a href="http://farm9.staticflickr.com/8339/8198864140_4af010e628.jpg">
+                    <img src="http://farm9.staticflickr.com/8339/8198864140_4af010e628_t.jpg" />
+                </a>
+                <a href="http://farm9.staticflickr.com/8477/8200328692_ab6112ca3f_z.jpg">
+                    <img src="http://farm9.staticflickr.com/8477/8200328692_ab6112ca3f_t.jpg" />
+                </a>
+                <a href="http://farm9.staticflickr.com/8487/8187950900_3d31a8ea26_o.jpg">
+                    <img src="http://farm9.staticflickr.com/8487/8187950900_d7e15b2d72_t.jpg" alt="" />
+                </a>
+            </div>
+        </div>
+<pre class="bs-docs-html prettyprint linenums">
+&lt;button id="btn_3" class="btn btn-primary"&gt;弹出&lt;/button&gt;
+</pre>
+    </div>
 </section>
 <script type="text/javascript">
     (function () {
@@ -305,5 +329,7 @@ $('btn_3').addEvent('click', function () {
             });
             openbox_3.open();
         });
+
+        new MooUI.Openbox.Image('#openbox_4 a');
     })();
 </script>

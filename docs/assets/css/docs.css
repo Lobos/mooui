@@ -5157,14 +5157,12 @@ a.badge:hover {
   position: relative;
   padding: 0 60px 0 10px;
   height: 40px;
+  line-height: 40px;
 }
 .openbox-title h3 {
   margin: 0;
   color: #545454;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.openbox-body {
-  overflow: auto;
 }
 .openbox-content {
   padding: 0 20px;
@@ -5183,6 +5181,38 @@ a.badge:hover {
 }
 .openbox-buttons button:last-child {
   margin-right: 0;
+}
+.openbox-image .openbox-bottom {
+  border-width: 0;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+}
+.openbox-image .openbox-bottom a {
+  margin-right: 5px;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.openbox-image .openbox-bottom a:not(.disabled):hover,
+.openbox-image .openbox-bottom a:not(.disabled):active {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.openbox-image .openbox-bottom a.disabled {
+  cursor: default;
+  opacity: 0.08;
+  filter: alpha(opacity=8);
+}
+.openbox-image .openbox-close {
+  top: auto;
+  bottom: 4px;
+}
+.openbox-image .openbox-body {
+  padding: 8px 8px 0;
 }
 .well {
   min-height: 20px;
