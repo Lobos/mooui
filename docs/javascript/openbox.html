@@ -260,7 +260,23 @@ $('btn_3').addEvent('click', function () {
     <div class="page-header">
         <h1>MooUI.Openbox.Request <small>mooui-openbox.js</small></h1>
     </div>
-    <p>继承于 MooUI.Openbox。ajax请求数据。</p>
+    <p>
+        继承于 MooUI.Openbox。ajax请求数据。
+    </p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var openbox = new MooUI.Openbox.Image(elements, options);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>elements - (string 或 elements) css3 选择器或者元素数组。</li>
+        <li>options - (object) 参见 options。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>key - (string) 获取图片地址的属性。默认值： <code>href</code></li>
+    </ol>
 
     <h2>Example</h2>
     <div class="nav-example-wrapper">
@@ -278,7 +294,21 @@ $('btn_3').addEvent('click', function () {
             </div>
         </div>
 <pre class="bs-docs-html prettyprint linenums">
-&lt;button id="btn_3" class="btn btn-primary"&gt;弹出&lt;/button&gt;
+&lt;div id="openbox_4"&gt;
+    &lt;a href="http://farm9.staticflickr.com/8339/8198864140_4af010e628.jpg"&gt;
+        &lt;img src="http://farm9.staticflickr.com/8339/8198864140_4af010e628_t.jpg" /&gt;
+    &lt;/a&gt;
+    &lt;a href="http://farm9.staticflickr.com/8477/8200328692_ab6112ca3f_z.jpg"&gt;
+        &lt;img src="http://farm9.staticflickr.com/8477/8200328692_ab6112ca3f_t.jpg" /&gt;
+    &lt;/a&gt;
+    &lt;a href="http://farm9.staticflickr.com/8487/8187950900_3d31a8ea26_o.jpg"&gt;
+        &lt;img src="http://farm9.staticflickr.com/8487/8187950900_d7e15b2d72_t.jpg" alt="" /&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+new MooUI.Openbox.Image('#openbox_4 a');
 </pre>
     </div>
 </section>
@@ -331,5 +361,6 @@ $('btn_3').addEvent('click', function () {
         });
 
         new MooUI.Openbox.Image('#openbox_4 a');
+
     })();
 </script>
