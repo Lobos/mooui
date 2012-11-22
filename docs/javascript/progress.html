@@ -1,0 +1,140 @@
+<section id="progress">
+    <div class="page-header">
+        <h1>MooUI.ProgressBar <small>mooui-progressbar.js</small></h1>
+    </div>
+    <p>进度条。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var progress = new MooUI.ProgressBar(element, options);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>element - (string 或者 element) 进度条css3选择器或者元素。</li>
+        <li>options - (object)</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>barClass - (string) 内滑动条类名。默认值： <code>bar</code></li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:set</h2>
+    <p>设置当前值。</p>
+
+    <h3>Syntax:</h3>
+    <pre>progress.set(to)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>to - (int) 设定的位置值，单位<code>%</code></li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:start</h2>
+    <p>移动到设定值。</p>
+
+    <h3>Syntax:</h3>
+    <pre>progress.start(to, total)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>to - (int) 移动到的位置值，如果<code>total</code>为空，单位为<code>%</code>。如果<code>total</code>有数值，无单位。</li>
+        <li>total - (int 可为空) 如果不为空，移动位置为 <code>to/total</code>的百分比。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:imitation</h2>
+    <p>模拟进度条。</p>
+
+    <h3>Syntax:</h3>
+    <pre>progress.imitation(total)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>total - (int) 用来控制模拟速度。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
+
+    <h3>进度</h3>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <div id="progress_1" class="progress progress-striped"></div>
+            <button class="btn btn-primary">测试</button>
+            <span></span>
+        </div>
+<pre class="bs-docs-html prettyprint linenums">
+&lt;div id="progress_1" class="progress progress-striped"&gt;&lt;/div&gt;
+&lt;button class="btn btn-primary"&gt;测试&lt;/button&gt;
+&lt;span&gt;&lt;/span&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+var progress_1 = new MooUI.ProgressBar('progress_1', {
+    onComplete: function () {
+        $('progress_1').getNext('span').set('html', 'done');
+    }
+});
+$('progress_1').getNext('.btn').addEvent('click', function () {
+    progress_1.set(0).imitation(100);
+});
+</pre>
+    </div>
+
+
+    <h3>设置进度</h3>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <div id="progress_2" class="progress progress-striped"></div>
+            <button class="btn btn-primary" rel="20">20%</button>
+            <button class="btn btn-success" rel="60">60%</button>
+            <button class="btn btn-warning" rel="100">100%</button>
+        </div>
+<pre class="bs-docs-html prettyprint linenums">
+&lt;div id="progress_2" class="progress progress-striped"&gt;&lt;/div&gt;
+&lt;button class="btn btn-primary" rel="20"&gt;20%&lt;/button&gt;
+&lt;button class="btn btn-success" rel="60"&gt;60%&lt;/button&gt;
+&lt;button class="btn btn-warning" rel="100"&gt;100%&lt;/button&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+var progress_2 = new MooUI.ProgressBar('progress_2');
+$('progress_2').getAllNext('.btn').addEvent('click', function () {
+    progress_2.set(this.get('rel'));
+});
+</pre>
+    </div>
+
+</section>
+<script type="text/javascript">
+    (function () {
+        var progress_1 = new MooUI.ProgressBar('progress_1', {
+            onComplete: function () {
+                $('progress_1').getNext('span').set('html', 'done');
+            }
+        });
+        $('progress_1').getNext('.btn').addEvent('click', function () {
+            progress_1.set(0).imitation(100);
+        });
+
+        var progress_2 = new MooUI.ProgressBar('progress_2');
+        $('progress_2').getAllNext('.btn').addEvent('click', function () {
+            progress_2.set(this.get('rel'));
+        });
+    })();
+</script>

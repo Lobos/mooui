@@ -69,7 +69,9 @@
                 { txt: 'Select', url: 'javascript/select.html' },
                 { txt: 'Pagination', url: 'javascript/pagination.html' },
                 { txt: 'Tables', url: 'javascript/table.html' },
-                { txt: 'Openbox', url: 'javascript/openbox.html' }
+                { txt: 'Openbox', url: 'javascript/openbox.html' },
+                { txt: 'ProgressBar', url: 'javascript/progress.html' },
+                { txt: 'Global', url: 'javascript/global.html' }
             ]
         }];
 

@@ -111,3 +111,45 @@
     padding: 8px 8px 0;
   }
 }
+
+.openbox-alert {
+  color: @white;
+  background-color: @blue;
+
+  /*
+  padding-left: 58px;
+  position: relative;
+
+  &:before {
+    .icon-awesome-style;
+    font-size: 30px;
+    content: "\f071";
+    color: @white;
+    position: absolute;
+    top: 28px;
+    left: 14px;
+    vertical-align: middle;
+  }
+
+  .openbox-content {
+    padding: 0 20px 0 0;
+  }
+  */
+
+  &.success { background-color: @green; }
+  &.warning { background-color: @orange; }
+  &.danger { background-color: @red; }
+  &.info { background-color: @teal; }
+
+  .openbox-buttons {
+    background-color: transparent;
+  }
+
+  .btn {
+    background-color: @white;
+
+    &:active {
+      background-color: @black;
+    }
+  }
+}

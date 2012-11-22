@@ -5214,6 +5214,51 @@ a.badge:hover {
 .openbox-image .openbox-body {
   padding: 8px 8px 0;
 }
+.openbox-alert {
+  color: #ffffff;
+  background-color: #1ba1e2;
+  /*
+  padding-left: 58px;
+  position: relative;
+
+  &:before {
+    .icon-awesome-style;
+    font-size: 30px;
+    content: "\f071";
+    color: @white;
+    position: absolute;
+    top: 28px;
+    left: 14px;
+    vertical-align: middle;
+  }
+
+  .openbox-content {
+    padding: 0 20px 0 0;
+  }
+  */
+
+}
+.openbox-alert.success {
+  background-color: #339933;
+}
+.openbox-alert.warning {
+  background-color: #f09609;
+}
+.openbox-alert.danger {
+  background-color: #e51400;
+}
+.openbox-alert.info {
+  background-color: #00aba9;
+}
+.openbox-alert .openbox-buttons {
+  background-color: transparent;
+}
+.openbox-alert .btn {
+  background-color: #ffffff;
+}
+.openbox-alert .btn:active {
+  background-color: #000000;
+}
 .well {
   min-height: 20px;
   padding: 19px;

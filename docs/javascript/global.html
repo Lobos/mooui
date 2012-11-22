@@ -1,0 +1,39 @@
+<section id="global">
+    <div class="page-header">
+        <h1>MooUI.Global <small>mooui.js</small></h1>
+    </div>
+    <p>一些常用方法。</p>
+
+
+    <h2>Methods:alert</h2>
+    <p>警告窗口，类似window.alert。</p>
+
+    <h3>Syntax:</h3>
+    <pre>MooUI.Global.alert(message)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>message - () </li>
+    </ol>
+
+    <h3>Example:</h3>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <form class="form-inline">
+                <input type="text" class="span4" value="这是一个警告窗口，类似于window.alert，但是并没有阻塞功能。" />
+                <button id="btn_alert" type="button" class="btn btn-primary">alert</button>
+            </form>
+        </div>
+    </div>
+
+    <hr class="bs-docs-separator">
+
+</section>
+<script type="text/javascript">
+    (function () {
+        $('btn_alert').addEvent('click', function () {
+            var text = this.getPrevious().get('value');
+            MooUI.Global.alert(text);
+        });
+    })();
+</script>
