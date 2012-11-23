@@ -1,0 +1,29 @@
+<section>
+    <h3>简单的说明</h3>
+    <p>
+        这是一个在 <a target="_blank" href="http://twitter.github.com/bootstrap/">bootstrap</a>基础上修改的UI框架。<br />
+        没有bootstrap那么强大的css生成器，如果需要修改，推荐安装 nodejs下的less模块生成css文件，使用uglify-js模块压缩js文件。
+        <ol>
+            <li>首先到 <a href="http://nodejs.org/">node.js</a>的官网下载node的最新版本，安装。</li>
+            <li>
+                使用 npm 安装uglify-js和less，可能会比较慢。
+                <pre>npm install -g uglify-js less</pre>
+            </li>
+            <li>如果使用less的时候遇到错误，建议使用 <a href="https://github.com/cloudhead/less.js">github的源文件</a> 替换掉npm安装目录下的less文件。</li>
+        </ol>
+    </p>
+    <h3>主要区别的地方</h3>
+    <ul>
+        <li>稍微偏向metro风格，类名称基本保留 bootstrap 原版。</li>
+        <li>图标替换为 <a target="_blank" href="http://fortawesome.github.com/Font-Awesome/">font-awesome</a>。</li>
+        <li>javascript使用了<span class="label label-warning">mootools框架，而不是jquery</span>，基本是我自己写的插件，功能和 bootstrap 原版的差异很大。</li>
+    </ul>
+
+    <h3>版权协议</h3>
+    <ul>
+        <li>less部分沿用 bootstrap 的协议， <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a></li>
+        <li>文档部分大部分使用了 bootstrap 的文档，沿用原文档协议 <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></li>
+        <li>图标部分请遵守 font-awesome 的 <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>协议。</li>
+        <li>javascript部分，使用 <a href="http://www.opensource.org/licenses/mit-license.php">MIT license。</a></li>
+    </ul>
+</section>

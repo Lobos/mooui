@@ -5110,30 +5110,21 @@ a.badge:hover {
   position: absolute;
   visibility: hidden;
   background-color: #ffffff;
-  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid #dfdfdf;
+  -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .openbox .loading {
   min-width: 320px;
   min-height: 180px;
 }
-.openbox .openbox-close {
+.openbox .close {
+  color: #000000;
   position: absolute;
-  right: 5px;
-  top: 8px;
-  opacity: 0.3;
-  filter: alpha(opacity=30);
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-}
-.openbox .openbox-close:hover,
-.openbox .openbox-close:active {
-  opacity: 1;
-  filter: alpha(opacity=100);
+  right: 10px;
+  top: 6px;
 }
 .openbox .openbox-drag {
   cursor: move;
@@ -5161,6 +5152,7 @@ a.badge:hover {
 }
 .openbox-title h3 {
   margin: 0;
+  font-size: 18px;
   color: #545454;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -5207,12 +5199,37 @@ a.badge:hover {
   opacity: 0.08;
   filter: alpha(opacity=8);
 }
-.openbox-image .openbox-close {
-  top: auto;
-  bottom: 4px;
+.openbox-image .image-close {
+  right: 8px;
+  bottom: 5px;
+  position: absolute;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+.openbox-image .image-close:hover,
+.openbox-image .image-close:active {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.openbox-image .openbox-tip {
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  position: absolute;
+  width: 100%;
+  cursor: pointer;
+  bottom: 0;
+}
+.openbox-image .openbox-tip p {
+  margin: 0;
+  padding: 5px 7px;
 }
 .openbox-image .openbox-body {
-  padding: 8px 8px 0;
+  margin: 8px 8px 0;
+  position: relative;
 }
 .openbox-alert {
   color: #ffffff;
@@ -5237,6 +5254,9 @@ a.badge:hover {
   }
   */
 
+}
+.openbox-alert h4 {
+  margin: 0;
 }
 .openbox-alert.success {
   background-color: #339933;
@@ -5284,16 +5304,21 @@ a.badge:hover {
   font-size: 14px;
   font-weight: bold;
   line-height: 20px;
+  color: #000000;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
   text-shadow: 0 1px 0 #ffffff;
-  opacity: 0.2;
-  filter: alpha(opacity=20);
+  opacity: 0.3;
+  filter: alpha(opacity=30);
 }
 .close:hover {
   color: #000000;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  opacity: 0.8;
+  filter: alpha(opacity=80);
 }
 .close:after {
   font-family: 'FontAwesome';

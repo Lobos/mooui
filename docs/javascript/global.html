@@ -9,31 +9,126 @@
     <p>警告窗口，类似window.alert。</p>
 
     <h3>Syntax:</h3>
-    <pre>MooUI.Global.alert(message)</pre>
+    <pre>MooUI.Global.alert(message, type, options)</pre>
 
     <h3>Arguments:</h3>
     <ol>
-        <li>message - () </li>
+        <li>message - (string 或者 element) 信息内容。</li>
+        <li>type - (string 可为空) 样式，可选值为 <code>success|danger|warning|info</code></li>
+        <li>options - (object) Openbox参数。</li>
     </ol>
 
     <h3>Example:</h3>
     <div class="nav-example-wrapper">
         <div class="bs-docs-example">
-            <form class="form-inline">
+            <form id="form_alert" class="form-inline">
                 <input type="text" class="span4" value="这是一个警告窗口，类似于window.alert，但是并没有阻塞功能。" />
-                <button id="btn_alert" type="button" class="btn btn-primary">alert</button>
+                <button type="button" class="btn btn-primary" rel="">alert</button>
+                <button type="button" class="btn btn-success" rel="success">success</button>
+                <button type="button" class="btn btn-danger" rel="danger">danger</button>
+                <button type="button" class="btn btn-warning" rel="warning">warning</button>
+                <button type="button" class="btn btn-info" rel="info">info</button>
             </form>
         </div>
+<pre class="bs-docs-html prettyprint linenums">
+&lt;form id="form_alert" class="form-inline"&gt;
+    &lt;input type="text" class="span4" value="这是一个警告窗口，类似于window.alert，但是并没有阻塞功能。" /&gt;
+    &lt;button type="button" class="btn btn-primary" rel=""&gt;alert&lt;/button&gt;
+    &lt;button type="button" class="btn btn-success" rel="success"&gt;success&lt;/button&gt;
+    &lt;button type="button" class="btn btn-danger" rel="danger"&gt;danger&lt;/button&gt;
+    &lt;button type="button" class="btn btn-warning" rel="warning"&gt;warning&lt;/button&gt;
+    &lt;button type="button" class="btn btn-info" rel="info"&gt;info&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+$$('#form_alert button').addEvent('click', function () {
+    var text = $('form_alert').getElement('input').get('value');
+    MooUI.Global.alert(text, this.get('rel'));
+});
+</pre>
     </div>
 
-    <hr class="bs-docs-separator">
+    <br>
+    <h2>Methods:confirm</h2>
+    <p>确认窗口。</p>
+
+    <h3>Syntax:</h3>
+    <pre>MooUI.Global.confirm(message, fn, options)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>message - (string 或者 element) 信息内容。</li>
+        <li>fn - (function) 确认回调方法，如果在options中自定义buttons，可以省略。</li>
+        <li>options - (object) Openbox参数。</li>
+    </ol>
+
+    <h3>Example:</h3>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <form id="form_confirm" class="form-inline">
+                <input type="text" class="span4" value="这是一个确认窗口，如果你点了确定呢，就表示你要这么做。如果你点了取消呢，就表示你不要这么做。" />
+                <button type="button" class="btn btn-primary" rel="">默认按钮</button>
+                <button type="button" class="btn btn-success" rel="">自定义按钮</button>
+            </form>
+        </div>
+<pre class="bs-docs-html prettyprint linenums">
+&lt;form id="form_confirm" class="form-inline"&gt;
+    &lt;input type="text" class="span4" value="这是一个确认窗口，如果你点了确定呢，就表示你要这么做。如果你点了取消呢，就表示你不要这么做。" /&gt;
+    &lt;button type="button" class="btn btn-primary" rel=""&gt;默认按钮&lt;/button&gt;
+    &lt;button type="button" class="btn btn-success" rel=""&gt;自定义按钮&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+var text = '&lt;h4&gt;亲，你确定要这么做么?&lt;/h4&gt;' +
+        $('form_confirm').getElement('input').get('value');
+$('form_confirm').getElement('.btn-primary').addEvent('click', function () {
+    var fn = function () {
+        MooUI.Global.alert('好吧，就这样吧。');
+    };
+    MooUI.Global.confirm(text, fn);
+});
+$('form_confirm').getElement('.btn-success').addEvent('click', function () {
+    MooUI.Global.confirm(text, {
+        buttons: [
+            { text: '是的，我已经决定了', type: 'primary', events: function () {
+                MooUI.Global.alert('为什么要这样...');
+                this.close();
+            } },
+            { text: '让我再想一想吧' }
+        ]
+    });
+});
+</pre>
+    </div>
 
 </section>
 <script type="text/javascript">
     (function () {
-        $('btn_alert').addEvent('click', function () {
-            var text = this.getPrevious().get('value');
-            MooUI.Global.alert(text);
+        $$('#form_alert button').addEvent('click', function () {
+            var text = $('form_alert').getElement('input').get('value');
+            MooUI.Global.alert(text, this.get('rel'));
+        });
+
+        var text = '<h4>亲，你确定要这么做么?</h4>' +
+                $('form_confirm').getElement('input').get('value');
+        $('form_confirm').getElement('.btn-primary').addEvent('click', function () {
+            var fn = function () {
+                MooUI.Global.alert('好吧，就这样吧。');
+            };
+            MooUI.Global.confirm(text, fn);
+        });
+        $('form_confirm').getElement('.btn-success').addEvent('click', function () {
+            MooUI.Global.confirm(text, {
+                buttons: [
+                    { text: '是的，我已经决定了', type: 'primary', events: function () {
+                        MooUI.Global.alert('为什么要这样...');
+                        this.close();
+                    } },
+                    { text: '让我再想一想吧' }
+                ]
+            });
         });
     })();
 </script>

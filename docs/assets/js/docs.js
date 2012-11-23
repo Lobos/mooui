@@ -29,7 +29,7 @@
         });
 
         var menus = [{
-            txt: 'Home', icon: 'home', url: ''
+            txt: 'Home', icon: 'home', url: 'home.html'
         }, {
             txt: 'Scaffolding', icon: 'table', submenu: [
                 { txt: 'Global styles', url: 'scaffolding/global.html' },
@@ -82,7 +82,12 @@
             var lnk = new Element('a', {
                 'html': m.txt,
                 'class': 'handle-' + (i+1),
-                'href': 'javascript:;'
+                'href': 'javascript:;',
+                'events': {
+                    click: function () {
+                        if (m.url) $g.loadPage(m.url);
+                    }
+                }
             });
             var dt = new Element('dt').grab(lnk).inject(sidebar_menu);
             if (m.icon)
