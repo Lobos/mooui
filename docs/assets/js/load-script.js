@@ -6,7 +6,6 @@
         'mooui.js',
         'mooui-exts.js',
         'mooui-progressbar.js',
-        //'mooupload.js',
         'mooui-pagination.js',
         'mooui-openbox.js',
         'mooui-select.js',
