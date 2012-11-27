@@ -1,0 +1,14 @@
+{
+    "status": 1,
+    "msg": "success",
+    "data": [
+        { "text": "天津", "value": "TianJing" },
+        { "text": "西安", "value": "XiAn" },
+        { "text": "上海", "value": "ShangHai" },
+        { "text": "广州", "value": "GuangZhou" },
+        { "text": "南京", "value": "NanJing" },
+        { "text": "南宁", "value": "NanNing" },
+        { "text": "南昌", "value": "NanChang" },
+        { "text": "北京", "value": "BeiJing" }
+    ]
+}

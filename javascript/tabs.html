@@ -1,0 +1,94 @@
+<section id="tabs">
+    <div class="page-header">
+        <h1>MooUI.Tabs <small>mooui-tabs.js</small></h1>
+    </div>
+    <p>一个简单的标签切换插件。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var fv = new MooUI.Tabs(tabs, slides[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>tabs - (string 或者 elements) 标签，css3选择器或者元素数组。</li>
+        <li>slides - (string 或者 elements) 内容项，css3选择器或者元素数组。和标签对应。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>activeClass - (string) 标签显示/隐藏时增加的class名。默认值为 <code>active</code></li>
+        <li>slideClass - (string) ajax动态添加的内容容器类名。</li>
+        <li>lazyLoad - (bool) 为<code>true</code>时，如果标签内容为ajax获取，将会延时到显示时才获取。为
+            <code>flase</code>时，在tabs创建时获取。默认值为 <code>true</code></li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 MooUI.Tabs 对象</li></ul>
+
+    <h2>Methods:addTab</h2>
+    <p>动态添加一个标签。</p>
+
+    <h3>Syntax:</h3>
+    <pre>fv.addTab(tab, slide)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>tab - (element) 标签元素。</li>
+        <li>slide - (element) 可为null。为null时，通过 <code>tab.ajax</code> 获取ajax内容。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 对象本身。</li></ul>
+
+    <h2>Example</h2>
+    <ul id="nav-example-tabs" class="nav nav-tabs docs-nav-tabs">
+        <li class="handle active"><a href="javascript:;">Example</a></li>
+        <li class="handle"><a href="javascript:;">Html</a></li>
+        <li class="handle"><a href="javascript:;">Javascript</a></li>
+    </ul>
+
+    <div style="min-height: 300px;">
+    <div class="sub-content">
+        我是一个tab示例。
+    </div>
+
+    <pre class="prettyprint linenums sub-content">
+&lt;ul id="nav-example-tabs" class="nav nav-tabs docs-nav-tabs"&gt;
+    &lt;li class="handle active"&gt;&lt;a href="javascript:;"&gt;Example&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="handle"&gt;&lt;a href="javascript:;"&gt;Html&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="handle"&gt;&lt;a href="javascript:;"&gt;Javascript&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="sub-content"&gt;
+    我是一个tab示例。
+&lt;/div&gt;
+
+&lt;pre class="prettyprint linenums sub-content"&gt;
+...
+&lt;/pre&gt;
+
+&lt;pre class="prettyprint linenums sub-content"&gt;
+var tabs ...
+&lt;/pre&gt;
+    </pre>
+
+    <pre class="prettyprint linenums sub-content">
+var tabs = new MooUI.Tabs('#tabs .nav-tabs .handle', '.sub-content');
+var el = new Element('li', {
+    'ajax': 'json/tabs/ajax.html',
+    'html': '&lt;a href="javascript:;"&gt;Ajax&lt;/a&gt;'
+}).inject('nav-example-tabs');
+tabs.addTab(el);
+    </pre>
+    </div>
+</section>
+<script type="text/javascript">
+    (function () {
+        var tabs = new MooUI.Tabs('#tabs .nav-tabs .handle', '.sub-content');
+        var el = new Element('li', {
+            'ajax': 'json/tabs/ajax.html',
+            'html': '<a href="javascript:;">Ajax</a>'
+        }).inject('nav-example-tabs');
+        tabs.addTab(el);
+    })();
+</script>

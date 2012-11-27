@@ -1,0 +1,102 @@
+<section id="pager">
+    <div class="page-header">
+        <h1>MooUI.Pagination <small>mooui-pagination.js</small></h1>
+    </div>
+    <p>一个分页插件。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var page = new MooUI.Pagination(container[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>container - (string 或者 element) page容器，css3选择器或者元素。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>size - (int) 每页数量。默认值： <code>10</code></li>
+        <li>index - (int) 当前显示页。默认值： <code>1</code></li>
+        <li>total - (int) 总数。</li>
+        <li>capacity - (int) 显示的页数范围。默认值： <code>10</code></li>
+        <li>showCount - (bool) 是否显示统计信息。默认值： <code>false</code></li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 MooUI.Pagination 对象</li></ul>
+
+    <h3>Events:</h3>
+    <ol>
+        <li>pageChange(index) - 分页按钮点击触发事件。index 点击页面页数。</li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:change</h2>
+    <p>页码改变</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.change(options)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>options - (object 或者 int) 值为object时，等同Options。值为int时，表示改变的页码。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Pagination 自己</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:draw</h2>
+    <p>重绘页码</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.draw([index])</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>index - (int 可为空) 显示的中心页。如果为空，以当前的选中页作为中心页。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Pagination 自己</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
+
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <div id="pager_1" class="pagination"></div>
+        </div>
+
+<pre class="prettyprint linenums bs-docs-html">
+&lt;div id="pager_1" class="pagination"&gt;&lt;/div&gt;
+</pre>
+
+<pre class="prettyprint linenums bs-docs-javascript">
+new MooUI.Pagination('pager_1', {
+    index: 2,
+    total: 1008,
+    showGo: true,
+    onPageChange: function (index) {
+        this.change(index);
+    }
+}).draw();
+</pre>
+    </div>
+</section>
+
+<script type="text/javascript">
+    (function () {
+        new MooUI.Pagination('pager_1', {
+            index: 2,
+            total: 1008,
+            showGo: true,
+            onPageChange: function (index) {
+                this.change(index);
+            }
+        }).draw();
+    })();
+</script>

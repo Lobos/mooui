@@ -1,0 +1,332 @@
+<section id="formvalidator">
+    <div class="page-header">
+        <h1>MooUI.Validator <small>mooui-validator.js</small></h1>
+    </div>
+    <p>表单验证插件，mootools.more 有自带的验证，个人觉得用起来不是很顺手，自己写了一个。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">
+//html
+&lt;input type="text" validate="{json}" /&gt;
+//javascript
+var fv = new MooUI.Validator(form[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>form - (string 或者 element) 表单对象。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>evaluateOnChange - (bool) 值为 <code>true</code> 时，元素输入值改变时触发验证事件。默认值为 <code>true</code></li>
+        <li>evaluateOnBlur - (bool) 值为 <code>true</code> 时，元素失去焦点触发验证事件。默认值为 <code>true</code></li>
+        <li>stopOnFailure - (bool) 值为 <code>true</code> 时，验证到第一个失败的元素，停止验证。默认值为 <code>true</code></li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 MooUI.Validator 对象</li></ul>
+
+    <h3>Events</h3>
+    <ol>
+        <li>success(el) - 单个元素验证成功时执行，el为此元素。</li>
+        <li>failure(el, msg) - 单个元素验证失败时执行，el为此元素，msg为返回错误信息。</li>
+    </ol>
+
+    <h3>数据结构(json格式):</h3>
+<pre class="prettyprint">&lt;input type="text" validate="{json格式}" /&gt;
+json格式：{required:true, maxlen:16, minlen:6, type:'password'} //{} 符号可以省略
+</pre>
+    <ol>
+        <li>required - (bool) 是否必填。</li>
+        <li>maxlen - (int) 最大长度，一个中文算两个字符。</li>
+        <li>minlen - (int) 最小长度，一个中文算两个字符。</li>
+        <li>tabmaxlen - (int) 最大单词（标签）长度，默认以空格分隔。</li>
+        <li>tabminlen - (int) 最小单词（标签）长度，默认以空格分隔。</li>
+        <li>separator - (string) 单词（标签）分隔符。</li>
+        <li>equal - (id) 判断元素的值于另一个元素（id）值相等。</li>
+        <li>title - (string) 显示错误信息时元素名称。</li>
+        <li>ext - (string) 允许上传的文件后缀名，以 <code>,</code> 分隔。</li>
+        <li>type - (string) 格式，详见下面。</li>
+        <li>msg - 替换默认的错误提示。</li>
+        <li>url - (string) 当type==ajax时，必填。ajax验证的地址，传递值为： <code>element.name:element.value</code></li>
+    </ol>
+
+    <h4>type</h4>
+    <ol>
+        <li>date - 日期。（2000-01-01 | 2000.01.01 | 2000/01/01）</li>
+        <li>alpha - 允许字母，空格，下划线。</li>
+        <li>alphanum - 允许字母，数字，下划线。</li>
+        <li>password - 允许Ascii字符。</li>
+        <li>digit - 整数，允许 <code>+-</code> 号。</li>
+        <li>number - 数字，允许 <code>+-</code> 号，小数。</li>
+        <li>email - xxx@xxx.xx</li>
+        <li>phone - 电话格式。</li>
+        <li>url - 网址。</li>
+        <li>ajax - 异步提交服务器验证。返回值格式 { status=(1|0)[, msg=''] }</li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:addElement</h2>
+    <p>增加验证元素，用于表单动态添加元素时。</p>
+
+    <h3>Syntax:</h3>
+    <pre>fv.addElement(element)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>element - (id 或者 element) 如果是element，id属性不能为空。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 对象本身。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:validate</h2>
+    <p>验证表单。</p>
+
+    <h3>Syntax:</h3>
+    <pre>fv.validate()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>(bool) 验证结果。</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
+    <ul class="nav nav-tabs docs-nav-tabs">
+        <li class="handle active"><a href="javascript:;">Example</a></li>
+        <li class="handle"><a href="javascript:;">Html</a></li>
+        <li class="handle"><a href="javascript:;">Javascript</a></li>
+    </ul>
+
+    <div class="docs-tab-content" style="min-height: 500px;">
+        <div class="sub-content">
+            <form id="validator-form" class="form-horizontal">
+                <legend>Validator Form</legend>
+                <div class="control-group">
+                    <label class="control-label">登陆名</label>
+                    <div class="controls">
+                        <input type="text" placeholder="Name" validate="{required:true, type:'alphanum', maxlen:14, minlen:6}" />
+                        <span class="help-inline">必填，6-14个字符，数字、英文字母、下划线。</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Email</label>
+                    <div class="controls">
+                        <input type="text" placeholder="Email" validate="{type:'email'}">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">密码</label>
+                    <div class="controls">
+                        <input type="password" id="inputPassword" validate="{required:true, maxlen:16, minlen:6, type:'password'}">
+                        <span class="help-inline">必填，6-16个字符。</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">重复密码</label>
+                    <div class="controls">
+                        <input type="password" validate="equal:'inputPassword', title:'密码'">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">整数</label>
+                    <div class="controls">
+                        <input type="text" validate="required:true, type:'digit'" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">数字</label>
+                    <div class="controls">
+                        <input type="text" validate="required:true, type:'number'" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">电话</label>
+                    <div class="controls">
+                        <input type="text" validate="required:true, type:'phone'" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">日期</label>
+                    <div class="controls">
+                        <input type="text" validate="required:true, type:'date'" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">网址</label>
+                    <div class="controls">
+                        <input type="text" validate="required:true, type:'url'" />
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">标签</label>
+                    <div class="controls">
+                        <textarea rows="3" validate="required:true, tabmaxlen:20, tabminlen:5"></textarea>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button id="form_submit" type="button" class="btn btn-primary">验证</button>
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <pre class="prettyprint linenums sub-content">
+&lt;form id="validator-form" class="form-horizontal"&gt;
+    &lt;legend&gt;Validator Form&lt;/legend&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;登陆名&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="text" placeholder="Name" validate="{required:true, type:'alphanum', maxlen:14, minlen:6}" /&gt;
+            &lt;span class="help-inline"&gt;必填，6-14个字符，数字、英文字母、下划线。&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;Email&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="text" placeholder="Email" validate="{type:'email'}"&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label" for="inputPassword"&gt;密码&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="password" id="inputPassword" validate="{required:true, maxlen:16, minlen:6, type:'password'}"&gt;
+            &lt;span class="help-inline"&gt;必填，6-16个字符。&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;重复密码&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="password" validate="equal:'inputPassword', title:'密码'"&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;整数&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="text" validate="required:true, type:'digit'" /&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;数字&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="text" validate="required:true, type:'number'" /&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;电话&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="text" validate="required:true, type:'phone'" /&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;日期&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="text" validate="required:true, type:'date'" /&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;网址&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;input type="text" validate="required:true, type:'url'" /&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;标签&lt;/label&gt;
+        &lt;div class="controls"&gt;
+            &lt;textarea rows="3" validate="required:true, tabmaxlen:20, tabminlen:5"&gt;&lt;/textarea&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="control-group"&gt;
+        &lt;div class="controls"&gt;
+            &lt;button id="form_submit" type="button" class="btn btn-primary"&gt;验证&lt;/button&gt;
+            &lt;span class="help-inline"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+        </pre>
+
+        <pre class="prettyprint linenums sub-content">
+var fv = new MooUI.Validator('validator-form', {
+    evaluateOnBlur: false,
+    stopOnFailure: false,
+    onSuccess: function (el) {
+        var parent = el.getParent('.control-group');
+        parent.removeClass('error');
+        var help = parent.getElement('[class^=help-]');
+        if (help) {
+            help.set('html', '&lt;i class="icon-ok"&gt;&lt;/i&gt;');
+        }
+    },
+    onFailure: function (el, msg) {
+        var parent = el.getParent('.control-group');
+        parent.addClass('error');
+        var help = parent.getElement('[class^=help-]');
+        if (help) {
+            help.set('html', msg);
+        }
+    }
+});
+$('form_submit').addEvent('click', function () {
+    var suc = fv.validate();
+    if (suc)
+        this.getNext('.help-inline').set('html', '验证通过');
+    else
+        this.getNext('.help-inline').set('html', '');
+});
+        </pre>
+    </div>
+</section>
+<script type="text/javascript">
+    (function () {
+        new MooUI.Tabs('#formvalidator .nav-tabs .handle', '.docs-tab-content .sub-content');
+        var fv = new MooUI.Validator('validator-form', {
+            evaluateOnBlur: false,
+            stopOnFailure: false,
+            onSuccess: function (el) {
+                var parent = el.getParent('.control-group');
+                parent.removeClass('error');
+                var help = parent.getElement('[class^=help-]');
+                if (help) {
+                    help.set('html', '<i class="icon-ok"></i>');
+                }
+            },
+            onFailure: function (el, msg) {
+                var parent = el.getParent('.control-group');
+                parent.addClass('error');
+                var help = parent.getElement('[class^=help-]');
+                if (help) {
+                    help.set('html', msg);
+                }
+            }
+        });
+        $('form_submit').addEvent('click', function () {
+            var suc = fv.validate();
+            if (suc)
+                this.getNext('.help-inline').set('html', '验证通过');
+            else
+                this.getNext('.help-inline').set('html', '');
+        });
+    })();
+</script>

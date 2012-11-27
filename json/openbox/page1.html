@@ -1,0 +1,33 @@
+<div id="openbox_page_1" class="openbox-content span7">
+    这是 page1
+<pre class="prettyprint linenums">
+&lt;div id="openbox_page_1" class="openbox-content span7"&gt;
+    这是 page1
+    ...
+    &lt;a href="javascript:;" rel="json/openbox/page2.html"&gt;page2&lt;/a&gt;&lt;br /&gt;
+    &lt;a href="javascript:;" rel="json/openbox/none.html"&gt;不存在的页面&lt;/a&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    (function () {
+        var openbox = $('openbox_page_1').getParent().retrieve('openbox');
+        openbox.set('title', 'page1');
+        $('openbox_page_1').getElements('a').addEvent('click', function () {
+            openbox.load({ url: this.get('rel') });
+        });
+    })();
+&lt;/script&gt;
+</pre>
+    <a href="javascript:;" rel="json/openbox/page2.html">page2</a><br />
+    <a href="javascript:;" rel="json/openbox/none.html">不存在的页面</a>
+</div>
+<script type="text/javascript">
+    (function () {
+        var openbox = $('openbox_page_1').getParent().retrieve('openbox');
+        openbox.set('title', 'page1');
+        $('openbox_page_1').getElements('a').addEvent('click', function () {
+            openbox.load({ url: this.get('rel') });
+        });
+
+        prettyPrint();
+    })();
+</script>

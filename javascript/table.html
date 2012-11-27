@@ -1,0 +1,281 @@
+<section id="table">
+    <div class="page-header">
+        <h1>MooUI.Table <small>mooui-table.js</small></h1>
+    </div>
+    <p>动态表格插件。分页依赖于MooUI.Pagination。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var table = new MooUI.Table(table[, options]);</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>table - (string 或者 element) css3选择器或者table元素。</li>
+        <li>options - 见下面。</li>
+    </ol>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>request - (object) 动态获取数据的参数。和Request.JSON.options相同。</li>
+        <li>pageAble - (bool) 是否分页。默认值： <code>true</code></li>
+        <li>filterAble - (bool) 是否显示筛选。默认值： <code>false</code></li>
+        <li>pagination - (object) MooUI.Pagination.options。</li>
+        <li>header - (json 必填) 见下。</li>
+    </ol>
+
+    <h3>header参数：</h3>
+<pre class="prettyprint linenums">
+header: [
+    { key: 'Id', type: 'checkbox' },
+    { key: 'LogName', name: '名称', type: 'template', template: '&lt;a href="javascript:;" onclick="alert(\'{Id}\')"&gt;{LogName}&lt;/a&gt;', filter: { type: 'input' } },
+    { key: 'Role', name: '角色', sort: true, filter: { type: 'select', data: sel_data } },
+    { key: 'City', name: '城市', type: 'hidden', filter: { type: 'select', url: 'json/select/city.json' } },
+    { key: 'LoginIp', name: '最后登录IP', sort: true },
+    { key: 'LoginTime', name: '最后登录时间' },
+    { key: 'Status', name: '状态', type: 'bool', styles: { width: 40, textAlign: 'center' }, filter: { type:'select' } }
+]
+</pre>
+
+    <ol>
+        <li>key - (string) 数据结构中 object的key。</li>
+        <li>name - (string) 表头显示的字段名。</li>
+        <li>type - (string) 可为空。
+            <ul>
+                <li>空 - 表格中填充数据 key 对应的 value。</li>
+                <li>checkbox - 表格行选择项。</li>
+                <li>bool - 替换 <code>bool</code> 值为图标显示。</li>
+                <li>template - 使用定义的 template 字符串格式后填充单元格。</li>
+                <li>hidden - 不会创建表格列，用于数据筛选。</li>
+            </ul>
+        </li>
+        <li>styles: (object) css样式。</li>
+        <li>template - (string) 当 <code>type='template'</code>不能为空。用来格式化数据的模板，<code>{数据key}</code>替换数据。</li>
+        <li>sort - (bool) 是否显示排序按钮。默认值： <code>false</code>。排序通过修改 options.request.data.sort 值实现。sort 值为 { asc:[-1:1], key: name }</li>
+        <li>filter (object) 筛选
+            <ul>
+                <li>type - (string) 选项类型，枚举值：'input', 'select', 'multi-select', 'bool'。</li>
+                <li>data - (object) 当type为 <code>select</code>或 <code>bool</code>时，选项数据，MooUI.Select数据结构。</li>
+                <li>url - (string) 当type为 <code>select</code>或 <code>bool</code>时，选项ajax地址。</li>
+                <li>def - (string) 默认值。</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>数据格式</h3>
+<pre class="prettyprint linenums">
+{
+    "status":1,
+    "total":300,
+    "size":10,
+    "index":1,
+    "data":[
+        {"Id":1,"LogName":"管理员","Role":"管理员","Explain":"1","Status":true,"LoginTime":"2012-11-6 9:08:48","LoginIp":"127.0.0.1"},
+        ...
+        {"Id":10,"LogName":"销售2","Role":"销售","Explain":"123","Status":false,"LoginTime":"2012-9-10 10:22:32","LoginIp":null}
+    ]
+}
+</pre>
+    <ol>
+        <li>status - (int) 状态标识。值为<code>1</code>标识成功，继续创建表格。</li>
+        <li>total - (int) 总条目数。</li>
+        <li>size - (int) 每页返回条目数。</li>
+        <li>index - (int) 当前返回页码。</li>
+        <li>data - (json) 数据，json格式。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>(object) 一个新 MooUI.Table 对象。</li></ul>
+
+    <h3>Events:</h3>
+    <ol>
+        <li>load(trs, data) - trs表格行元素数组。data数据。</li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:load</h2>
+    <p>加载表格</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.load(options)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>options - (object) Request.JSON options参数
+            <ul>
+                <li>json - (json) 数据，如果值不为空，直接用json数据填充。ajax不执行。</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:setRequest</h2>
+    <p>修改ajax获取参数。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.setRequest(options)</pre>
+
+    <h3>Arguments</h3>
+    <ol>
+        <li>options - (object) Request.JSON options参数</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:filter</h2>
+    <p>根据filter数据加载表格。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.filter()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:checkAll</h2>
+    <p>选中/移除 全部数据。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.checkAll(b)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>b - (bool) 移除或选中全部数据。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>MooUI.Table</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:getChecked</h2>
+    <p>获取选中数据。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.getChecked()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>Array(object) 数据</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:getCheckedCount</h2>
+    <p>获取选中数据数量。</p>
+
+    <h3>Syntax:</h3>
+    <pre>sel.getCheckedCount()</pre>
+
+    <h3>Return:</h3>
+    <ul><li>int</li></ul>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Example</h2>
+    <p class="alert">
+        注意：sort 仅支持服务器端排序。参数为：sort[asc], sort[key]。<br />
+        示例中分页、排序、筛选都需要服务器端完成，这里仅显示ajax请求数据。
+    </p>
+    <div class="nav-example-wrapper">
+        <div class="bs-docs-example">
+            <table id="table_1" class="table table-bordered table-hover"></table>
+            <button class="btn btn-primary">加载表格</button>
+            <button class="btn btn-success">选中的数据</button>
+            <p></p>
+        </div>
+
+<pre class="bs-docs-html prettyprint linenums">
+&lt;table id="table_1" class="table table-bordered table-hover"&gt;&lt;/table&gt;
+&lt;button class="btn btn-primary"&gt;加载表格&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;选中的数据&lt;/button&gt;
+&lt;p&gt;&lt;/p&gt;
+</pre>
+
+<pre class="bs-docs-javascript prettyprint linenums">
+var sel_data = [
+    { "text": "管理员", "value": "1" },
+    { "text": "销售", "value": "2" },
+    { "text": "行政", "value": "3" }
+];
+var table_1 = new MooUI.Table('table_1', {
+    request: {
+        method: 'get',
+        url: 'json/table/log.json'
+    },
+    pagination: {
+        size: 10,
+        showCount: true,
+        showGo: true
+    },
+    filterAble: true,
+    header: [
+        { key: 'Id', type: 'checkbox' },
+        { key: 'LogName', name: '名称', type: 'template', template: '&lt;a href="javascript:;" onclick="alert(\'{Id}\')"&gt;{LogName}&lt;/a&gt;', filter: { type: 'input' } },
+        { key: 'Role', name: '角色', sort: true, filter: { type: 'select', data: sel_data } },
+        { key: 'City', name: '城市', type: 'hidden', filter: { type: 'multi-select', def: 'XiAn', url: 'json/select/city.json' } },
+        { key: 'LoginIp', name: '最后登录IP', sort: true },
+        { key: 'LoginTime', name: '最后登录时间' },
+        { key: 'Status', name: '状态', type: 'bool', styles: { width: 40, textAlign: 'center' }, filter: { type:'bool' } }
+    ],
+    onLoad: function () {
+        var s = JSON.encode(this.request.data);
+        $('table_1').getNext('p').set('html', '当前表格请求数据为：' + s);
+    }
+});
+$('table_1').getNext('.btn-primary').addEvent('click', function () {
+    table_1.load();
+});
+$('table_1').getNext('.btn-success').addEvent('click', function () {
+    var items = table_1.getChecked('Id');
+    this.getNext().set('html', '当前选中{0}条：{1}'.format(items.Id.length, items.Id.join(',')));
+});
+</pre>
+    </div>
+</section>
+<script type="text/javascript">
+    (function () {
+        var sel_data = [
+            { "text": "管理员", "value": "1" },
+            { "text": "销售", "value": "2" },
+            { "text": "行政", "value": "3" }
+        ];
+        var table_1 = new MooUI.Table('table_1', {
+            request: {
+                method: 'get',
+                url: 'json/table/log.json'
+            },
+            pagination: {
+                size: 10,
+                showCount: true,
+                showGo: true
+            },
+            filterAble: true,
+            header: [
+                { key: 'Id', type: 'checkbox' },
+                { key: 'LogName', name: '名称', type: 'template', template: '<a href="javascript:;" onclick="alert(\'{Id}\')">{LogName}</a>', filter: { type: 'input' } },
+                { key: 'Role', name: '角色', sort: true, filter: { type: 'select', data: sel_data } },
+                { key: 'City', name: '城市', type: 'hidden', filter: { type: 'multi-select', def: 'XiAn', url: 'json/select/city.json' } },
+                { key: 'LoginIp', name: '最后登录IP', sort: true },
+                { key: 'LoginTime', name: '最后登录时间' },
+                { key: 'Status', name: '状态', type: 'bool', styles: { width: 40, textAlign: 'center' }, filter: { type:'bool' } }
+            ],
+            onLoad: function () {
+                var s = JSON.encode(this.request.data);
+                $('table_1').getNext('p').set('html', '当前表格请求数据为：' + s).highlight('#e51400');
+            }
+        });
+        $('table_1').getNext('.btn-primary').addEvent('click', function () {
+            table_1.load();
+        });
+        $('table_1').getNext('.btn-success').addEvent('click', function () {
+            var items = table_1.getChecked('Id');
+            this.getNext().set('html', '当前选中{0}条：{1}'.format(items.Id.length, items.Id.join(',')));
+        });
+    })();
+</script>
