@@ -2715,47 +2715,6 @@ input[type="submit"].btn.btn-mini {
   color: #545454;
   text-decoration: none;
 }
-[class^="m-icon-"],
-[class*=" m-icon-"] {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  *margin-right: .3em;
-  line-height: 14px;
-  background-image: url("../img/icons-black.png");
-  background-position: 9999px 9999px;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  margin-top: -3px;
-}
-.m-icon-huge {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  background-image: url("../img/icons-black-huge.png");
-}
-.m-icon-white {
-  color: #ffffff;
-  background-image: url("../img/icons-white.png");
-}
-.m-icon-white .icon-huge {
-  background-image: url("../img/icons-white-huge.png");
-}
-.m-icon-right {
-  background-position: 0 0;
-}
-.m-icon-down {
-  background-position: -32px 0;
-}
-.m-icon-left {
-  background-position: -64px 0;
-}
-.m-icon-up {
-  background-position: -96px 0;
-}
-.m-icon-close {
-  background-position: -128px 0;
-}
 /*  Font Awesome
     the iconic font designed for use with Twitter Bootstrap
     -------------------------------------------------------
@@ -2805,7 +2764,7 @@ a [class*=" icon-"] {
 /* makes the font 33% larger relative to the icon container */
 .icon-huge:before {
   vertical-align: middle;
-  font-size: 30px;
+  font-size: 2.4375em;
 }
 .icon-large:before {
   vertical-align: middle;
@@ -2825,11 +2784,13 @@ li [class*=" icon-"] {
   width: 1.25em;
   text-align: center;
 }
-li .icon-large:before,
 li .icon-large:before {
   /* 1.5 increased font size for icon-large * 1.25 width */
 
   width: 1.875em;
+}
+li .icon-huge:before {
+  width: 2.5em;
 }
 ul.icons {
   list-style-type: none;
@@ -2840,11 +2801,14 @@ ul.icons li [class^="icon-"],
 ul.icons li [class*=" icon-"] {
   width: .8em;
 }
-ul.icons li .icon-large:before,
 ul.icons li .icon-large:before {
   /* 1.5 increased font size for icon-large * 1.25 width */
 
   vertical-align: initial;
+  width: 1.875em;
+}
+ul.icons li .icon-huge:before {
+  width: 2.5em;
 }
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
     readers do not read off random characters that represent icons */
@@ -3478,6 +3442,21 @@ ul.icons li .icon-large:before {
 }
 .icon-user-md:before {
   content: "\f200";
+}
+.icon-metro-close:before {
+  content: "\f205";
+}
+.icon-metro-right:before {
+  content: "\f206";
+}
+.icon-metro-left:before {
+  content: "\f207";
+}
+.icon-metro-up:before {
+  content: "\f208";
+}
+.icon-metro-down:before {
+  content: "\f209";
 }
 .dropup,
 .dropdown {
@@ -5044,6 +5023,68 @@ a.badge:hover {
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.well blockquote {
+  border-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+.well-large {
+  padding: 24px;
+}
+.well-small {
+  padding: 9px;
+}
+.close {
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #000000;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.close:hover {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.close:after {
+  font-family: 'FontAwesome';
+  content: '\00D7';
+}
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+.mask {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background: #9e9e9e;
+}
+.mask-loading {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background: #ffffff url("../img/circle-loader.gif") no-repeat center;
+}
 .select {
   position: relative;
   display: inline-block;
@@ -5177,11 +5218,12 @@ a.badge:hover {
 .openbox-image .openbox-bottom {
   border-width: 0;
   padding: 0 10px;
-  height: 40px;
-  line-height: 40px;
+  height: 44px;
+  line-height: 44px;
 }
 .openbox-image .openbox-bottom a {
   margin-right: 5px;
+  color: #000000;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
@@ -5199,21 +5241,8 @@ a.badge:hover {
   opacity: 0.08;
   filter: alpha(opacity=8);
 }
-.openbox-image .image-close {
-  right: 8px;
-  bottom: 5px;
-  position: absolute;
-  opacity: 0.3;
-  filter: alpha(opacity=30);
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-}
-.openbox-image .image-close:hover,
-.openbox-image .image-close:active {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
+.openbox-image .openbox-bottom a.image-close {
+  float: right;
 }
 .openbox-image .openbox-tip {
   background-color: rgba(255, 255, 255, 0.6);
@@ -5279,67 +5308,86 @@ a.badge:hover {
 .openbox-alert .btn:active {
   background-color: #000000;
 }
-.well {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+.date-picker {
+  position: absolute;
+  padding: 10px 18px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
-.well blockquote {
-  border-color: #ddd;
-  border-color: rgba(0, 0, 0, 0.15);
+.date-header {
+  height: 40px;
+  line-height: 32px;
+  position: relative;
+  text-align: center;
 }
-.well-large {
-  padding: 24px;
+.date-header a {
+  color: #00aba9;
+  font-size: 16px;
+  margin: 0 8px;
 }
-.well-small {
-  padding: 9px;
-}
-.close {
-  float: right;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 20px;
-  color: #000000;
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-  text-shadow: 0 1px 0 #ffffff;
+.date-header [class*='icon'] {
+  position: absolute;
   opacity: 0.3;
   filter: alpha(opacity=30);
-}
-.close:hover {
-  color: #000000;
-  text-decoration: none;
+  color: #00aba9;
   cursor: pointer;
+  left: 0;
+  top: 0;
+}
+.date-header [class*='icon'].right {
+  left: auto;
+  right: 0;
+}
+.date-header [class*='icon']:hover,
+.date-header [class*='icon']:active {
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
-.close:after {
-  font-family: 'FontAwesome';
-  content: '\00D7';
+.date-picker table {
+  text-align: center;
 }
-button.close {
-  padding: 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  -webkit-appearance: none;
+.date-picker table a {
+  color: #000000;
 }
-.mask {
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-  background: #9e9e9e;
+.date-picker table td {
+  width: 32px;
+  height: 28px;
 }
-.mask-loading {
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-  background: #ffffff url("../img/circle-loader.gif") no-repeat center;
+.date-picker table thead {
+  border-bottom: 1px solid #00aba9;
+}
+.date-picker table thead td {
+  color: #5d5d5d;
+  height: 28px;
+}
+.date-picker table tbody td {
+  color: #ccc;
+}
+.date-picker table tbody td a {
+  display: block;
+  color: #000000;
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  line-height: 24px;
+}
+.date-picker table tbody td a:hover,
+.date-picker table tbody td a:active,
+.date-picker table tbody td a.active {
+  color: #00aba9;
+  border-color: #00aba9;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+.date-picker table tbody td a:active,
+.date-picker table tbody td a.active {
+  background-color: #00aba9;
+  color: #ffffff;
 }
 /*!
  * Bootstrap Responsive v2.1.1
@@ -6770,8 +6818,8 @@ body {
 }
 .sidebar-nav dl dd a i {
   margin-left: 7px;
-  opacity: 0.2;
-  filter: alpha(opacity=20);
+  opacity: 0.4;
+  filter: alpha(opacity=40);
 }
 .sidebar-nav dl dd a:hover,
 .sidebar-nav dl dd a.active {

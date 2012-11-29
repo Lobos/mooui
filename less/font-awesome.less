@@ -54,7 +54,7 @@ a [class*=" icon-"] {
 /* makes the font 33% larger relative to the icon container */
 .icon-huge:before {
   vertical-align: middle;
-  font-size: 30px;
+  font-size: 1.95*1.25em;
 }
 
 .icon-large:before {
@@ -77,10 +77,12 @@ li {
     width: 1.25em;
     text-align: center;
   }
-  .icon-large:before,
   .icon-large:before {
     /* 1.5 increased font size for icon-large * 1.25 width */
     width: 1.5*1.25em;
+  }
+  .icon-huge:before {
+    width: 2*1.25em;
   }
 }
 
@@ -94,11 +96,13 @@ ul.icons {
     [class*=" icon-"] {
       width: .8em;
     }
-    .icon-large:before,
     .icon-large:before {
       /* 1.5 increased font size for icon-large * 1.25 width */
       vertical-align: initial;
-//      width: 1.5*1.25em;
+      width: 1.5*1.25em;
+    }
+    .icon-huge:before {
+      width: 2*1.25em;
     }
   }
 }
@@ -332,4 +336,9 @@ ul.icons {
 
 .icon-user-md:before              { content: "\f200"; }
 
+.icon-metro-close:before          { content: "\f205"; }
+.icon-metro-right:before          { content: "\f206"; }
+.icon-metro-left:before           { content: "\f207"; }
+.icon-metro-up:before             { content: "\f208"; }
+.icon-metro-down:before           { content: "\f209"; }
 

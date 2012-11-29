@@ -123,7 +123,7 @@
 
                 //sidebar menu
                 lnk_sub = lnk_sub.clone().cloneEvents(lnk_sub);
-                new Element('i', { 'class': 'm-icon-right' }).inject(lnk_sub);
+                new Element('i', { 'class': 'icon-metro-right' }).inject(lnk_sub);
                 lnk_sub.addEvent('click', function () {
                     sidebar_menu.getElements('a.active').removeClass('active');
                     this.addClass('active');

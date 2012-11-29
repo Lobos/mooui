@@ -1,5 +1,5 @@
 //
-// Select
+// Openbox
 // --------------------------------------------------
 
 .openbox {
@@ -82,11 +82,12 @@
   .openbox-bottom {
     border-width: 0;
     padding: 0 10px;
-    height: 40px;
-    line-height: 40px;
+    height: 44px;
+    line-height: 44px;
 
     a {
       margin-right: 5px;
+      color: @black;
       .transition-duration(1s);
       .opacity(30);
       &:not(.disabled):hover, &:not(.disabled):active {
@@ -97,18 +98,10 @@
         cursor: default;
         .opacity(8);
       }
-    }
-  }
 
-  .image-close {
-    right: 8px;
-    bottom: 5px;
-    position: absolute;
-    .opacity(30);
-    .transition-duration(1s);
-
-    &:hover, &:active {
-      .opacity(80);
+      &.image-close {
+        float: right;
+      }
     }
   }
 

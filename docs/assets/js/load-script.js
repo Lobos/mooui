@@ -12,7 +12,8 @@
         'mooui-validator.js',
         'mooui-table.js',
         'mooui-dropdown.js',
-        'mooui-tabs.js'
+        'mooui-tabs.js',
+        'mooui-datepicker.js'
     ];
     var _loadScript = function (path, pre, data) {
         if (typeof data == 'string') {
