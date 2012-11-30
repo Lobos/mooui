@@ -6,6 +6,7 @@
 
 .date-picker {
   position: absolute;
+  display: none;
   padding: 10px 18px;
   background-color: #eee;
   border: 1px solid #ccc;
@@ -44,7 +45,46 @@
   }
 }
 
+@day-width: 32px;
+
+.date-picker .year-select,
+.date-picker .month-select {
+  background-color: @date-link;
+  padding: 7px;
+  width: @day-width * 7;
+
+  li {
+    border: 2px solid @date-link;
+    color: @white;
+    cursor: pointer;
+    text-align: center;
+    line-height: @day-width;
+    display: inline-block;
+
+    &:hover, &:active {
+      border-color: @white;
+    }
+    &:active {
+      background-color: @white;
+      color: @date-link;
+    }
+  }
+}
+
+.date-picker .month-select {
+  li {
+    width: (@day-width * 7 / 4) - 4px;
+  }
+}
+
+.date-picker .year-select {
+  li {
+    width: (@day-width * 7 / 5) - 4px;
+  }
+}
+
 .date-picker table {
+  border: 0;
   text-align: center;
 
   a {
@@ -52,14 +92,14 @@
   }
 
   td {
-    width: 32px;
+    width: @day-width;
     height: 28px;
   }
 
   thead {
     border-bottom: 1px solid @date-link;
     td {
-      color: @gray;
+      color: @grayLight;
       height: 28px;
     }
   }

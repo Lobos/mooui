@@ -70,6 +70,7 @@
             { txt: 'Tables', url: 'javascript/table.html' },
             { txt: 'Openbox', url: 'javascript/openbox.html' },
             { txt: 'ProgressBar', url: 'javascript/progress.html' },
+            { txt: 'DatePicker', url: 'javascript/date.html' },
             { txt: 'Global', url: 'javascript/global.html' }
         ]
     }];
