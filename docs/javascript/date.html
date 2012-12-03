@@ -1,8 +1,37 @@
 <section id="datepicker">
+    <div class="page-header">
+        <h1>MooUI.DatePicker <small>mooui-datepicker.js</small></h1>
+    </div>
+    <p>日期选择插件。</p>
+
+    <h3>Syntax:</h3>
+    <pre class="prettyprint">var dp = new MooUI.DatePicker(options);</pre>
+
+    <h3>Options:</h3>
+    <ol>
+        <li>bind - (string 或者 elements) css3选择器，或者元素数组。</li>
+    </ol>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Methods:bind</h2>
+    <p>增加绑定元素</p>
+
+    <h3>Syntax:</h3>
+    <pre>openbox.bind(inputs)</pre>
+
+    <h3>Arguments:</h3>
+    <ol>
+        <li>inputs - (string 或者 elements) css3选择器，或者元素数组。</li>
+    </ol>
+
+    <h3>Return:</h3>
+    <ul><li>对象自身。</li></ul>
+
+    <hr class="bs-docs-separator">
 
     <h2>Example</h2>
 
-    <h3>基础弹出窗口</h3>
     <div class="nav-example-wrapper">
         <div class="bs-docs-example">
             <form id="date_form_1" class="form-horizontal">
@@ -12,17 +41,33 @@
         </div>
 
 <pre class="bs-docs-html prettyprint linenums">
+&lt;form id="date_form_1" class="form-horizontal"&gt;
+    &lt;input type="text" class="date" /&gt;
+    &lt;input type="text" class="date" /&gt;
+&lt;/form&gt;
 </pre>
 
 <pre class="bs-docs-javascript prettyprint linenums">
+var dp = new MooUI.DatePicker({
+    bind: '#date_form_1 .date'
+});
+
+var new_date = new Element('input.date', {type:'text'}).inject('date_form_1');
+dp.bind(new_date);
+
+new Element('input.date', {type:'text'}).inject('date_form_1').datepicker();
 </pre>
     </div>
 </section>
 
 <script type="text/javascript">
     (function () {
-        new MooUI.DatePicker({
+        var dp = new MooUI.DatePicker({
             bind: '#date_form_1 .date'
         });
+        var new_date = new Element('input.date', {type:'text'}).inject('date_form_1');
+        dp.bind(new_date);
+
+        new Element('input.date', {type:'text'}).inject('date_form_1').datepicker();
     })();
 </script>

@@ -5308,6 +5308,14 @@ button.close {
 .openbox-alert .btn:active {
   background-color: #000000;
 }
+input.date {
+  width: 120px;
+  cursor: pointer;
+  background-color: #ffffff;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAOCAYAAAFcNtxbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYpJREFUeNpiKCgoYOjo6PgPBAxMDEDw4sULRhANEECMIFEQo7y8nJHl06dPDDAAEECMID0gICgoKA+kHtTV1YG1sMBUvH///iFIIYwPEEBws2AAbCbIJqAR/6E6EEb8/PkTWTEDExDof/v2jRGEgWx7kCBAADG2trbyA2kHIP7AgAkEqqqqNsI4LK9fv/4IpDcyEAHAwcDGxiYPxP+hGMzGphgggBjb29vrGRkZG7BJAgO1oaKiohHujH///jVA3YwNHABihOI/f/6AwuUgLJih4gpIbAYUxdiCHsTm5eVFcTvT379/Gbi4uMCCIBqZDZLDajIoFGBsEABFBnqosIB0AzHMemRnMKCbDBCgcypIARiEYRXmTRA8+VVve7FMEPTmrNDhsCpbQSiRxGpic7A+3QU/yzknOLy5bYwB7734Klp5ZbZ3cNfA0lo3UghBWGsfgZQSEM7xBmGl1MtrIiEeYwQuA1thdC3nPORi1/dus5+ETpZSFlyrfpUEbuKzJqPQBKu+JyNvJnwDzrnI6PcquucAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-position: right 7px;
+}
 .date-picker {
   position: absolute;
   display: none;
