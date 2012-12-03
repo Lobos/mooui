@@ -17,6 +17,7 @@ JS_LIST = [
     'mooui-validator.js',
     'mooui-table.js',
     'mooui-dropdown.js',
+    'mooui-datepicker.js',
     'mooui-tabs.js'
 ]
 
