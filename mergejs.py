@@ -18,7 +18,8 @@ JS_LIST = [
     'mooui-table.js',
     'mooui-dropdown.js',
     'mooui-datepicker.js',
-    'mooui-tabs.js'
+    'mooui-tabs.js',
+    'mooui-global.js'
 ]
 
 def compress():
