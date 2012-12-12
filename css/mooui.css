@@ -744,11 +744,10 @@ ul.icons li .icon-huge:before{width:2.5em;}
 .navbar-inverse .navbar-search .search-query:-ms-input-placeholder{color:#cccccc;}
 .navbar-inverse .navbar-search .search-query::-webkit-input-placeholder{color:#cccccc;}
 .navbar-inverse .navbar-search .search-query:focus,.navbar-inverse .navbar-search .search-query.focused{padding:5px 15px;color:#545454;background-color:#ffffff;border:0;outline:0;}
-.navbar-inverse.nav-compact .nav>li .dropdown-menu{border:0;margin:0;}.navbar-inverse.nav-compact .nav>li .dropdown-menu:after,.navbar-inverse.nav-compact .nav>li .dropdown-menu:before{border:0;}
-.navbar-inverse.nav-compact .nav>li>a{margin-top:6px;padding:4px 15px;}
-.navbar-inverse.nav-compact .nav>li>a:focus,.navbar-inverse.nav-compact .nav>li>a:hover{background-color:#ffffff;color:#131313;}
-.navbar-inverse.nav-compact .nav>li>a.active,.navbar-inverse.nav-compact .nav .active>a,.navbar-inverse.nav-compact .nav .active>a:hover,.navbar-inverse.nav-compact .nav .active>a:focus{color:#131313;background-color:#ffffff;}
-.navbar-inverse.nav-compact .nav li.dropdown>.dropdown-toggle.active .caret,.navbar-inverse.nav-compact .nav li.dropdown>.dropdown-toggle:hover .caret,.navbar-inverse.nav-compact .nav li.dropdown.open>.dropdown-toggle .caret,.navbar-inverse.nav-compact .nav li.dropdown.active>.dropdown-toggle .caret,.navbar-inverse.nav-compact .nav li.dropdown.open.active>.dropdown-toggle .caret{border-top-color:#131313;border-bottom-color:#131313;}
+.navbar-inverse.nav-compact .nav>li .dropdown-menu{border:0;margin:0;background-color:#414141;}.navbar-inverse.nav-compact .nav>li .dropdown-menu:after,.navbar-inverse.nav-compact .nav>li .dropdown-menu:before{border:0;}
+.navbar-inverse.nav-compact .nav>li .dropdown-menu a{color:#dfdfdf;}
+.navbar-inverse.nav-compact .nav>li .dropdown-menu a:hover,.navbar-inverse.nav-compact .nav>li .dropdown-menu a:active{color:#ffffff;background-color:#131313;}
+.navbar-inverse.nav-compact .nav>li .dropdown-menu .divider{background-color:#9e9e9e;border-width:0 1px;}
 .breadcrumb{padding:8px 15px;margin:0 0 20px;list-style:none;background-color:#f5f5f5;}.breadcrumb li{display:inline-block;*display:inline;*zoom:1;text-shadow:0 1px 0 #ffffff;}
 .breadcrumb .divider{padding:0 5px;color:#ccc;}
 .breadcrumb .active{color:#9e9e9e;}

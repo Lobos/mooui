@@ -481,35 +481,22 @@
         &:after, &:before {
           border:0;
         }
+
+        background-color: @navbarInverseBackgroundHighlight;
+        a {
+          color: @navbarInverseLinkColor;
+        }
+
+        a:hover, a:active {
+          color: @white;
+          background-color: @navbarInverseBackground;
+        }
+
+        .divider {
+          background-color: @grayLight;
+          border-width: 0 1px;
+        }
       }
-
-      & > a {
-        margin-top: 6px;
-        padding: 4px 15px;
-      }
-    }
-
-    .nav > li > a:focus,
-    .nav > li > a:hover {
-      background-color: @navbarInverseLinkBackgroundHover;
-      color: @grayDarkest;
-    }
-
-    .nav > li > a.active,
-    .nav .active > a,
-    .nav .active > a:hover,
-    .nav .active > a:focus {
-      color: @grayDarkest;
-      background-color: @navbarInverseLinkBackgroundActive;
-    }
-
-    .nav li.dropdown > .dropdown-toggle.active .caret,
-    .nav li.dropdown > .dropdown-toggle:hover .caret,
-    .nav li.dropdown.open > .dropdown-toggle .caret,
-    .nav li.dropdown.active > .dropdown-toggle .caret,
-    .nav li.dropdown.open.active > .dropdown-toggle .caret {
-      border-top-color: @grayDarkest;
-      border-bottom-color: @grayDarkest;
     }
   }
 }
