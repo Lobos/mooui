@@ -1,6 +1,6 @@
 <section id="global">
     <div class="page-header">
-        <h1>MooUI.Global <small>mooui.js</small></h1>
+        <h1>MooUI.Global <small>mooui-global.js</small></h1>
     </div>
     <p>一些常用方法。</p>
 
@@ -9,7 +9,7 @@
     <p>警告窗口，类似window.alert。</p>
 
     <h3>Syntax:</h3>
-    <pre>MooUI.Global.alert(message, type, options)</pre>
+    <pre>new MooUI.Global.alert(message, type, options)</pre>
 
     <h3>Arguments:</h3>
     <ol>
@@ -42,9 +42,10 @@
 </pre>
 
 <pre class="bs-docs-javascript prettyprint linenums">
+var $g = new MooUI.Global();
 $$('#form_alert button').addEvent('click', function () {
     var text = $('form_alert').getElement('input').get('value');
-    MooUI.Global.alert(text, this.get('rel'));
+    $g.alert(text, this.get('rel'));
 });
 </pre>
     </div>
@@ -54,7 +55,7 @@ $$('#form_alert button').addEvent('click', function () {
     <p>确认窗口。</p>
 
     <h3>Syntax:</h3>
-    <pre>MooUI.Global.confirm(message, fn, options)</pre>
+    <pre>new MooUI.Global.confirm(message, fn, options)</pre>
 
     <h3>Arguments:</h3>
     <ol>
@@ -81,19 +82,20 @@ $$('#form_alert button').addEvent('click', function () {
 </pre>
 
 <pre class="bs-docs-javascript prettyprint linenums">
+var $g = new MooUI.Global();
 var text = '&lt;h4&gt;亲，你确定要这么做么?&lt;/h4&gt;' +
         $('form_confirm').getElement('input').get('value');
 $('form_confirm').getElement('.btn-primary').addEvent('click', function () {
     var fn = function () {
-        MooUI.Global.alert('好吧，就这样吧。');
+        $g.alert('好吧，就这样吧。');
     };
-    MooUI.Global.confirm(text, fn);
+    $g.confirm(text, fn);
 });
 $('form_confirm').getElement('.btn-success').addEvent('click', function () {
-    MooUI.Global.confirm(text, {
+    $g.confirm(text, {
         buttons: [
             { text: '是的，我已经决定了', type: 'primary', events: function () {
-                MooUI.Global.alert('为什么要这样...');
+                $g.alert('为什么要这样...');
                 this.close();
             } },
             { text: '让我再想一想吧' }
@@ -106,24 +108,26 @@ $('form_confirm').getElement('.btn-success').addEvent('click', function () {
 </section>
 <script type="text/javascript">
     (function () {
+        var $g = new MooUI.Global();
+
         $$('#form_alert button').addEvent('click', function () {
             var text = $('form_alert').getElement('input').get('value');
-            MooUI.Global.alert(text, this.get('rel'));
+            $g.alert(text, this.get('rel'));
         });
 
         var text = '<h4>亲，你确定要这么做么?</h4>' +
                 $('form_confirm').getElement('input').get('value');
         $('form_confirm').getElement('.btn-primary').addEvent('click', function () {
             var fn = function () {
-                MooUI.Global.alert('好吧，就这样吧。');
+                $g.alert('好吧，就这样吧。');
             };
-            MooUI.Global.confirm(text, fn);
+            $g.confirm(text, fn);
         });
         $('form_confirm').getElement('.btn-success').addEvent('click', function () {
-            MooUI.Global.confirm(text, {
+            $g.confirm(text, {
                 buttons: [
                     { text: '是的，我已经决定了', type: 'primary', events: function () {
-                        MooUI.Global.alert('为什么要这样...');
+                        $g.alert('为什么要这样...');
                         this.close();
                     } },
                     { text: '让我再想一想吧' }
