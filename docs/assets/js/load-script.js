@@ -13,7 +13,8 @@
         'mooui-table.js',
         'mooui-dropdown.js',
         'mooui-tabs.js',
-        'mooui-datepicker.js'
+        'mooui-datepicker.js',
+        'mooui-global.js'
     ];
     var _loadScript = function (path, pre, data) {
         if (typeof data == 'string') {
