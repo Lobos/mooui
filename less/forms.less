@@ -81,11 +81,12 @@ input[type="color"],
   display: inline-block;
   height: @baseLineHeight;
   padding: 4px 6px;
-  margin-bottom: 9px;
+  margin-bottom: @baseLineHeight / 2;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
   color: @gray;
   .border-radius(@inputBorderRadius);
+  vertical-align: middle;
 }
 
 // Reset appearance properties for textual inputs and textarea
@@ -127,7 +128,7 @@ input[type="color"],
     border-color: rgba(82,168,236,.8);
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
-    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6));
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
   }
 }
 
@@ -155,9 +156,9 @@ input[type="checkbox"] {
 // Set the height of select and file controls to match text inputs
 select,
 input[type="file"] {
-  height: 30px; /* In IE7, the height of the select element cannot be changed by height, only font-size */
+  height: @inputHeight; /* In IE7, the height of the select element cannot be changed by height, only font-size */
   *margin-top: 4px; /* For IE7, add top margin to align select with labels */
-  line-height: 30px;
+  line-height: @inputHeight;
 }
 
 // Make select elements obey height by applying a border
@@ -224,13 +225,13 @@ textarea {
 // Indent the labels to position radios/checkboxes as hanging
 .radio,
 .checkbox {
-  min-height: 18px; // clear the floating input if there is no label text
-  padding-left: 18px;
+  min-height: @baseLineHeight; // clear the floating input if there is no label text
+  padding-left: 20px;
 }
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
   float: left;
-  margin-left: -18px;
+  margin-left: -20px;
 }
 
 // Move the options list down to align with labels
@@ -367,7 +368,8 @@ select:focus:required:invalid {
   border-color: #ee5f5b;
   &:focus {
     border-color: darken(#ee5f5b, 10%);
-    .box-shadow(0 0 6px lighten(#ee5f5b, 20%));
+    @shadow: 0 0 6px lighten(#ee5f5b, 20%);
+    .box-shadow(@shadow);
   }
 }
 
@@ -448,7 +450,8 @@ select:focus:required:invalid {
     border: 1px solid #ccc;
   }
   .add-on,
-  .btn {
+  .btn, 
+  .btn-group > .dropdown-toggle {
     vertical-align: top;
     .border-radius(0);
   }
