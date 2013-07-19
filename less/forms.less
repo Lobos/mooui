@@ -227,6 +227,8 @@ textarea {
 .checkbox {
   min-height: @baseLineHeight; // clear the floating input if there is no label text
   padding-left: 20px;
+  vertical-align: middle;
+  margin-bottom: 0;
 }
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
@@ -402,7 +404,7 @@ select:focus:required:invalid {
   margin-bottom: @baseLineHeight / 2;
 }
 
-.help-inline {
+.help-inline, .inline {
   display: inline-block;
   .ie7-inline-block();
   vertical-align: middle;
