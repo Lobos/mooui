@@ -319,13 +319,37 @@ table [class*=span],
   */
 }
 
-.table-filter {
-  text-align: left;
+.table th.hidden, .table td.hidden {
+  display: none;
+}
+
+caption {
   margin-bottom: 20px;
-  padding: 10px;
+  text-align: left;
   background-color: @grayLightest;
-  & > * { margin-right: 5px; margin-bottom: 0; }
-  input[type="text"] {
-    width: 120px;
+
+  .table-filter {
+    padding: 10px;
+    & > * { margin-right: 5px; margin-bottom: 0; }
+    input[type="text"] {
+      width: 120px;
+    }
+  }
+
+  .toggle-wrapper {
+    padding: 10px;
+    a {
+      margin-right: 20px;
+
+      &.toggle-open {
+        color: @teal;
+        i:before { content: "\f06e"; }
+      }
+
+      &.toggle-close {
+        color: @orange;
+        i:before { content: "\f070"; }
+      }
+    }
   }
 }

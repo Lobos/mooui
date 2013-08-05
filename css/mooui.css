@@ -203,8 +203,11 @@ table [class*=span],.row-fluid table [class*=span]{display:table-cell;float:none
 .table thead .sort .sort-tip{position:absolute;display:none;width:30px;height:57px;top:-9px}.table thead .sort .sort-tip i{font-size:20px;width:28px;height:24px;position:absolute;overflow:hidden;cursor:pointer;background-color:#fff;border:solid 1px #dfdfdf;-webkit-box-shadow:0 0 6px rgba(0,0,0,0.2);-moz-box-shadow:0 0 6px rgba(0,0,0,0.2);box-shadow:0 0 6px rgba(0,0,0,0.2)}.table thead .sort .sort-tip i:before{position:absolute;left:8px}
 .table thead .sort .sort-tip i.icon-sort-up{top:0px}.table thead .sort .sort-tip i.icon-sort-up:before{top:9px}
 .table thead .sort .sort-tip i.icon-sort-down{top:29px}.table thead .sort .sort-tip i.icon-sort-down:before{top:1px}
-.table-filter{text-align:left;margin-bottom:20px;padding:10px;background-color:#f5f5f5}.table-filter>*{margin-right:5px;margin-bottom:0}
-.table-filter input[type="text"]{width:120px}
+.table th.hidden,.table td.hidden{display:none}
+caption{margin-bottom:20px;text-align:left;background-color:#f5f5f5}caption .table-filter{padding:10px}caption .table-filter>*{margin-right:5px;margin-bottom:0}
+caption .table-filter input[type="text"]{width:120px}
+caption .toggle-wrapper{padding:10px}caption .toggle-wrapper a{margin-right:20px}caption .toggle-wrapper a.toggle-open{color:#00aba9}caption .toggle-wrapper a.toggle-open i:before{content:"\f06e"}
+caption .toggle-wrapper a.toggle-close{color:#f09609}caption .toggle-wrapper a.toggle-close i:before{content:"\f070"}
 form{margin:0 0 20px}
 fieldset{padding:0;margin:0;border:0}
 legend{display:block;width:100%;padding:0;margin-bottom:20px;font-size:21px;line-height:40px;color:#545454;border:0;border-bottom:1px solid #e5e5e5}legend small{font-size:15px;color:#9e9e9e}

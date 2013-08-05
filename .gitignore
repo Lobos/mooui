@@ -34,3 +34,4 @@ nbproject
 .idea
 
 /docs/assets/js/pack-script.js
+/less/*.css
