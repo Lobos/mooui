@@ -1,3 +1,3 @@
 [submodule "docs/assets/js/mooui-js"]
 	path = docs/assets/js/mooui-js
-	url = git@github.com:Lobos/mooui-js.git
+	url = https://github.com/Lobos/mooui-js.git 
