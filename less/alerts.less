@@ -8,45 +8,49 @@
 
 .alert {
   padding: 8px 35px 8px 14px;
+  color: #333;
   margin-bottom: @baseLineHeight;
-  //text-shadow: 0 1px 0 rgba(255,255,255,.5);
-  //background-color: @warningBackground;
-  //border: 1px solid @warningBorder;
-  //.border-radius(4px);
-  //color: @white;
-  .bg-orange;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  background-color: @warningBackground;
+  border: 1px solid @warningBorder;
+  .border-radius(@baseBorderRadius);
+}
 
-  &[class*="icon-"] {
-    padding-left: 30px;
-    position: relative;
+.alert[class*="icon-"] {
+  display: block;
+  padding-left: 30px;
+  position: relative;
+  line-height: 20px;
+  &:before {
+    color: @warningText;
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    vertical-align: middle;
+  }
+  &.icon-large {
+    padding-left: 48px;
     &:before {
-      color: @white;
-      position: absolute;
-      top: 9px;
-      left: 10px;
-      vertical-align: middle;
+      top: 15px;
+      left: 14px;
     }
-    &.icon-large {
-      padding-left: 48px;
-      &:before {
-        top: 15px;
-        left: 14px;
-      }
-    }
-    &.alert-icon-right {
-      padding-left: 14px;
-      &:before {
-        top: auto;
-        left: auto;
-        bottom: 10px;
-        right: 14px;
-      }
+  }
+  &.alert-icon-right {
+    padding-left: 14px;
+    &:before {
+      top: auto;
+      left: auto;
+      bottom: 10px;
+      right: 14px;
     }
   }
 }
+
 .alert h4 {
   margin: 0;
+  color: @warningText;
 }
+
 
 // Adjust close link position
 .alert .close {
@@ -54,13 +58,6 @@
   top: -2px;
   right: -21px;
   line-height: @baseLineHeight;
-  color: @white;
-  .opacity(70);
-
-  &:hover {
-    color: @white;
-    .opacity(100);
-  }
 }
 
 
@@ -68,14 +65,34 @@
 // -------------------------
 
 .alert-success {
-  .bg-green;
+  background-color: @successBackground;
+  border-color: @successBorder;
+  color: @successText;
+}
+.alert-success[class*="icon-"]:before,
+.alert-success h4 {
+  color: @successText;
 }
 .alert-danger,
 .alert-error {
-  .bg-red;
+  background-color: @errorBackground;
+  border-color: @errorBorder;
+  color: @errorText;
 }
+.alert-danger[class*="icon-"]:before,
+.alert-error[class*="icon-"]:before,
+.alert-danger h4,
+.alert-error h4 {
+  color: @errorText;
+}
+.alert-info[class*="icon-"]:before,
 .alert-info {
-  .bg-teal;
+  background-color: @infoBackground;
+  border-color: @infoBorder;
+  color: @infoText;
+}
+.alert-info h4 {
+  color: @infoText;
 }
 
 
@@ -87,7 +104,7 @@
   padding-bottom: 14px;
 
   &[class*=icon-] {
-    padding-left: 48px;
+    padding-left: 52px;
     &:before {
       left: 14px;
       top: 20px;

@@ -6,29 +6,41 @@
 // Base classes
 .label,
 .badge {
+  display: inline-block;
+  padding: 2px 4px;
   font-size: @baseFontSize * .846;
   font-weight: bold;
   line-height: 14px; // ensure proper line-height if floated
   color: @white;
   vertical-align: baseline;
   white-space: nowrap;
-  //text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   background-color: @grayLight;
 }
 // Set unique padding and border-radii
 .label {
-  padding: 1px 4px 2px;
   //.border-radius(3px);
 }
 .badge {
-  padding: 1px 9px 2px;
+  padding-left: 9px;
+  padding-right: 9px;
   .border-radius(9px);
 }
 
-// Hover state, but only for links
+// Empty labels/badges collapse
+.label,
+.badge {
+  &:empty {
+    display: none;
+  }
+}
+
+// Hover/focus state, but only for links
 a {
   &.label:hover,
-  &.badge:hover {
+  &.label:focus,
+  &.badge:hover,
+  &.badge:focus {
     color: @white;
     text-decoration: none;
     cursor: pointer;
@@ -43,8 +55,8 @@ a {
   &-important         { background-color: @errorText; }
   &-important[href]   { background-color: darken(@errorText, 10%); }
   // Warnings (orange)
-  &-warning           { background-color: @warningText; }
-  &-warning[href]     { background-color: darken(@warningText, 10%); }
+  &-warning           { background-color: @orange; }
+  &-warning[href]     { background-color: darken(@orange, 10%); }
   // Success (green)
   &-success           { background-color: @successText; }
   &-success[href]     { background-color: darken(@successText, 10%); }
@@ -54,6 +66,7 @@ a {
   // Inverse (black)
   &-inverse           { background-color: @grayDark; }
   &-inverse[href]     { background-color: darken(@grayDark, 10%); }
+
 }
 
 // Quick fix for labels/badges in buttons
@@ -70,3 +83,4 @@ a {
     top: 0;
   }
 }
+

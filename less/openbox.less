@@ -18,9 +18,10 @@
   .close {
     color: @grayDark;
     position: absolute;
-    right: 4px;
-    top: 6px;
-    font-size: 35px;
+    right: 10px;
+    top: 10px;
+    font-weight: bold;
+    font-size: 18px;
   }
 
   .openbox-drag {
@@ -43,16 +44,17 @@
 }
 
 .openbox-title {
-  border-bottom: 1px solid @grayLightest;
+  border-bottom: 1px solid @grayLighter;
   position: relative;
   padding: 0 60px 0 20px;
   height: 45px;
-  background-color: @grayLightest;
+  background-color: @white;
   h3 {
     margin: 0;
     font-size: 20px;
     line-height: 45px;
     color: @grayDark;
+    font-weight: bold;
     text-shadow: 0 1px 2px rgba(0,0,0,.2);
   }
 }
@@ -71,11 +73,12 @@
 }
 
 .openbox-buttons {
-  padding: 7px;
-  background-color: @grayLightest;
+  padding: 14px 15px 15px;
+  background-color: @grayLighter;
   text-align: right;
+  border-top: solid 1px #ddd;
   button {
-    margin-right: 7px;
+    margin-right: 10px;
   }
   button:last-child {
     margin-right: 0;
@@ -90,6 +93,8 @@
     line-height: 44px;
 
     a {
+      padding: 6px 10px;
+      display: inline-block;
       color: @black;
       .transition-duration(1s);
       .opacity(30);
@@ -103,8 +108,10 @@
       }
 
       &.image-close {
-        float: right;
-        width: 32px;
+        top: auto;
+        left: auto;
+        right: 2px;
+        bottom: 2px;
       }
     }
   }

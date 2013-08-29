@@ -10,76 +10,43 @@
 // Grays
 // -------------------------
 @black:                 #000;
-@grayDarkest:           #131313;
-@grayDarker:            #414141;
-@grayDark:              #545454;
-@gray:                  #5d5d5d;
-@grayLight:             #9e9e9e;
-@grayLighter:           #dfdfdf;
+@grayDarker:            #222;
+@grayDark:              #333;
+@gray:                  #555;
+@grayLight:             #999;
+@grayLighter:           #eee;
 @grayLightest:          #f5f5f5;
 @white:                 #fff;
 
 
 // Accent colors
 // -------------------------
-@blue:                  #1ba1e2;
-@green:                 #339933;
-@red:                   #e51400;
-@orange:                #f09609;
-@teal:                  #00aba9;
-@lime:                  #a4c400;
-@magenta:               #ff0097;
-@purple:                #a200ff;
-@brown:                 #a05000;
-@pink:                  #e671bb;
-
-
-// Form states and alerts
-// -------------------------
-@warningText:             @orange;
-@warningBackground:       @orange;
-@warningBorder:           darken(spin(@warningBackground, -10), 3%);
-
-@errorText:               @red;
-@errorBackground:         @red;
-@errorBorder:             darken(spin(@errorBackground, -10), 3%);
-
-@successText:             @green;
-@successBackground:       @green;
-@successBorder:           darken(spin(@successBackground, -10), 5%);
-
-@infoText:                @teal;
-@infoBackground:          @teal;
-@infoBorder:              darken(spin(@infoBackground, -10), 7%);
-
-
-// Buttons
-// -------------------------
-@btnBorder:                         #ccc;
-@btnBackground:                     #ccc;
-@btnPrimaryBackground:              @linkColor;
-@btnInfoBackground:                 @teal;
-@btnSuccessBackground:              @green;
-@btnWarningBackground:              @orange;
-@btnDangerBackground:               @red;
-@btnInverseBackground:              @grayDark;
+@blue:                  #4b8cf7;
+@blueDark:              #0064cd;
+@green:                 #46a546;
+@red:                   #9d261d;
+@yellow:                #ffc40d;
+@orange:                #f89406;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
+@teal:                  #5bc0de;
 
 
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             #333;
+@textColor:             @grayDark;
 
 
 // Links
 // -------------------------
-@linkColor:             @blue;
-@linkColorHover:        darken(@linkColor, 15%);
+@linkColor:             #0088cc;
+@linkColorHover:        #005580;
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Segoe UI", "Helvetica Neue", Helvetica, Arial, "微软雅黑", sans-serif;
+@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, "微软雅黑", sans-serif;
 @serifFontFamily:       Georgia, "宋体", "Times New Roman", Times, serif;
 @monoFontFamily:        'Segoe UI Semilight', 'Open Sans', Verdana, Arial, Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -89,26 +56,301 @@
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    normal;    // instead of browser default, bold
+@headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          11px 19px; // 44px
+@paddingSmall:          2px 10px;  // 26px
+@paddingMini:           1px 6px;   // 24px
+
+@baseBorderRadius:      2px;
+@borderRadiusLarge:     4px;
+@borderRadiusSmall:     1px;
 
 
 // Tables
 // -------------------------
 @tableBackground:                   transparent; // overall background-color
 @tableBackgroundAccent:             #f9f9f9; // for striping
-@tableBackgroundHover:              #f5f5f5; // for hover
+@tableBackgroundHover:              #ffffd6; // for hover
 @tableBorder:                       #ddd; // table and cell border
+
+// Buttons
+// -------------------------
+@btnBackground:                     #f3f3f3;
+@btnBackgroundHighlight:            darken(@white, 10%);
+@btnBorder:                         #c6c6c6;
+
+@btnPrimaryBackground:              #4b8cf7;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
+
+@btnSuccessBackground:              #35aa47;
+@btnSuccessBackgroundHighlight:     #51a351;
+
+@btnWarningBackground:              lighten(@orange, 10%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               #d84a38;
+@btnDangerBackgroundHighlight:      #bd362f;
+
+@btnInverseBackground:              #4e4e4e;
+@btnInverseBackgroundHighlight:     @grayDarker;
 
 
 // Forms
 // -------------------------
 @inputBackground:               @white;
-@inputBorder:                   #ccc;
-@inputBorderRadius:             0px;
-@inputDisabledBackground:       @grayLighter;
-@formActionsBackground:         @grayLightest;
-@inputHeight:                   @baseLineHeight + 10px;
+@inputBorder:                   #d9d9d9;
+@inputBorderRadius:             1px;
+@inputDisabledBackground:       #f1f1f1;
+@formActionsBackground:         #f5f5f5;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @white;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownDividerTop:            #ebebeb;
+@dropdownDividerBottom:         @white;
+
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @grayDark;
+@dropdownLinkColorActive:       @dropdownLinkColor;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @grayLighter;
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1020;
+@zindexFixedNavbar:       1030;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+@zindexFixedGooglebar:    1029;
+@zindexFixedGooglenav:    1028;
+
+
+// Sprite icons path
+// -------------------------
+@imagePath:               "../img";
+@FontAwesomePath:         "../font";
+@FontAwesomeVersion:      "3.2.1";
+@icons-li-width:          30/14em;
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
+// Wells
+// -------------------------
+@wellBackground:                  #f1f1f1;
+
+
+// Navbar
+// -------------------------
+@navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
+
+@navbarHeight:                    40px;
+@navbarBackgroundHighlight:       #ffffff;
+@navbarBackground:                #f1f1f1;
+@navbarBorder:                    darken(@navbarBackground, 12%);
+
+@navbarText:                      @grayLight;
+@navbarLinkColor:                 @grayLight;
+@navbarLinkColorHover:            @gray;
+@navbarLinkColorActive:           @white;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      @grayLight;
+
+@navbarBrandColor:                @gray;
+
+// Inverted navbar
+@navbarInverseBackground:                #444;
+@navbarInverseBackgroundHighlight:       @gray;
+@navbarInverseBorder:                    @grayDark;
+
+@navbarInverseText:                      @grayLight;
+@navbarInverseLinkColor:                 @grayLight;
+@navbarInverseLinkColorHover:            @white;
+@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+@navbarInverseLinkBackgroundHover:       transparent;
+@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+
+@navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+@navbarInverseSearchBackgroundFocus:     @white;
+@navbarInverseSearchBorder:              @navbarInverseBackground;
+@navbarInverseSearchPlaceholderColor:    #ccc;
+
+@navbarInverseBrandColor:                @navbarInverseLinkColor;
+
+
+/*
+// Googlebar
+// -------------------------
+@navbarGoogleBarCollapseWidth:             979px;
+@navbarGoogleBarCollapseDesktopWidth:      @navbarGoogleBarCollapseWidth + 1;
+
+@navbarGoogleBarHeight:                    44px; // 75px for Google Developer. 44px for Google news. 48px for youtube
+@navbarGoogleBarBackground:                #f1f1f1;
+// @navbarGoogleBarBackgroundHighlight:       darken(@navbarGoogleBarBackground, 4.7%);
+@navbarGoogleBarBackgroundHighlight:       lighten(@navbarGoogleBarBackground, 1.5%);
+@navbarGoogleBarBorder:                    darken(@navbarGoogleBarBackground, 4.7%);
+
+@navbarGoogleBarText:                      #777;
+@navbarGoogleBarLinkColor:                 #777;
+@navbarGoogleBarLinkColorHover:            @grayDark;
+@navbarGoogleBarLinkColorActive:           @navbarGoogleBarLinkColorHover;
+@navbarGoogleBarLinkBackgroundHover:       transparent;
+@navbarGoogleBarLinkBackgroundActive:      @navbarGoogleBarBackground;
+
+@navbarGoogleBarBrandColor:                @navbarGoogleBarLinkColor;
+
+// Inverted Googlebar
+@navbarGoogleBarInverseBackground:                #444;
+@navbarGoogleBarInverseBackgroundHighlight:       @gray;
+@navbarGoogleBarInverseBorder:                    @grayDark;
+
+@navbarGoogleBarInverseText:                      @grayLight;
+@navbarGoogleBarInverseLinkColor:                 @white;
+@navbarGoogleBarInverseLinkColorHover:            @white;
+@navbarGoogleBarInverseLinkColorActive:           @navbarGoogleNavInverseLinkColorHover;
+@navbarGoogleBarInverseLinkBackgroundHover:       transparent;
+@navbarGoogleBarInverseLinkBackgroundActive:      @navbarGoogleNavInverseBackground;
+
+@navbarGoogleBarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+@navbarGoogleBarInverseSearchBackgroundFocus:     @white;
+@navbarGoogleBarInverseSearchBorder:              @navbarGoogleNavInverseBackground;
+@navbarGoogleBarInverseSearchPlaceholderColor:    #ccc;
+
+@navbarGoogleBarInverseBrandColor:                @navbarGoogleNavInverseLinkColor;
+
+// Googlenav
+// -------------------------
+@navbarGoogleNavCollapseWidth:             979px;
+@navbarGoogleNavCollapseDesktopWidth:      @navbarGoogleNavCollapseWidth + 1;
+
+@navbarGoogleNavHeight:                    36px; // 37px for Google developer. 39px for Google.com. 42px for Google news
+@navbarGoogleNavBackground:                #fff;
+// @navbarGoogleNavBackground:                @navbarGoogleBarBackground;
+// @navbarGoogleNavBackgroundHighlight:       #fafafa;
+@navbarGoogleNavBackgroundHighlight:       darken(@navbarGoogleNavBackground, 5%);
+@navbarGoogleNavBorder:                    darken(@navbarGoogleNavBackground, 15.5%); //#d7d7d7
+
+@navbarGoogleNavText:                      #777;
+@navbarGoogleNavLinkColor:                 #777;
+@navbarGoogleNavLinkColorHover:            @grayDark;
+@navbarGoogleNavLinkColorActive:           @navbarGoogleNavLinkColorHover;
+@navbarGoogleNavLinkBackgroundHover:       transparent;
+@navbarGoogleNavLinkBackgroundActive:      #f2f2f2;
+
+@navbarGoogleNavBrandColor:                #dd4b39;
+
+// Inverted Googlenav
+@navbarGoogleNavInverseBackground:                #444;
+@navbarGoogleNavInverseBackgroundHighlight:       @gray;
+@navbarGoogleNavInverseBorder:                    @grayDark;
+
+@navbarGoogleNavInverseText:                      @grayLight;
+@navbarGoogleNavInverseLinkColor:                 @white;
+@navbarGoogleNavInverseLinkColorHover:            @white;
+@navbarGoogleNavInverseLinkColorActive:           @navbarGoogleNavInverseLinkColorHover;
+@navbarGoogleNavInverseLinkBackgroundHover:       transparent;
+@navbarGoogleNavInverseLinkBackgroundActive:      @navbarGoogleNavInverseBackground;
+
+@navbarGoogleNavInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+@navbarGoogleNavInverseSearchBackgroundFocus:     @white;
+@navbarGoogleNavInverseSearchBorder:              @navbarGoogleNavInverseBackground;
+@navbarGoogleNavInverseSearchPlaceholderColor:    #ccc;
+
+@navbarGoogleNavInverseBrandColor:                @navbarGoogleNavInverseLinkColor;
+*/
+
+// Pagination
+// -------------------------
+@paginationBackground:                @btnBackground;
+@paginationBorder:                    #dcdcdc;
+@paginationActiveBackground:          #f5f5f5;
+
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              @grayLighter;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             #c09853;
+@warningBackground:       #f9edbe;
+@warningBorder:           #f0c36d;
+
+@errorText:               #dd4b39;
+@errorBackground:         #f2dede;
+@errorBorder:             #dd4b39;
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(@successBackground, 20%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(@infoBackground, 20%);
+
+
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            #fff;
+@tooltipBackground:       #000;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       #fff;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       #fff;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
 
 
 // GRID
@@ -146,100 +388,3 @@
 @fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
 @fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
 
-
-// COMPONENT VARIABLES
-// --------------------------------------------------
-
-
-// Sprite icons path
-// -------------------------
-@imagePath:               "../img";
-@fontAwesomePath:         "../font";
-
-
-// Input placeholder text color
-// -------------------------
-@placeholderText:         @grayLight;
-
-
-// Hr border color
-// -------------------------
-@hrBorder:                @grayLighter;
-
-
-// Horizontal forms & lists
-// -------------------------
-@horizontalComponentOffset:       180px;
-
-
-// COMPONENT VARIABLES
-// --------------------------------------------------
-
-// Z-index master list
-// -------------------------
-// Used for a bird's eye view of components dependent on the z-axis
-// Try to avoid customizing these :)
-@zindexDropdown:          930;
-@zindexPopover:           950;
-@zindexTooltip:           970;
-@zindexFixedNavbar:       990;
-
-// Dropdowns
-// -------------------------
-@dropdownBackground:            @white;
-@dropdownBorder:                #ccc;
-@dropdownDividerTop:            #e5e5e5;
-@dropdownDividerBottom:         @white;
-
-@dropdownLinkColor:             @grayDark;
-@dropdownLinkColorHover:        @white;
-@dropdownLinkColorActive:       @dropdownLinkColor;
-
-@dropdownLinkBackgroundActive:  @grayDark;
-@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
-
-
-
-// Navbar
-// -------------------------
-@navbarCollapseWidth:             979px;
-
-@navbarHeight:                    40px;
-@navbarBackgroundHighlight:       #ffffff;
-@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
-@navbarBorder:                    darken(@navbarBackground, 12%);
-
-@navbarText:                      #777;
-@navbarLinkColor:                 #777;
-@navbarLinkColorHover:            @grayDark;
-@navbarLinkColorActive:           @gray;
-@navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
-
-@navbarBrandColor:                @navbarLinkColor;
-
-// Inverted navbar
-@navbarInverseBackground:                @grayDarkest;
-@navbarInverseBackgroundHighlight:       @grayDarker;
-@navbarInverseBorder:                    #252525;
-
-@navbarInverseText:                      @grayLight;
-@navbarInverseLinkColor:                 @grayLighter;
-@navbarInverseLinkColorHover:            @grayLightest;
-@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
-@navbarInverseLinkBackgroundHover:       @white;
-@navbarInverseLinkBackgroundActive:      @navbarInverseLinkBackgroundHover;
-
-@navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
-@navbarInverseSearchBackgroundFocus:     @white;
-@navbarInverseSearchBorder:              @navbarInverseBackground;
-@navbarInverseSearchPlaceholderColor:    #ccc;
-
-@navbarInverseBrandColor:                @navbarInverseLinkColor;
-
-
-// Pagination
-// -------------------------
-@paginationBackground:                @white;
-@paginationBorder:                    @grayLighter;
-@paginationActiveBackground:          @grayLightest;

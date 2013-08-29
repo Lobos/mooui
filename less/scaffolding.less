@@ -23,8 +23,10 @@ a {
   color: @linkColor;
   text-decoration: none;
 }
-a:hover {
+a:hover,
+a:focus {
   color: @linkColorHover;
+  //text-decoration: underline;
 }
 
 
@@ -33,7 +35,7 @@ a:hover {
 
 // Rounded corners
 .img-rounded {
-  .border-radius(6px);
+  .border-radius(4px);
 }
 
 // Add polaroid-esque trim
@@ -47,5 +49,5 @@ a:hover {
 
 // Perfect circle
 .img-circle {
-  .border-radius(500px); // crank the border-radius so it works with most reasonably sized images
+  .border-radius(50%); // crank the border-radius so it works with most reasonably sized images
 }

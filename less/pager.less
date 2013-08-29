@@ -12,29 +12,67 @@
 .pager li {
   display: inline;
 }
-.pager a,
-.pager span {
+.pager li > a,
+.pager li > span {
   display: inline-block;
-  padding: 5px 14px;
-  background-color: @paginationBackground;
-  border: 1px solid @paginationBorder;
-  //.border-radius(15px);
-}
-.pager a:hover {
+  border: 1px solid #ddd;
+  .border-radius(15px);
+  padding: 4px 12px;
+
+  border: 1px solid #dcdcdc;
+  #gradient > .vertical(#f5f5f5, #f1f1f1);
+  .reset-filter();
+  background-color: #f5f5f5;
+
+  color: #333;
+  text-shadow: 0 1px 0 #fff;
   text-decoration: none;
-  background-color: @paginationActiveBackground;
+  white-space: nowrap;
+  font-weight: bold;
+
+  cursor: default;
+  outline: none;
+  overflow: visible;
 }
-.pager .next a,
-.pager .next span {
+.pager li > a:hover {
+  border-color: #c6c6c6;
+
+  #gradient > .vertical(#f8f8f8, #f1f1f1);
+  .reset-filter();
+
+  .box-shadow(0 1px 1px rgba(0,0,0,0.1));
+}
+.pager li > a:active {
+  #gradient > .vertical(#f6f6f6, #f1f1f1);
+  .reset-filter();
+
+  .box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.1));
+}
+.pager li > a:hover,
+.pager li > a:focus {
+  text-decoration: none;
+  background-color: #f1f1f1;
+}
+.pager .next > a,
+.pager .next > span {
   float: right;
 }
-.pager .previous a {
+.pager .previous > a,
+.pager .previous > span {
   float: left;
 }
-.pager .disabled a,
-.pager .disabled a:hover,
-.pager .disabled span {
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
   color: @grayLight;
-  background-color: #fff;
   cursor: default;
+  border-color: darken(@white, 15%);
+
+  #gradient > .vertical(#f5f5f5, #f1f1f1);
+  .reset-filter();
+  background-color: @btnBackground;
+
+  .box-shadow(none);
+  text-shadow: none;
 }
