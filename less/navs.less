@@ -76,10 +76,10 @@
 .nav-list > .active > a:focus {
   padding-left: 12px;
   font-weight: bold;
-  color: #dd4b39;
+  color: @tangerine;
   text-shadow: none;
   background-color: transparent;
-  border-left: 3px solid #dd4b39;
+  border-left: 3px solid @tangerine;
   background-color: @grayLighter;
 }
 .nav-list [class^="icon-"],
@@ -229,19 +229,19 @@
       color: #222;
       background-color: @white;
       border-color: @white @white @white;
-      //border-color: @grayLighter @grayLighter #dd4b39
+      //border-color: @grayLighter @grayLighter @tangerine
     }
     &:active {
-      color: #dd4b39;
+      color: @tangerine;
     }
 }
 .nav-tabs-google li:hover {
   color: #333;
-  border-bottom: 3px solid #dd4b39;
+  border-bottom: 3px solid @tangerine;
 }
 .nav-tabs-google li.active {
   font-weight: bold;
-  border-bottom: 3px solid #dd4b39;
+  border-bottom: 3px solid @tangerine;
 }
 .nav-tabs-google > .active > a,
 .nav-tabs-google > .active > a:hover {

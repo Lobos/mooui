@@ -136,62 +136,57 @@
 }
 
 .openbox-alert {
-  color: @white;
-  background-color: @blue;
-
-  /*
-  padding-left: 58px;
-  position: relative;
-
-  &:before {
-    .icon-awesome-style;
-    font-size: 30px;
-    content: "\f071";
-    color: @white;
-    position: absolute;
-    top: 28px;
-    left: 14px;
-    vertical-align: middle;
-  }
-
   .openbox-content {
-    padding: 0 20px 0 0;
-  }
-  */
-
-  h4 { margin: 0; }
-
-  &.success {
-    //background-color: @successBackground;
-    //border-color: @successBorder;
-    color: @successText;
-  }
-  &.warning {
-    //background-color: @warningBackground;
-    //border: 1px solid @warningBorder;
-    color: @warningText;
-  }
-  &.error,
-  &.danger {
-    //background-color: @errorBackground;
-    //border-color: @errorBorder;
-    color: @errorText;
-  }
-  &.info {
-    //background-color: @infoBackground;
-    //border-color: @infoBorder;
-    color: @infoText;
+    padding: 0 20px;
   }
 
   .openbox-buttons {
-    background-color: transparent;
+    padding: 8px;
   }
 
-  .btn {
-    background-color: @white;
+  h4 { margin: 0; }
 
-    &:active {
-      background-color: @black;
+  &.success,
+  &.warning,
+  &.error,
+  &.danger,
+  &.info {
+    .openbox-content {
+      padding-left: 58px;
+      position: relative;
+    }
+
+    &:before {
+      .icon-FontAwesome();
+      font-size: 30px;
+      content: "\f071";
+      position: absolute;
+      top: 28px;
+      left: 14px;
+      vertical-align: middle;
+    }
+  }
+
+
+  &.success {
+    &:before {
+      color: @successText;
+      content: "\f058";
+    }
+  }
+  &.warning {
+    &:before {
+      color: @warningText;
+    }
+  }
+  &.error,
+  &.danger {
+    color: @errorText;
+  }
+  &.info {
+    color: @infoText;
+    &:before {
+      content: "\f05a";
     }
   }
 }

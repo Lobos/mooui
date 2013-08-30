@@ -2,7 +2,7 @@
 // DatePicker
 // --------------------------------------------------
 
-@date-link: @teal;
+@date-link: @tangerine;
 
 input.date {
   width: 120px;
@@ -16,9 +16,9 @@ input.date {
 .date-picker {
   position: absolute;
   display: none;
-  padding: 10px 18px;
-  background-color: #eee;
-  border: 1px solid #ccc;
+  padding: 6px 12px 10px;
+  background-color: @grayBg;
+  border: 1px solid @grayLight;
   border: 1px solid rgba(0,0,0,.2);
   .box-shadow(0 4px 16px rgba(0,0,0,.2));
 }
@@ -30,18 +30,29 @@ input.date {
   text-align: center;
 
   a {
-    color: @date-link;
+    //color: @date-link;
+    color: @grayDarker;
+    font-weight: bold;
     font-size: 16px;
     margin: 0 8px;
+
+    &.year:after {
+      .icon-FontAwesome();
+      font-size: 14px;
+      margin: -1px 0 0 3px;
+      color: @grayLight;
+      content: "\f13a";
+    }
   }
 
   [class*='icon'] {
     position: absolute;
-    .opacity(30);
-    color: @date-link;
+    .opacity(50);
+    //color: @date-link;
+    color: @grayDarker;
     cursor: pointer;
     left: 0;
-    top: 0;
+    top: 5px;
 
     &.right {
       left: auto;
@@ -58,23 +69,24 @@ input.date {
 
 .date-picker .year-select,
 .date-picker .month-select {
-  background-color: @date-link;
+  //background-color: @date-link;
+  background-color: @grayLighter;
   padding: 7px;
   width: @day-width * 7;
 
   li {
-    border: 2px solid @date-link;
-    color: @white;
+    //border: 2px solid transparent;
+    //color: @white;
     cursor: pointer;
     text-align: center;
     line-height: @day-width;
     display: inline-block;
 
     &:hover, &:active {
-      border-color: @white;
+      color: @white;
+      background-color: @date-link;
     }
     &:active {
-      background-color: @white;
       color: @date-link;
     }
   }
@@ -82,13 +94,13 @@ input.date {
 
 .date-picker .month-select {
   li {
-    width: (@day-width * 7 / 4) - 4px;
+    width: (@day-width * 7 / 4);
   }
 }
 
 .date-picker .year-select {
   li {
-    width: (@day-width * 7 / 5) - 4px;
+    width: (@day-width * 7 / 5);
   }
 }
 
@@ -124,9 +136,7 @@ input.date {
       line-height: 24px;
 
       &:hover, &:active, &.active {
-        color: @date-link;
-        border-color: @date-link;
-        .border-radius(15px);
+        background-color: #cccccc;
       }
 
       &:active, &.active {
