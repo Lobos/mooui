@@ -1,9 +1,12 @@
-@import "../../../pack.less";
+@import "../../../less/variables.less";
+@import "../../../less/mixins.less";
 @import "../../../less/responsive.less";
 
 body {
   overflow-y:scroll;
 }
+
+
 
 .sidebar-nav {
   position: fixed;
@@ -79,7 +82,8 @@ body {
   margin-top: 70px;
 
   .show-grid {
-    margin: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     [class*="span"] {
       background-color: @grayLighter;
       line-height: 30px;
@@ -283,7 +287,14 @@ body {
     width: 240px;
   }
   .main {
-    width: 880px;
-    margin-left: 290px;
+    width: 870px;
+    margin-left: 300px;
+  }
+}
+
+.the-icons {
+  div {
+    width: 25%;
+    float: left;
   }
 }

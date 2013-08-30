@@ -58,6 +58,7 @@
             { txt: 'Labels and badges', url: 'components/labels.html' },
             { txt: 'Alerts', url: 'components/alerts.html' },
             { txt: 'Progress bars', url: 'components/progress.html' },
+            { txt: 'Scrollbars', url: 'components/scrollbars.html' },
             { txt: 'Misc', url: 'components/misc.html' }
         ]
     }, {
