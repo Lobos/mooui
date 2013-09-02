@@ -22,8 +22,9 @@ table {
   // Cells
   th,
   td {
-    padding: 8px;
-    line-height: @baseLineHeight;
+    padding: 0 7px;
+    height: 33px;
+    line-height: 33px;
     text-align: left;
     vertical-align: top;
     border-top: 1px solid @tableBorder;
@@ -173,6 +174,15 @@ table {
       background-color: @tableBackgroundHover;
     }
   }
+
+  tr {
+    border-left: solid 2px transparent;
+  }
+
+  tr.active {
+    border-left-color: #4D90F0;
+    background-color: @tableBackgroundActive;
+  }
 }
 
 
@@ -253,12 +263,15 @@ table th[class*="span"],
     display: inline-block;
     text-decoration: inherit;
     margin: 0;
-    padding: 0 2px 0 3px;
+    //padding: 0 2px 0 3px;
     color: @grayDarker;
 
     &:before { content: "\f096"; }
     &.checked:before { content: "\f046"; }
   }
+}
+.table .active .checkbox {
+  a:before { content: "\f046"; }
 }
 
 .table .icon-ok { color: @green; }
@@ -266,52 +279,18 @@ table th[class*="span"],
 
 .table thead th {
   position: relative;
+
+  a {
+    color: @textColor;
+    display: inline-block;
+    i { margin-left: 4px; }
+  }
 }
-.table thead .sort {
-  color: @textColor;
-  display: inline-block;
-  & > i { margin-left: 8px; }
 
-  .sort-tip {
-    position: absolute;
-    display: none;
-    width: 30px;
-    height: 57px;
-    top: -9px;
-    i {
-      font-size: 20px;
-      width: 28px;
-      height: 24px;
-      position: absolute;
-      overflow: hidden;
-      cursor: pointer;
-      background-color: @white;
-      border: solid 1px @grayLighter;
-      .box-shadow(0 0 6px rgba(0,0,0,.2));
-      &:before {
-        position: absolute;
-        left: 8px;
-      }
-
-      &.icon-sort-up {
-        top: 0px;
-        &:before { top: 9px; }
-      }
-      &.icon-sort-down {
-        top: 29px;
-        &:before { top: 1px; }
-      }
-    }
+.table tfoot {
+  td {
+    padding: 7px;
   }
-
-  /*
-  &:hover, &:active {
-    & > i { visibility: hidden; }
-    .sort-tip {
-      display: block;
-    }
-  }
-  */
 }
 
 .table th.hidden, .table td.hidden {
@@ -321,7 +300,7 @@ table th[class*="span"],
 caption {
   margin-bottom: 10px;
   text-align: left;
-  background-color: @grayLighter;
+  background-color: @grayBg;
   .border-radius(@baseBorderRadius);
 
   .table-filter {
