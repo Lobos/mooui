@@ -11,6 +11,7 @@
         'mooui-select.js',
         'mooui-validator.js',
         'mooui-table.js',
+        'mooui-popover.js',
         'mooui-dropdown.js',
         'mooui-tabs.js',
         'mooui-datepicker.js',
